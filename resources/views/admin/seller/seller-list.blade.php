@@ -47,8 +47,8 @@ Company
                     <th>Email</th>
                     <th>Address</th>
                     <th>Gender</th>
-                    <th>Looking For</th>
-                    <th>Status</th>
+                    {{-- <th>Looking For</th>
+                    <th>Status</th> --}}
                     <th>Status</th>
                     <th>Created At</th>
                     <th>Action</th>
@@ -105,27 +105,27 @@ Company
 
 
                                             </td>
-                                             <td>
+                                             {{-- <td>
                                                  @if( $user['lookingfor'] != '')
                                                 {{ $user['lookingfor'] }}
                                                 @else
                                                 --------------------------
                                                 @endif
-                                            </td>
-                                             <td>
+                                            </td> --}}
+                                             {{-- <td>
                                                  @if( $user['matrital_status'] != '')
                                                 {{ $user['matrital_status'] }}
                                                 @else
                                                 --------------------------
                                                 @endif
-                                            </td>
-                                           
+                                            </td> --}}
+
                                             <td>
-                                            @if($user['status'] == 1) 
+                                            @if($user['status'] == 1)
                                                 <span class="label bg-green">Active</span>
                                             @else
                                                 <span class="label bg-red">Inactive</span>
-                                            @endif  
+                                            @endif
                                             </td>
                                              <td>{{ $user['created_at'] }}</td>
                                             <td>
@@ -134,7 +134,7 @@ Company
                                             </td>
                                         </tr>
                                     <?php } ?>
-            
+
                   </tbody>
                   <tfoot>
                   </tfoot>
@@ -190,6 +190,6 @@ Company
             });
         }
     </script>
-   
+
 
 @endsection
