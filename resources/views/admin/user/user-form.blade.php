@@ -4,7 +4,7 @@ Company
 @endpush
 @section('main-section')
 <?php $pagename = 'all-user-list'  ?>
-  
+
 
 
              <!-- Content Wrapper. Contains page content -->
@@ -28,10 +28,10 @@ Company
 
     <!-- Main content -->
     <section class="content">
-    <form action="{{route('save.user')}}" method="POST" > 
+    <form action="{{route('save.user')}}" method="POST" >
     	@csrf
       <div class="row">
-          
+
         <div class="col-md-6">
           <div class="card card-primary">
             <div class="card-header">
@@ -51,10 +51,10 @@ Company
                 <label for="inputName">Name</label>
                 <input type="text"  class="form-control" value="<?php if(isset($user['name']) && !empty($user['name'])){
             	echo $user['name']; }  ?>" name="name" onkeyup="Validatename()" id="name"   placeholder="Enter your name" pattern="[A-Z a-z]{3,}" required >
-				<span id="namewarning" style="color: red"></span> 
+				<span id="namewarning" style="color: red"></span>
               </div>
-             
-              
+
+
               <div class="form-group">
                 <label for="inputClientCompany">Email</label>
                 <input type="text" class="form-control" value="<?php if(isset($user['email']) && !empty($user['email'])){
@@ -74,19 +74,20 @@ Company
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="lookingfor"   value="women" <?php if(isset($user['lookingfor']) && $user['lookingfor']=='women'){ echo "checked"; } ?> > Female
               </div>
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label for="inputProjectLeader">Mobile</label>
-                <input type="text"  class="form-control" value="<?php if(isset($user['mobile']) && !empty($user['mobile'])){
-            	echo $user['mobile']; }  ?>" name="mobile" placeholder="Enter mobile number" onkeyup="Validatemobile()" id ="mobile"  pattern="[0-9]{10,}" title="mobile number must be a valid formate" required >
+                <input type="text"  class="form-control" value="<?php //if(isset($user['mobile']) && !empty($user['mobile'])){
+            	// echo $user['mobile']; }  ?>" name="mobile" placeholder="Enter mobile number" onkeyup="Validatemobile()" id ="mobile"  pattern="[0-9]{10,}" title="mobile number must be a valid formate" required >
 				<span id="sp" style="color:red"></span>
-              </div>
+              </div> --}}
               <div class="form-group">
                 <label for="inputProjectLeader">Gender</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="gender"  value="men" <?php if(isset($user['gender']) && $user['gender'] == 'men'){ echo "checked";  } ?> > Male
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="gender"   value="women" <?php if(isset($user['gender']) && $user['gender'] == 'women'){ echo "checked"; } ?>> Female
               </div>
-             
+
+              <input type="hidden" name="status" value="1">
 
             </div>
             <!-- /.card-body -->
@@ -108,21 +109,21 @@ Company
                 <label for="inputProjectLeader">Address</label>
                 <input type="text"  class="form-control" value="<?php if(isset($user['city']) && !empty($user['city'])){
                 echo $user['city'];} ?>" name="city" id="currentaddress" onkeyup="Validatecurrentaddress()"  placeholder="Current Address" required >
-				<span id="currentaddresswarning" style="color: red"></span> 
-              
+				<span id="currentaddresswarning" style="color: red"></span>
+
               </div>
               <div class="form-group">
                 <label for="inputProjectLeader">City</label>
                 <input type="text"  class="form-control" value="<?php if(isset($user['city']) && !empty($user['id'])){
             	echo $user['city']; }  ?>"  name="city" id="city" onkeyup="Validatecity()"  pattern="[A-Z a-z]{3,}" placeholder="Enter City" required >
-				<span id="citywarning" style="color: red"></span> 
+				<span id="citywarning" style="color: red"></span>
               </div>
             </div>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-          
-      
+
+
         </div>
       </div>
       <div class="row">
