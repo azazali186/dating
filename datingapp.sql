@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2023 at 10:36 AM
+-- Generation Time: Aug 07, 2023 at 10:42 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -132,7 +132,7 @@ CREATE TABLE `sellers` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(255) NOT NULL DEFAULT 1,
-  `role` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT '\'seller\'',
+  `role` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT '''seller''',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -168,7 +168,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) DEFAULT 0,
-  `role` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT 'user',
+  `role` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT '''user''',
   `pricing_table` enum('Free','Month','Year') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Free',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
