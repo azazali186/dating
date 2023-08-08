@@ -55,7 +55,7 @@
         <div class="header__bottom">
             <div class="container">
                 <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="/"><img
+                    <a class="navbar-brand" href="{{ url('/') }}"><img
                             src="{{ URL::to('public/website/assets/images/logo/logo.png') }}" alt="logo"></a>
                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
