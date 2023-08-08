@@ -35,7 +35,7 @@
 </div>
 <!-- ================> Banner section end here <================== -->
 <!-- ================> About section start here <================== -->
-@if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+@if (Session::has('sessdata'))
 <div class="about about--style3 padding-top pt-xl-0">
     <div class="container">
         <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
