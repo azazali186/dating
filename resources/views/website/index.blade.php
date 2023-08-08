@@ -391,6 +391,7 @@
 </div>
 <!-- ================> About section end here <================== -->
 <!-- ================> Member section start here <================== -->
+@if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
 <div class="member member--style2 padding-top padding-bottom">
     <div class="container">
         <div class="section__header style-2 text-center wow fadeInUp" data-wow-duration="1.5s">
@@ -876,6 +877,7 @@
         </div>
     </div>
 </div>
+@endif
 <!-- ================> Member section end here <================== -->
 @endsection
 @section('script')
