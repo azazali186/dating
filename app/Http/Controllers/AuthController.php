@@ -24,10 +24,10 @@ class AuthController extends Controller
                 'mobile' => [
                     'required|unique:users',
                     'numeric',
-                    'digits_between:10,11',
+                    // 'digits_between:10,11',
                     'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
                 ],
-                'email' => 'required|string|email|unique:users',
+                // 'email' => 'required|string|email|unique:users',
 
                 'password' => [
                     'required_with:confirmpassword',
@@ -54,7 +54,7 @@ class AuthController extends Controller
 
             $user = User::create([
                 'mobile' => $request->mobile,
-                'email' => $request->email,
+                // 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'name' => $request->name,
                 'birthday' => $request->birthday,
@@ -191,10 +191,10 @@ class AuthController extends Controller
                     'required',
                     'unique:sellers',
                     'numeric',
-                    'digits_between:10,11',
+                    // 'digits_between:10,11',
                     'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
                 ],
-                'email' => 'required|string|email|unique:sellers',
+                // 'email' => 'required|string|email|unique:sellers',
                 'password' => [
                     'required_with:confirmpassword',
                     'string',
@@ -225,7 +225,7 @@ class AuthController extends Controller
             }
             $user = Seller::create([
                 'mobile' => $request->mobile,
-                'email' => $request->email,
+                // 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'name' => $request->name,
                 'birthday' => $request->birthday,

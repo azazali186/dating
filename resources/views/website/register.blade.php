@@ -42,18 +42,18 @@
                                 <h4 class="content-title">Acount Details</h4>
                                 <div class="form-group">
                                     <label>Mobile*</label>
-                                    <input type="text" class="my-form-control" name="mobile"placeholder="Enter Your Mobile Num"maxlength="10">
+                                    <input type="text" class="my-form-control" name="mobile"placeholder="Enter Your Mobile Num" >
                                      @if($errors->has('mobile'))
                                                     <p class="text-danger">{{$errors->first('mobile')}}</p>
                                                     @endif
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Email Address*</label>
                                     <input type="email" class="my-form-control"name="email" placeholder="Enter Your Email">
                                      @if($errors->has('email'))
                                                     <p class="text-danger">{{$errors->first('email')}}</p>
                                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label>Password*</label>
                                     <input type="text" class="my-form-control"name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Your Password">
@@ -93,11 +93,11 @@
                                         </div>
                                         <div class="s-input">
                                             <input type="radio" name="gender"  value="women"id="females1">
-                                            
+
                                             <label
                                                 for="females1">Woman</label>
                                         </div>
-                                       
+
                                     </div>
                                       @if($errors->has('gender'))
                                                     <p class="text-danger">{{$errors->first('gender')}}</p>
@@ -108,7 +108,7 @@
                                     <div class="banner__inputlist">
                                         <div class="s-input me-3">
                                             <input type="radio" name="lookingfor" id="males" value="men">
-                                               
+
                                              <label
                                                 for="males" >Man</label>
                                         </div>
@@ -117,7 +117,7 @@
                                                 for="females" >Woman</label>
 
                                         </div>
-                                          
+
                                     </div>
                                         @if($errors->has('lookingfor'))
                                                     <p class="text-danger">{{$errors->first('lookingfor')}}</p>
@@ -130,9 +130,9 @@
                                             <option value="Single" selected>Single</option>
                                             <option value="Marid">Marid</option>
                                         </select>
-                                       
+
                                     </div>
-                                     
+
                                 </div>
                                  @if($errors->has('matrital_status'))
                                                     <p class="text-danger">{{$errors->first('matrital_status')}}</p>
@@ -144,7 +144,7 @@
                                                     <p class="text-danger">{{$errors->first('city')}}</p>
                                                     @endif
                                 </div>
-                                <button class="default-btn reverse" data-toggle="modal" type="submit" 
+                                <button class="default-btn reverse" data-toggle="modal" type="submit"
                                     data-target="#email-confirm"><span>Create Your Profile</span></button>
                             </form>
                         </div>

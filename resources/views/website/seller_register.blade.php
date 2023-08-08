@@ -3,7 +3,7 @@
 @section('title', 'Seller Register')
     <!-- ================> login section start here <================== -->
     <section class="log-reg">
-        
+
         {{-- <div class="top-menu-area">
             <div class="container">
                 <div class="row">
@@ -55,11 +55,11 @@
                                         </div>
                                         <div class="s-input">
                                             <input type="radio" name="gender"  value="women"id="females1">
-                                            
+
                                             <label
                                                 for="females1">Woman</label>
                                         </div>
-                                       
+
                                     </div>
                                       @if($errors->has('gender'))
                                                     <p class="text-danger">{{$errors->first('gender')}}</p>
@@ -74,18 +74,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Mobile*</label>
-                                    <input type="text" class="my-form-control" name="mobile"placeholder="Enter Your Mobile Num"maxlength="10">
+                                    <input type="text" class="my-form-control" name="mobile" placeholder="Enter Your Mobile Num" >
                                      @if($errors->has('mobile'))
                                                     <p class="text-danger">{{$errors->first('mobile')}}</p>
                                                     @endif
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Email Address*</label>
                                     <input type="email" class="my-form-control"name="email" placeholder="Enter Your Email">
                                      @if($errors->has('email'))
                                                     <p class="text-danger">{{$errors->first('email')}}</p>
                                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label>Password*</label>
                                     <input type="text" class="my-form-control"name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Your Password">
@@ -118,7 +118,7 @@
                                     <label>Upload Your Photo</label>
                                     <input type="file" name="image" class="my-form-control" placeholder="">
                                 </div>
-                                <button class="default-btn reverse" data-toggle="modal" type="submit" 
+                                <button class="default-btn reverse" data-toggle="modal" type="submit"
                                     data-target="#email-confirm"><span>Create Your Profile</span></button>
                             </form>
                         </div>
@@ -126,7 +126,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
     <!-- ================> login section end here <================== -->
 @endsection
