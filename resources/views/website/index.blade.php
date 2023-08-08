@@ -35,6 +35,7 @@
 </div>
 <!-- ================> Banner section end here <================== -->
 <!-- ================> About section start here <================== -->
+@if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
 <div class="about about--style3 padding-top pt-xl-0">
     <div class="container">
         <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
@@ -391,16 +392,16 @@
 </div>
 <!-- ================> About section end here <================== -->
 <!-- ================> Member section start here <================== -->
-@if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-<div class="member member--style2 padding-top padding-bottom">
-    <div class="container">
-        <div class="section__header style-2 text-center wow fadeInUp" data-wow-duration="1.5s">
-            <h2>Most Popular Members</h2>
-            <p>Learn from them and try to make it to this board. This will for sure boost you visibility and increase
-                your chances to find you loved one.</p>
-        </div>
-        <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
-            {{-- <ul class="nav nav-tabs member__tab" id="myTab" role="tablist">
+    <div class="member member--style2 padding-top padding-bottom">
+        <div class="container">
+            <div class="section__header style-2 text-center wow fadeInUp" data-wow-duration="1.5s">
+                <h2>Most Popular Members</h2>
+                <p>Learn from them and try to make it to this board. This will for sure boost you visibility and
+                    increase
+                    your chances to find you loved one.</p>
+            </div>
+            <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
+                {{-- <ul class="nav nav-tabs member__tab" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="newest-tab" data-bs-toggle="tab" data-bs-target="#newest"
                             type="button" role="tab" aria-controls="newest" aria-selected="true">Newest
@@ -418,42 +419,43 @@
                     </li>
                 </ul> --}}
 
-            <div class="tab-content mx-12-none" id="myTabContent">
-                <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
-                    <div class="row g-0 justify-content-center">
-                        @foreach ($seller as $item)
-                            <div class="member__item">
-                                <div class="member__inner">
-                                    <div class="member__thumb">
-                                        {{-- <img src="{{ URL::to('public/website/assets/images/member/home2/01.jpg') }}" --}}
-                                        <img src="{{ $item->image }}" alt="member-img">
-                                        <span class="member__activity"></span>
-                                    </div>
-                                    <div class="member__content">
-                                        @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-                                            @if (getSubscription() != 'Free')
-                                                <a href="{{ url('member-single') }}/{{ $item->id }}">
-                                                    <h5>{{ $item->name }}</h5>
-                                                </a>
-                                                <p>{{ $item->mobile }}</p>
+                <div class="tab-content mx-12-none" id="myTabContent">
+                    <div class="tab-pane fade show active" id="newest" role="tabpanel"
+                        aria-labelledby="newest-tab">
+                        <div class="row g-0 justify-content-center">
+                            @foreach ($seller as $item)
+                                <div class="member__item">
+                                    <div class="member__inner">
+                                        <div class="member__thumb">
+                                            {{-- <img src="{{ URL::to('public/website/assets/images/member/home2/01.jpg') }}" --}}
+                                            <img src="{{ $item->image }}" alt="member-img">
+                                            <span class="member__activity"></span>
+                                        </div>
+                                        <div class="member__content">
+                                            @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                                                @if (getSubscription() != 'Free')
+                                                    <a href="{{ url('member-single') }}/{{ $item->id }}">
+                                                        <h5>{{ $item->name }}</h5>
+                                                    </a>
+                                                    <p>{{ $item->mobile }}</p>
+                                                @else
+                                                    <a href="{{ url('pricing-table') }}">
+                                                        <h5>{{ $item->name }}</h5>
+                                                    </a>
+                                                    <p>9125XXXXXXX</p>
+                                                @endif
                                             @else
-                                                <a href="{{ url('pricing-table') }}">
+                                                <a href="{{ url('login') }}">
                                                     <h5>{{ $item->name }}</h5>
                                                 </a>
                                                 <p>9125XXXXXXX</p>
                                             @endif
-                                        @else
-                                            <a href="{{ url('login') }}">
-                                                <h5>{{ $item->name }}</h5>
-                                            </a>
-                                            <p>9125XXXXXXX</p>
-                                        @endif
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
 
-                        {{-- <div class="member__item">
+                            {{-- <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
                                         <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" alt="member-img">
@@ -579,9 +581,9 @@
                                     </div>
                                 </div>
                             </div> --}}
+                        </div>
                     </div>
-                </div>
-                {{-- <div class="tab-pane fade" id="activemember" role="tabpanel" aria-labelledby="activemember-tab">
+                    {{-- <div class="tab-pane fade" id="activemember" role="tabpanel" aria-labelledby="activemember-tab">
                         <div class="row g-0 justify-content-center">
                             <div class="member__item">
                                 <div class="member__inner">
@@ -870,13 +872,13 @@
                             </div>
                         </div>
                     </div> --}}
-            </div>
-            {{-- <div class="text-center mt-4">
+                </div>
+                {{-- <div class="text-center mt-4">
                 <a href="members.html" class="default-btn"><span>See More Popular</span></a>
             </div> --}}
+            </div>
         </div>
     </div>
-</div>
 @endif
 <!-- ================> Member section end here <================== -->
 @endsection
