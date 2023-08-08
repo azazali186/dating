@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>@yield('title')
-</title>
+    <title>xmakelove</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- site favicon -->
@@ -52,10 +51,11 @@
         <!-- Main Wrapper -->
         @yield('content')
         <!-- /Main Wrapper -->
-
+        @if (Session::has('sessdata'))
         <!-- Footer Start -->
         @include('website.layouts.footer')
         <!-- Footer End -->
+        @endif
 
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
     </div>

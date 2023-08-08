@@ -3098,9 +3098,7 @@ iframe {
     justify-content: space-between;
   }
 }
-.member--style2 .member__inner {
-  padding: 30px;
-}
+
 .member--style2 .member__inner:hover .member__thumb img {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);

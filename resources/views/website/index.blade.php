@@ -1,10 +1,29 @@
 @extends('website.layouts.app')
 @section('content')
-@section('title', 'Wecome to Ollay')
+@section('title', 'xmakelove')
 <!-- ================> Banner section start here <================== -->
+<style>
+    #formobile {
+        display: none;
+    }
+
+    #fordesktop {
+        display: flex;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #formobile {
+            display: block;
+        }
+
+        #fordesktop {
+            display: none;
+        }
+    }
+</style>
 <div class="banner banner--style3 padding-top bg_img"
     style="background-image: url({{ URL::to('public/website/assets/images/banner/bg-3.jpg') }});">
-{{--     <div class="container">
+    {{--     <div class="container">
         <div class="row g-0 justify-content-center justify-content-xl-between">
             <div class="col-lg-5 col-12 wow fadeInLeft" data-wow-duration="1.5s">
                 <div class="banner__content">
@@ -424,10 +443,73 @@
                 <div class="tab-content mx-12-none" id="myTabContent">
                     <div class="tab-pane fade show active" id="newest" role="tabpanel"
                         aria-labelledby="newest-tab">
-                        <div class="row g-0 justify-content-center">
+                        <div class="row g-0 justify-content-center" id="formobile">
+                            @foreach ($seller as $item)
+                                <div class="member__inner" style="height: 90px;">
+                                    <div class="member__content">
+                                        <div style="width: 100%">
+                                            <div style="width: 20%; float: left;">
+                                                <img src="{{ $item->image }}" alt="member-img" style="width: 70px;">
+                                            </div>
+
+                                            @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                                                @if (getSubscription() != 'Free')
+                                                    <div style="width: 60%; float: left;">
+                                                        <a href="{{ url('member-single') }}/{{ $item->id }}">
+                                                            <h5>{{ $item->name }}</h5>
+                                                        </a>
+                                                        {{-- <p>{{ $item->mobile }}</p> --}}
+
+                                                        <p>Age - {{ ageCalc($item->birthday) }} / Price -
+                                                            {{ $item->price }}$</p>
+                                                    </div>
+                                                    <div style="width: 20%; float: left;">
+                                                        <a href="tel:{{ $item->mobile }}">
+                                                            <img style=" width: 100%; margin-top: 20px;"
+                                                                src="{{ URL::to('public/website/assets/images/logo/callnow.png') }}"
+                                                                alt="call-now">
+                                                        </a>
+                                                    </div>
+                                                @else
+                                                    <div style="width: 70%; float: left;">
+                                                        <a href="{{ url('pricing-table') }}">
+                                                            <h5>{{ $item->name }}</h5>
+                                                        </a>
+                                                        <p>9125XXXXXXX</p>
+                                                    </div>
+                                                    <div style="width: 20%; float: left;">
+                                                        <a href="{{ url('pricing-table') }}">
+                                                            <img style=" width: 100%; margin-top: 20px;"
+                                                                src="{{ URL::to('public/website/assets/images/logo/callnow.png') }}"
+                                                                alt="call-now">
+                                                        </a>
+                                                    </div>
+                                                @endif
+                                            @else
+                                                <div style="width: 80%; float: left;">
+                                                    <a href="{{ url('login') }}">
+                                                        <h5>{{ $item->name }}</h5>
+                                                    </a>
+                                                    <p>9125XXXXXXX</p>
+                                                </div>
+                                                <div style="width: 20%; float: left;">
+                                                    <a href="{{ url('login') }}">
+                                                        <img style=" width: 100%; margin-top: 20px;"
+                                                            src="{{ URL::to('public/website/assets/images/logo/callnow.png') }}"
+                                                            alt="call-now">
+                                                    </a>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div class="row g-0 justify-content-center" id="fordesktop">
                             @foreach ($seller as $item)
                                 <div class="member__item">
-                                    <div class="member__inner">
+                                    <div class="member__inner" style="padding: 5px;">
                                         <div class="member__thumb">
                                             {{-- <img src="{{ URL::to('public/website/assets/images/member/home2/01.jpg') }}" --}}
                                             <img src="{{ $item->image }}" alt="member-img">
