@@ -12,7 +12,7 @@
                         <h2>We Have More Than <span>2.000.000</span> Join Members</h2>
                         <p>Still looking for your significant other? Ollya is the place for you! Join now to meet single
                             men and women worldwide.</p>
-                        @if (Session::has('sessdata'))
+                        @if (!Session::has('sessdata'))
                             <a href="register" class="default-btn style-2"><span>Registration Now</span></a>
                         @endif
                     </div>
