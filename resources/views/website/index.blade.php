@@ -473,7 +473,7 @@
                                     <div class="member__content">
                                         <div style="width: 100%">
                                             <div style="width: 20%; float: left;">
-                                                <img src="{{ $item->image }}" alt="member-img" style="width: 70px;">
+                                                <img src="{{ $item->image }}"  style="width: 70px;">
                                             </div>
 
                                             @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
@@ -536,7 +536,7 @@
                                     <div class="member__inner" style="padding: 5px;">
                                         <div class="member__thumb">
                                             {{-- <img src="{{ URL::to('public/website/assets/images/member/home2/01.jpg') }}" --}}
-                                            <img src="{{ $item->image }}" alt="member-img">
+                                            <img src="{{ $item->image }}" >
                                             <span class="member__activity"></span>
                                         </div>
                                         <div class="member__content">
@@ -566,7 +566,7 @@
                             {{-- <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -580,7 +580,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/03.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/03.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -594,7 +594,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/04.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/04.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -608,7 +608,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/05.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/05.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -622,7 +622,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/06.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/06.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -636,7 +636,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/07.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/07.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -650,7 +650,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/08.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/08.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -664,7 +664,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/09.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/09.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -678,7 +678,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -696,7 +696,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/01.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/01.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -710,7 +710,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/06.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/06.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -724,7 +724,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/07.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/07.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -738,7 +738,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/08.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/08.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -752,7 +752,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/09.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/09.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -767,7 +767,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -781,7 +781,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/03.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/03.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -795,7 +795,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/04.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/04.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -809,7 +809,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/05.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/05.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -823,7 +823,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -841,7 +841,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/04.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/04.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -855,7 +855,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/05.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/05.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -869,7 +869,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/06.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/06.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -883,7 +883,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/07.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/07.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -897,7 +897,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/08.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/08.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -911,7 +911,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/09.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/09.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -925,7 +925,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/01.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/01.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -939,7 +939,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" >
                                         <span class="member__activity member__activity--ofline"></span>
                                     </div>
                                     <div class="member__content">
@@ -953,7 +953,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/03.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/03.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
@@ -967,7 +967,7 @@
                             <div class="member__item">
                                 <div class="member__inner">
                                     <div class="member__thumb">
-                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" alt="member-img">
+                                        <img src="{{ URL::to('public/website/assets/images/member/home2/02.jpg') }}" >
                                         <span class="member__activity"></span>
                                     </div>
                                     <div class="member__content">
