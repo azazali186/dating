@@ -192,7 +192,7 @@ class AuthController extends Controller
                     'unique:sellers',
                     'numeric',
                     // 'digits_between:10,11',
-                    'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
+                    // 'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
                 ],
                 // 'email' => 'required|string|email|unique:sellers',
                 'password' => [

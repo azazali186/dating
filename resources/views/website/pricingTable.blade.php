@@ -1,6 +1,6 @@
 @extends('website.layouts.app')
 @section('content')
-@section('title', 'Wecome to Ollay')
+@section('title', 'pricing-table')
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
