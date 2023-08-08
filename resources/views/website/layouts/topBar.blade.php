@@ -20,6 +20,23 @@
                             <li><a href="#"><i class="fa-brands fa-vimeo-v"></i></a></li>
                             <li><a href="#"><i class="fa-brands fa-skype"></i></a></li>
                             <li><a href="#"><i class="fa-solid fa-rss"></i></a></li>
+                            {{-- </ul> --}}
+                            {{-- <ul class="button-group"> --}}
+                            @if (Session::has('sessdata'))
+                                <li><a href="{{ url('logout') }}" class="default-btn login"
+                                        style=" padding: 8px 5px; font-size: 10px; background: #f1e4e4; color: black; font-weight: 900; "><i
+                                            class="fa-solid fa-user"></i> <span>LOG OUT</span> </a></li>
+                            @else
+                                <li><a href="{{ url('login') }}" class="default-btn login"
+                                        style=" padding: 8px 5px; font-size: 10px; background: #f1e4e4; color: black; font-weight: 900; "><i
+                                            class="fa-solid fa-user"></i> <span>LOG IN</span> </a></li>
+                                <li><a href="{{ url('register') }}" class="default-btn signup"
+                                        style=" padding: 8px 5px; font-size: 10px; background: #f1e4e4; color: black; font-weight: 900; "><i
+                                            class="fa-solid fa-users"></i> <span>SIGN UP</span> </a></li>
+                                <li><a href="{{ url('seller') }}" class="default-btn login"
+                                        style=" padding: 8px 5px; font-size: 10px; background: #f1e4e4; color: black; font-weight: 900; "><i
+                                            class="fa-solid fa-users"></i> <span>Create Profile</span> </a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -36,71 +53,19 @@
                         <span class="navbar-toggler--icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                        <div class="navbar-nav mainmenu">
+                        {{-- <div class="navbar-nav mainmenu">
                             <ul>
                                 <li class="active">
                                     <a href="#0">Home</a>
-                                    {{-- <ul>
-										<li><a href="index.html">Home Page One</a></li>
-										<li><a href="index-2.html">Home Page Two</a></li>
-										<li><a href="index-3.html" class="active">Home Page Three</a></li>
-									</ul> --}}
                                 </li>
-                                {{-- <li>
-									<a href="#0">Pages</a>
-									<ul>
-										<li><a href="about.html">About Us</a></li>
-                                        <li><a href="membership.html">Membership</a></li>
-                                        <li><a href="login.html">Log In</a></li>
-                                        <li><a href="register.html">Sign Up</a></li>
-                                        <li><a href="comingsoon.html">comingsoon</a></li>
-                                        <li><a href="404.html">404</a></li>
-									</ul>
-								</li> --}}
-                                {{-- <li>
-									<a href="#0">Community</a>
-									<ul>
-										<li><a href="community.html">Community</a></li>
-										<li><a href="group.html">All Group</a></li>
-										<li><a href="members.html">All Members</a></li>
-										<li><a href="activity.html">Activity</a></li>
-
-									</ul>
-								</li> --}}
-                                {{-- <li>
-									<a href="#0">Shops</a>
-									<ul>
-										<li><a href="shop.html">Product</a></li>
-										<li><a href="shop-single.html">Product Details</a></li>
-										<li><a href="shop-cart.html">Product Cart</a></li>
-									</ul>
-								</li> --}}
                                 <li>
                                     <a href="#0">Blogs</a>
-                                    {{-- <ul>
-										<li><a href="blog.html">Blog</a></li>
-										<li><a href="blog-2.html">Blog Style Two</a></li>
-										<li><a href="blog-single.html">Blog Details</a></li>
-									</ul> --}}
                                 </li>
 
                                 <li><a href="contact">About Us</a></li>
                                 <li><a href="contact">contact</a></li>
                             </ul>
-                        </div>
-                        <ul class="button-group">
-                            @if (Session::has('sessdata'))
-                                <li><a href="{{ url('logout') }}" class="default-btn login"><i
-                                            class="fa-solid fa-user"></i> <span>LOG OUT</span> </a></li>
-                            @else
-                                <li><a href="{{ url('login') }}" class="default-btn login"><i
-                                            class="fa-solid fa-user"></i> <span>LOG IN</span> </a></li>
-                                <li><a href="{{ url('register') }}" class="default-btn signup"><i
-                                            class="fa-solid fa-users"></i> <span>SIGN UP</span> </a></li>
-                                <li><a href="{{ url('seller') }}" class="default-btn login"><i
-                                            class="fa-solid fa-users"></i> <span>Create Profile</span> </a></li>
-                            @endif
-                        </ul>
+                        </div> --}}
                     </div>
                 </nav>
             </div>

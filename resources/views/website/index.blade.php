@@ -4,7 +4,7 @@
 <!-- ================> Banner section start here <================== -->
 <div class="banner banner--style3 padding-top bg_img"
     style="background-image: url({{ URL::to('public/website/assets/images/banner/bg-3.jpg') }});">
-    <div class="container">
+{{--     <div class="container">
         <div class="row g-0 justify-content-center justify-content-xl-between">
             <div class="col-lg-5 col-12 wow fadeInLeft" data-wow-duration="1.5s">
                 <div class="banner__content">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 <!-- ================> Banner section end here <================== -->
 <!-- ================> About section start here <================== -->
