@@ -1,4 +1,14 @@
     <!-- ================> header section start here <================== -->
+    <style>
+        .mainmenu {
+                display: none;
+            }
+        @media only screen and (max-width: 600px) {
+            .mainmenu {
+                display: block;
+            }
+        }
+    </style>
     <header class="header header--style2" id="navbar">
         <div class="header__top d-none d-lg-block">
             <div class="container">
@@ -53,9 +63,9 @@
                         <span class="navbar-toggler--icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                        {{-- <div class="navbar-nav mainmenu">
+                        <div class="navbar-nav mainmenu">
                             <ul>
-                                <li class="active">
+                                {{-- <li class="active">
                                     <a href="#0">Home</a>
                                 </li>
                                 <li>
@@ -63,9 +73,24 @@
                                 </li>
 
                                 <li><a href="contact">About Us</a></li>
-                                <li><a href="contact">contact</a></li>
+                                <li><a href="contact">contact</a></li> --}}
+                                @if (Session::has('sessdata'))
+                                    <li><a href="{{ url('logout') }}" class="default-btn login"
+                                            style=" padding: 8px 5px; font-size: 10px; background: #f1e4e4; color: black; font-weight: 900; "><i
+                                                class="fa-solid fa-user"></i> <span>LOG OUT</span> </a></li>
+                                @else
+                                    <li><a href="{{ url('login') }}" class="default-btn login"
+                                            style=" padding: 8px 5px; font-size: 10px; background: #f1e4e4; color: black; font-weight: 900; "><i
+                                                class="fa-solid fa-user"></i> <span>LOG IN</span> </a></li>
+                                    <li><a href="{{ url('register') }}" class="default-btn signup"
+                                            style=" padding: 8px 5px; font-size: 10px; background: #f1e4e4; color: black; font-weight: 900; "><i
+                                                class="fa-solid fa-users"></i> <span>SIGN UP</span> </a></li>
+                                    <li><a href="{{ url('seller') }}" class="default-btn login"
+                                            style=" padding: 8px 5px; font-size: 10px; background: #f1e4e4; color: black; font-weight: 900; "><i
+                                                class="fa-solid fa-users"></i> <span>Create Profile</span> </a></li>
+                                @endif
                             </ul>
-                        </div> --}}
+                        </div>
                     </div>
                 </nav>
             </div>
