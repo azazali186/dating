@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     function index(Request $request)
     {
-        dd(Session::get('sessdata'));
+        // dd(Session::get('sessdata'));
         $seller = Seller::where('status', 1)->get();
         return view('website.index', compact('seller'));
     }
