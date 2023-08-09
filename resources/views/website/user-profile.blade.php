@@ -117,13 +117,16 @@
                                                     aria-labelledby="profileShowEdit-tab">
                                                     <div class="info-card-content">
                                                         <div class="main-content">
-                                                            <form action="" method="POST">
+                                                            <form action="{{ url('user-profile') }}" method="POST">
                                                                 @csrf
+                                                                <input required type="hidden" name="userId"
+                                                                    value="{{ $userId }}">
                                                                 <h4 class="content-title">Acount Details</h4>
                                                                 <div class="form-group">
                                                                     <label>Mobile*</label>
-                                                                    <input type="text" class="my-form-control"
-                                                                        name="mobile"placeholder="Enter Your Mobile Num">
+                                                                    <input required value="{{ $user->mobile }}"
+                                                                        type="text" class="my-form-control"
+                                                                        placeholder="Enter Your Mobile Num" readonly>
                                                                     @if ($errors->has('mobile'))
                                                                         <p class="text-danger">
                                                                             {{ $errors->first('mobile') }}</p>
@@ -156,9 +159,9 @@
                                                                 <h4 class="content-title mt-5">Profile Details</h4>
                                                                 <div class="form-group">
                                                                     <label>Name*</label>
-                                                                    <input type="text"
-                                                                        class="my-form-control"name="name"
-                                                                        placeholder="Enter Your Full Name">
+                                                                    <input required value="{{ $user->name }}"
+                                                                        type="text" class="my-form-control"
+                                                                        name="name" placeholder="Enter Your Full Name">
                                                                     @if ($errors->has('name'))
                                                                         <p class="text-danger">
                                                                             {{ $errors->first('name') }}</p>
@@ -166,7 +169,8 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Birthday*</label>
-                                                                    <input type="date" name="birthday"
+                                                                    <input required value="{{ $user->birthday }}"
+                                                                        type="date" name="birthday"
                                                                         class="my-form-control">
                                                                     @if ($errors->has('birthday'))
                                                                         <p class="text-danger">
@@ -177,12 +181,16 @@
                                                                     <label>I am a*</label>
                                                                     <div class="banner__inputlist">
                                                                         <div class="s-input me-3">
-                                                                            <input type="radio" name="gender"
+                                                                            <input required
+                                                                                {{ $user->gender == 'men' ? 'checked' : '' }}
+                                                                                type="radio" name="gender"
                                                                                 value="men" id="males1">
                                                                             <label for="males1">Man</label>
                                                                         </div>
                                                                         <div class="s-input">
-                                                                            <input type="radio" name="gender"
+                                                                            <input required
+                                                                                {{ $user->gender == 'women' ? 'checked' : '' }}
+                                                                                type="radio" name="gender"
                                                                                 value="women"id="females1">
 
                                                                             <label for="females1">Woman</label>
@@ -198,13 +206,17 @@
                                                                     <label>Looking for a*</label>
                                                                     <div class="banner__inputlist">
                                                                         <div class="s-input me-3">
-                                                                            <input type="radio" name="lookingfor"
+                                                                            <input required
+                                                                                {{ $user->lookingfor == 'men' ? 'checked' : '' }}
+                                                                                type="radio" name="lookingfor"
                                                                                 id="males" value="men">
 
                                                                             <label for="males">Man</label>
                                                                         </div>
                                                                         <div class="s-input">
-                                                                            <input type="radio" name="lookingfor"
+                                                                            <input required
+                                                                                {{ $user->lookingfor == 'women' ? 'checked' : '' }}
+                                                                                type="radio" name="lookingfor"
                                                                                 value="women" id="females"><label
                                                                                 for="females">Woman</label>
 
@@ -220,8 +232,12 @@
                                                                     <label>Marial status*</label>
                                                                     <div class="banner__inputlist">
                                                                         <select name="matrital_status">
-                                                                            <option value="Single" selected>Single</option>
-                                                                            <option value="Marid">Marid</option>
+                                                                            <option
+                                                                                {{ $user->matrital_status == 'Single' ? 'selected' : '' }}
+                                                                                value="Single">Single</option>
+                                                                            <option
+                                                                                {{ $user->matrital_status == 'Marid' ? 'selected' : '' }}
+                                                                                value="Marid">Marid</option>
                                                                         </select>
 
                                                                     </div>
@@ -233,7 +249,8 @@
                                                                 @endif
                                                                 <div class="form-group">
                                                                     <label>City*</label>
-                                                                    <input type="text" name="city"
+                                                                    <input required value="{{ $user->city }}"
+                                                                        type="text" name="city"
                                                                         class="my-form-control"
                                                                         placeholder="Enter Your City">
                                                                     @if ($errors->has('city'))
@@ -241,8 +258,8 @@
                                                                             {{ $errors->first('city') }}</p>
                                                                     @endif
                                                                 </div>
-                                                                <button class="default-btn reverse mt-4" data-toggle="modal"
-                                                                    type="submit"
+                                                                <button class="default-btn reverse mt-4"
+                                                                    data-toggle="modal" type="submit"
                                                                     data-target="#email-confirm"><span>Update Your
                                                                         Profile</span></button>
                                                             </form>

@@ -241,6 +241,14 @@
             font-size: 30px;
         }
     </style>
+
+    @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
+        <style>
+            .mobilebar-tab-item {
+                width: calc(100% / 3);
+            }
+        </style>
+    @endif
     <div class="mobilebar-container mobile-layout">
         <div
             style="
@@ -256,23 +264,24 @@
                         </span>
                     </a>
                 </div>
+                @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                    <div class="mobilebar-tab-item" style="{{ request()->is('search') ? 'background: black;' : '' }}">
+                        <a href="{{ url('search') }}">
+                            <span class="mobilebar-tab__icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </a>
+                    </div>
 
-                <div class="mobilebar-tab-item" style="{{ request()->is('search') ? 'background: black;' : '' }}">
-                    <a href="{{ url('search') }}">
-                        <span class="mobilebar-tab__icon">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="mobilebar-tab-item"
-                    style="{{ request()->is('pricing-table') ? 'background: black;' : '' }}">
-                    <a href="{{ url('pricing-table') }}">
-                        <span class="mobilebar-tab__icon">
-                            <i class="fab fa-themeco"></i>
-                        </span>
-                    </a>
-                </div>
+                    <div class="mobilebar-tab-item"
+                        style="{{ request()->is('pricing-table') ? 'background: black;' : '' }}">
+                        <a href="{{ url('pricing-table') }}">
+                            <span class="mobilebar-tab__icon">
+                                <i class="fab fa-themeco"></i>
+                            </span>
+                        </a>
+                    </div>
+                @endif
 
                 <div class="mobilebar-tab-item {{ request()->is('admin/cities') ? 'active' : '' }}">
                     <span class="mobilebar-tab__icon">
@@ -313,18 +322,3 @@
             </nav>
         </div>
     </div>
-
-    {{-- toastr js --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-    <script>
-        $(document).ready(function() {
-            toastr.options.timeOut = 10000;
-            @if (Session::has('error'))
-                toastr.error('{{ Session::get('error') }}');
-            @elseif (Session::has('success'))
-                toastr.success('{{ Session::get('success') }}');
-            @elseif (Session::has('warning'))
-                toastr.warning('{{ Session::get('warning') }}');
-            @endif
-        });
-    </script>
