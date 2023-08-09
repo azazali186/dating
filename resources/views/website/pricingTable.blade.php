@@ -2,7 +2,7 @@
 @section('content')
 @section('title', 'pricing-table')
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+    /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"); */
 
     * {
         margin: 0;
@@ -30,14 +30,14 @@
         background: var(--white-smoke);
     }
 
-    .content {
+    .contentSub {
         display: flex;
         justify-content: space-between;
         width: 1200px;
         margin: 100px;
     }
 
-    .box {
+    .boxSub {
         display: flex;
         flex-direction: column;
         height: 586px;
@@ -50,7 +50,7 @@
         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 20%);
     }
 
-    .title {
+    .titleSub {
         width: 100%;
         padding: 10px 0;
         font-size: 1.2em;
@@ -62,19 +62,19 @@
         color: var(--white-smoke);
     }
 
-    .basic .title {
+    .basicSub .titleSub {
         background: var(--pinkish-red);
     }
 
-    .standard .title {
+    .standard .titleSub {
         background: var(--medium-blue);
     }
 
-    .business .title {
+    .business .titleSub {
         background: var(--greenish-blue);
     }
 
-    .view {
+    .viewSub {
         display: block;
         width: 100%;
         padding: 30px 0 20px;
@@ -82,28 +82,28 @@
         background: var(--white-smoke);
     }
 
-    .icon {
+    .iconSub {
         display: flex;
         justify-content: center;
     }
 
-    .icon img {
+    .iconSub img {
         width: 100px;
     }
 
-    .cost {
+    .costSub {
         display: flex;
         justify-content: center;
         flex-direction: row;
         margin-top: 10px;
     }
 
-    .amount {
+    .amountSub {
         font-size: 2.8em;
         font-weight: bolder;
     }
 
-    .detail {
+    .detailSub {
         margin: auto 0 auto 5px;
         width: 70px;
         font-size: 0.7em;
@@ -112,21 +112,21 @@
         color: #7d7c7c;
     }
 
-    .description {
+    .descriptionSub {
         margin: 30px auto;
         font-size: 0.8em;
         color: #7d7c7c;
     }
 
-    ul {
+    .ulClass {
         list-style: none;
     }
 
-    li {
+    .liClass {
         margin-top: 10px;
     }
 
-    li::before {
+    .liClass::before {
         content: "";
         background-image: url("https://i.postimg.cc/ht7g996V/check.png");
         background-position: center;
@@ -143,7 +143,7 @@
         margin: 0 auto 30px;
     }
 
-    button {
+    .buttonBT {
         height: 40px;
         width: 250px;
         font-size: 0.7em;
@@ -156,7 +156,7 @@
         background: transparent;
     }
 
-    button:hover {
+    .buttonBT:hover {
         color: var(--white-smoke);
         transition: 0.5s;
         border: none;
@@ -166,7 +166,7 @@
 
     /* Responsiveness:Start */
     @media screen and (max-width: 970px) {
-        .content {
+        .contentSub {
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -182,82 +182,82 @@
     /* Responsiveness:End */
 </style>
 <section>
-    <div class="content">
-        <div class="basic box">
-            <h2 class="title">Free</h2>
-            <div class="view">
-                <div class="icon">
+    <div class="contentSub">
+        <div class="basicSub boxSub">
+            <h2 class="titleSub">Free</h2>
+            <div class="viewSub">
+                <div class="iconSub">
                     <img src="https://i.postimg.cc/2jcfMcf4/hot-air-balloon.png" alt="hot-air-balloon" />
                 </div>
-                <div class="cost">
-                    <p class="amount">$00</p>
-                    <p class="detail">per student per month</p>
+                <div class="costSub">
+                    <p class="amountSub">$00</p>
+                    <p class="detailSub">per student per month</p>
                 </div>
             </div>
-            <div class="description">
-                <ul>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Harum, beatae laudantium.</li>
-                    <li>Odit, fugit saepe.</li>
-                    <li>Harum, veniam suscipit!</li>
-                    <li>A, aut veritatis!</li>
-                    <li>Aliquid, quasi repellat!</li>
+            <div class="descriptionSub">
+                <ul class="ulClass">
+                    <li class="liClass">Lorem, ipsum dolor.</li>
+                    <li class="liClass">Harum, beatae laudantium.</li>
+                    <li class="liClass">Odit, fugit saepe.</li>
+                    <li class="liClass">Harum, veniam suscipit!</li>
+                    <li class="liClass">A, aut veritatis!</li>
+                    <li class="liClass">Aliquid, quasi repellat!</li>
                 </ul>
             </div>
             <div class="button">
-                <button type="submit">CONTINUE</button>
+                <button class="buttonBT" type="submit">CONTINUE</button>
             </div>
         </div>
 
-        <div class="standard box">
-            <h2 class="title">Monthly</h2>
-            <div class="view">
-                <div class="icon">
+        <div class="standard boxSub">
+            <h2 class="titleSub">Monthly</h2>
+            <div class="viewSub">
+                <div class="iconSub">
                     <img src="https://i.postimg.cc/DzrTN72Z/airplane.png" alt="airplane" />
                 </div>
-                <div class="cost">
-                    <p class="amount">$99</p>
-                    <p class="detail">per student per year</p>
+                <div class="costSub">
+                    <p class="amountSub">$99</p>
+                    <p class="detailSub">per student per year</p>
                 </div>
             </div>
-            <div class="description">
-                <ul>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Harum, beatae laudantium.</li>
-                    <li>Odit, fugit saepe.</li>
-                    <li>Harum, veniam suscipit!</li>
-                    <li>A, aut veritatis!</li>
-                    <li>Aliquid, quasi repellat!</li>
+            <div class="descriptionSub">
+                <ul class="ulClass">
+                    <li class="liClass">Lorem, ipsum dolor.</li>
+                    <li class="liClass">Harum, beatae laudantium.</li>
+                    <li class="liClass">Odit, fugit saepe.</li>
+                    <li class="liClass">Harum, veniam suscipit!</li>
+                    <li class="liClass">A, aut veritatis!</li>
+                    <li class="liClass">Aliquid, quasi repellat!</li>
                 </ul>
             </div>
             <div class="button">
-                <button type="submit">CONTINUE</button>
+                <button class="buttonBT" type="submit">CONTINUE</button>
             </div>
         </div>
 
-        <div class="business box">
-            <h2 class="title">Yearly</h2>
-            <div class="view">
-                <div class="icon">
+        <div class="business boxSub">
+            <h2 class="titleSub">Yearly</h2>
+            <div class="viewSub">
+                <div class="iconSub">
                     <img src="https://i.postimg.cc/wvFd6FRY/startup.png" alt="startup" />
                 </div>
-                <div class="cost">
-                    <p class="amount">$199</p>
-                    <p class="detail">per team per year</p>
+                <div class="costSub">
+                    <p class="amountSub">$199</p>
+                    <p class="detailSub">per team per year</p>
                 </div>
             </div>
-            <div class="description">
-                <ul>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Harum, beatae laudantium.</li>
-                    <li>Odit, fugit saepe.</li>
-                    <li>Harum, veniam suscipit!</li>
-                    <li>A, aut veritatis!</li>
-                    <li>Aliquid, quasi repellat!</li>
+            <div class="descriptionSub">
+                <ul class="ulClass">
+                    <li class="liClass">Lorem, ipsum dolor.</li>
+                    <li class="liClass">Harum, beatae laudantium.</li>
+                    <li class="liClass">Odit, fugit saepe.</li>
+                    <li class="liClass">Harum, veniam suscipit!</li>
+                    <li class="liClass">A, aut veritatis!</li>
+                    <li class="liClass">Aliquid, quasi repellat!</li>
                 </ul>
             </div>
             <div class="button">
-                <button type="submit">CONTINUE</button>
+                <button class="buttonBT" type="submit">CONTINUE</button>
             </div>
         </div>
     </div>
