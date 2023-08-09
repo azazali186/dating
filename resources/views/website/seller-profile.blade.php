@@ -38,11 +38,6 @@
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="gt3-tab" data-bs-toggle="tab" data-bs-target="#gt3"
-                                    type="button" role="tab" aria-controls="gt3" aria-selected="false"><i
-                                        class="fa-solid fas fa-bell"></i> Messages</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="gt6-tab" data-bs-toggle="tab" data-bs-target="#gt6"
                                     type="button" role="tab" aria-controls="gt6" aria-selected="false"><i
                                         class="fa-solid fa-photo-film"></i> Media <span>06</span></button>
@@ -347,50 +342,6 @@
                                                                         data-rel="lightcase:callection"><img
                                                                             src="{{ URL::to('public/website/assets/images/member/profile/02.jpg') }}"
                                                                             alt="dating thumb"></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="gt3" role="tabpanel" aria-labelledby="gt3-tab">
-                                    <div class="">
-                                        <div class="group__bottom--allmedia">
-                                            <div class="media-wrapper">
-                                                <div class="tab-content" id="myTabContent2">
-                                                    <div class="tab-pane fade show active" id="Personal" role="tabpanel"
-                                                        aria-labelledby="Personal-tab">
-                                                        <div class="create-post mb-4">
-                                                            <div class="lab-inner">
-                                                                <div class="lab-thumb">
-                                                                    <div class="thumb-inner">
-                                                                        <div class="thumb-img">
-                                                                            <img src="{{ $seller->image }}"
-                                                                                alt="datting thumb">
-                                                                        </div>
-                                                                        <div class="thumb-content">
-                                                                            <h6><a href="#">
-                                                                                    {{ $seller->name }}</a></h6>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="lab-content">
-                                                                    <form action="#" class="post-form">
-                                                                        <input type="text"
-                                                                            placeholder="Send me message">
-                                                                        <div class="content-type">
-                                                                            <ul class="content-list">
-                                                                                <li class="post-submit">
-                                                                                    <input type="submit" value="Send"
-                                                                                        class="default-btn">
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
