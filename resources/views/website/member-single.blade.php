@@ -65,7 +65,7 @@
                                             <li class="nav-item" role="presentation">
                                                 <button class="nav-link active" id="Personal-tab" data-bs-toggle="tab"
                                                     data-bs-target="#Personal" type="button" role="tab"
-                                                    aria-controls="Personal" aria-selected="true">Personal</button>
+                                                    aria-controls="Personal" aria-selected="true">Messages</button>
                                             </li>
                                             {{-- <li class="nav-item" role="presentation">
                                                 <button class="nav-link" id="Mentions-tab" data-bs-toggle="tab" data-bs-target="#Mentions" type="button" role="tab" aria-controls="Mentions" aria-selected="false">Mentions</button>
@@ -73,11 +73,11 @@
                                             {{-- <li class="nav-item" role="presentation">
                                                 <button class="nav-link" id="Favorites-tab" data-bs-toggle="tab" data-bs-target="#Favorites" type="button" role="tab" aria-controls="Favorites" aria-selected="false">Favorites</button>
                                             </li> --}}
-                                            <li class="nav-item" role="presentation">
+                                            {{-- <li class="nav-item" role="presentation">
                                                 <button class="nav-link" id="Friends-tab" data-bs-toggle="tab"
                                                     data-bs-target="#Friends" type="button" role="tab"
                                                     aria-controls="Friends" aria-selected="false">Messages</button>
-                                            </li>
+                                            </li> --}}
                                             {{-- <li class="nav-item" role="presentation">
                                                 <button class="nav-link" id="Groups-tab" data-bs-toggle="tab" data-bs-target="#Groups" type="button" role="tab" aria-controls="Groups" aria-selected="false">Groups</button>
                                             </li> --}}
@@ -124,7 +124,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="tab-pane fade" id="Friends" role="tabpanel"
+                                                        {{-- <div class="tab-pane fade" id="Friends" role="tabpanel"
                                                             aria-labelledby="Friends-tab">
                                                             <div class="activity__item mb-3">
                                                                 <div class="activity__inner bg-white">
@@ -206,7 +206,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                 </div>
                                             </div>
