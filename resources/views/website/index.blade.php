@@ -77,7 +77,7 @@
     <div class="member member--style2 padding-bottom">
         <div class="container">
             <div class="section__header style-2 text-center wow fadeInUp" data-wow-duration="1.5s">
-                <h2>Most Popular Members</h2>
+                <h2 style=" font-size: 25px; ">Most Popular Members</h2>
             </div>
             <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
                 <ul class="nav nav-tabs member__tab" id="myTab" role="tablist">
@@ -85,11 +85,11 @@
                         <button class="nav-link active" id="newest-tab" data-bs-toggle="tab" data-bs-target="#newest"
                             type="button" role="tab" aria-controls="newest" aria-selected="true">Newest</button>
                     </li>
-                    <li class="nav-item" role="presentation">
+                    {{-- <li class="nav-item" role="presentation">
                         <button class="nav-link" id="activemember-tab" data-bs-toggle="tab"
                             data-bs-target="#activemember" type="button" role="tab" aria-controls="activemember"
                             aria-selected="false">Active</button>
-                    </li>
+                    </li> --}}
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="popularmember-tab" data-bs-toggle="tab"
                             data-bs-target="#popularmember" type="button" role="tab" aria-controls="popularmember"
@@ -123,7 +123,7 @@
                                                         </a>
                                                     </div>
                                                 @else
-                                                    <div style="width: 70%; float: left;">
+                                                    <div style="width: 60%; float: left;">
                                                         <a href="{{ url('pricing-table') }}">
                                                             <h5>{{ $item->name }}</h5>
                                                         </a>
@@ -138,7 +138,7 @@
                                                     </div>
                                                 @endif
                                             @else
-                                                <div style="width: 80%; float: left;">
+                                                <div style="width: 60%; float: left;">
                                                     <a href="{{ url('login') }}">
                                                         <h5>{{ $item->name }}</h5>
                                                     </a>

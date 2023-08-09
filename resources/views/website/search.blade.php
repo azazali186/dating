@@ -2,7 +2,7 @@
 @section('content')
     <!-- ================> Group section end here <================== -->
     <div class="group group--single padding-bottom">
-        <div class="about about--style3 padding-top pt-xl-0">
+        <div class="about about--style3 pt-xl-0">
             <div class="container">
                 <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
                     <form action="{{ url('/') }}">
