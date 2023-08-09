@@ -3,38 +3,13 @@
 @section('title', 'Seller Register')
 <!-- ================> login section start here <================== -->
 <section class="log-reg">
-
-    {{-- <div class="top-menu-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-7">
-                        <div class="logo">
-                            <a href="index.html"><img src="{{ URL::to('website/assets/images/logo/logo.png') }}" alt="logo"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-5">
-                        <a href="index.html" class="backto-home"><i class="fas fa-chevron-left"></i> Back to Home</a>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     <div class="container">
         <div class="row">
             <div class="image">
             </div>
             <div class="col-lg-7">
                 <div class="log-reg-inner">
-                    {{-- <div class="section-header">
-                            <h2 class="title">Welcome to Ollya </h2>
-                            <p>Let's create your profile! Just fill in the fields below, and we’ll get a new account.
-                            </p>
-                        </div> --}}
                     <div class="main-content">
-                        <!--   @if ($message = Session::get('success'))
-<div class="alert alert-success">
-                               <p>{{ $message }}</p>
-                                   </div>
-@endif -->
                         <form action="{{ route('save.seller_register') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <h3 class="content-title">Seller Acount Details</h3>
@@ -79,13 +54,6 @@
                                     <p class="text-danger">{{ $errors->first('mobile') }}</p>
                                 @endif
                             </div>
-                            {{-- <div class="form-group">
-                                    <label>Email Address*</label>
-                                    <input type="email" class="my-form-control"name="email" placeholder="Enter Your Email">
-                                     @if ($errors->has('email'))
-                                                    <p class="text-danger">{{$errors->first('email')}}</p>
-                                                    @endif
-                                </div> --}}
                             <div class="form-group">
                                 <label>Password*</label>
                                 <input type="text" class="my-form-control"name="password"
@@ -134,7 +102,6 @@
             </div>
         </div>
     </div>
-
 </section>
 <!-- ================> login section end here <================== -->
 @endsection

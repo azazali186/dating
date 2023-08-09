@@ -26,6 +26,8 @@ use Illuminate\Contracts\Session\Session;
 // });
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
+    Route::get('/seller-profile', 'sellerProfile');
+    Route::get('/user-profile', 'userProfile');
     Route::get('/member-single/{id}', 'singleMember');
 });
 

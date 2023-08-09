@@ -257,8 +257,7 @@
                     </a>
                 </div>
 
-                <div class="mobilebar-tab-item"
-                    style="{{ request()->is('search') ? 'background: black;' : '' }}">
+                <div class="mobilebar-tab-item" style="{{ request()->is('search') ? 'background: black;' : '' }}">
                     <a href="{{ url('search') }}">
                         <span class="mobilebar-tab__icon">
                             <i class="fas fa-search"></i>
@@ -281,11 +280,34 @@
                     </span>
                 </div>
 
-                <div class="mobilebar-tab-item {{ request()->is('admin/cities') ? 'active' : '' }}">
-                    <span class="mobilebar-tab__icon">
-                        <i class="fas fa-user"></i>
-                    </span>
-                </div>
+
+                @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
+                    <div class="mobilebar-tab-item"
+                        style="{{ request()->is('seller-profile') ? 'background: black;' : '' }}">
+                        <a href="{{ url('seller-profile') }}">
+                            <span class="mobilebar-tab__icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </a>
+                    </div>
+                @elseif (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                    <div class="mobilebar-tab-item"
+                        style="{{ request()->is('user-profile') ? 'background: black;' : '' }}">
+                        <a href="{{ url('user-profile') }}">
+                            <span class="mobilebar-tab__icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </a>
+                    </div>
+                @else
+                    <div class="mobilebar-tab-item">
+                        <a href="{{ url('login') }}">
+                            <span class="mobilebar-tab__icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </a>
+                    </div>
+                @endif
 
                 <div class="mobilebar-tab-overlay"></div>
             </nav>

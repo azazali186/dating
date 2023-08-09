@@ -22,7 +22,7 @@
     }
 </style>
 @if (!Session::has('sessdata'))
-    <div class="banner banner--style3 padding-top bg_img"
+    <div class="banner banner--style3 padding-bottom bg_img"
         style="background-image: url({{ URL::to('public/website/assets/images/banner/bg-3.jpg') }});">
         <div class="container">
             <div class="row g-0 justify-content-center justify-content-xl-between">
@@ -71,8 +71,47 @@
         </div>
     </div>
 @endif
+@if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
+    <div class="banner banner--style3 padding-bottom bg_img"
+        style="background-image: url({{ URL::to('public/website/assets/images/banner/bg-3.jpg') }});">
+        <div class="container">
+            <div class="row g-0 justify-content-center justify-content-xl-between">
+                <div class="col-lg-6 col-12 wow fadeInUp" data-wow-duration="1.5s">
+                    <div class="banner__thumb text-xl-end">
+                        <img src="{{ URL::to('public/website/assets/images/banner/03.png') }}" alt="banner">
+                        <div class="banner__thumb--shape">
+                            <div class="shapeimg">
+                                <img src="{{ URL::to('public/website/assets/images/banner/shape/home3/01.png') }}"
+                                    alt="dating thumb">
+                            </div>
+                        </div>
+                        <div class="banner__thumb--title">
+                            <h4>Are You Waiting For Dating?</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-12 wow fadeInLeft" data-wow-duration="1.5s">
+                    <div class="banner__content">
+                        <div class="banner__title">
+                            <h2>We Have More Than <span>2.000.000</span> Join Members</h2>
+                            <div class="row" style=" text-align: center; ">
+                                <div class="col-12 mb-2">
+                                    <a href="{{ url('logout') }}" class="default-btn style-2"
+                                        style="width: 100%; background: #cb2b2b;">
+                                        <span>Logout</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
 <!-- ================> Banner section end here <================== -->
-@if (Session::has('sessdata'))
+
+@if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
     <!-- ================> Member section start here <================== -->
     <div class="member member--style2 padding-bottom">
         <div class="container">
@@ -85,11 +124,6 @@
                         <button class="nav-link active" id="newest-tab" data-bs-toggle="tab" data-bs-target="#newest"
                             type="button" role="tab" aria-controls="newest" aria-selected="true">Newest</button>
                     </li>
-                    {{-- <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="activemember-tab" data-bs-toggle="tab"
-                            data-bs-target="#activemember" type="button" role="tab" aria-controls="activemember"
-                            aria-selected="false">Active</button>
-                    </li> --}}
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="popularmember-tab" data-bs-toggle="tab"
                             data-bs-target="#popularmember" type="button" role="tab" aria-controls="popularmember"
@@ -100,7 +134,8 @@
                     <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
                         <div class="row g-0 justify-content-center" id="formobile">
                             @foreach ($seller as $item)
-                                <div class="member__inner" style="height: 90px;border-bottom: 2px solid;margin-bottom: 8px;">
+                                <div class="member__inner"
+                                    style="height: 90px;border-bottom: 2px solid;margin-bottom: 8px;">
                                     <div class="member__content">
                                         <div style="width: 100%">
                                             <div style="width: 20%; float: left;">

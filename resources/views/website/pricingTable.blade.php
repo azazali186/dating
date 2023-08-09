@@ -174,7 +174,7 @@
 
     /* Responsiveness:End */
 </style>
-<section>
+<section class="padding-bottom">
     <div class="contentSub">
         <div class="basicSub boxSub">
             <h2 class="titleSub">Free</h2>
