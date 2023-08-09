@@ -188,115 +188,121 @@
 
     <style>
         .mobilebar-container {
-          position: fixed;
-          bottom: 15px;
-          z-index: 12;
-          left: 50%;
-          transform: translateX(-50%);
+            position: fixed;
+            bottom: -1px;
+            z-index: 12;
+            left: 50%;
+            transform: translateX(-50%);
         }
+
         .mobilebar-tab {
-          height: 50px;
-          /* max-width: 420px; */
-          width: 96vw;
-          background-color: #fff;
-          overflow: hidden;
-          display: flex;
-          position: relative;
-          flex-shrink: 0;
-          bottom: 0px;
-          box-shadow: 0 10px 6px 0 rgba(0, 0, 0, 0.175);
-          border-radius: 6px;
+            height: 50px;
+            /* max-width: 420px; */
+            width: 96vw;
+            background-color: #fff;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+            flex-shrink: 0;
+            bottom: 0px;
+            /* box-shadow: 0 10px 6px 0 rgba(0, 0, 0, 0.175); */
+            border-radius: 6px;
         }
 
         .mobilebar-tab-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: calc(100% / 5);
-          flex-shrink: 0;
-          cursor: pointer;
-          transition: 0.3s;
-          position: relative;
-          z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: calc(100% / 5);
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            z-index: 2;
         }
+
         .mobilebar-tab-overlay {
-          border-radius: 6px;
-          background-color: #f0f0f0;
-          height: 100%;
-          width: calc(100% / 5);
-          position: absolute;
-          left: 0;
-          top: 0;
-          transition: 0.3s;
+            border-radius: 6px;
+            background-color: #f0f0f0;
+            height: 100%;
+            width: calc(100% / 5);
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 0.3s;
         }
+
         .mobilebar-tab__icon {
-          display: block;
-          color: #f96972;
-          transition-duration: 0.3s;
-          line-height: 1;
-          font-size: 30px;
+            display: block;
+            color: #f96972;
+            transition-duration: 0.3s;
+            line-height: 1;
+            font-size: 30px;
         }
-      </style>
+    </style>
     <div class="mobilebar-container mobile-layout">
         <div
-          style="
+            style="
             box-shadow: 0 10px 6px 0 rgba(141, 134, 134, 0.175);
             border-radius: 6px;
             border: 10px solid #fff;
-          "
-        >
-          <nav class="mobilebar-tab">
-            <div
-              id="applicationBarMobileButton1"
-              class="mobilebar-tab-item active"
-            >
-              <span class="mobilebar-tab__icon">
-                <i class="fas fa-home"></i>
-              </span>
-            </div>
+          ">
+            <nav class="mobilebar-tab">
+                <div class="mobilebar-tab-item" style="{{ request()->is('/') ? 'background: black;' : '' }}">
+                    <a href="{{ url('/') }}">
+                        <span class="mobilebar-tab__icon">
+                            <i class="fas fa-home"></i>
+                        </span>
+                    </a>
+                </div>
 
-            <div class="mobilebar-tab-item">
-              <span class="mobilebar-tab__icon">
-                <i class="fas fa-search"></i>
-              </span>
-            </div>
+                <div class="mobilebar-tab-item"
+                    style="{{ request()->is('search') ? 'background: black;' : '' }}">
+                    <a href="{{ url('search') }}">
+                        <span class="mobilebar-tab__icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </a>
+                </div>
 
-            <div class="mobilebar-tab-item">
-              <span class="mobilebar-tab__icon">
-                <i class="fab fa-themeco"></i>
-              </span>
-            </div>
+                <div class="mobilebar-tab-item"
+                    style="{{ request()->is('pricing-table') ? 'background: black;' : '' }}">
+                    <a href="{{ url('pricing-table') }}">
+                        <span class="mobilebar-tab__icon">
+                            <i class="fab fa-themeco"></i>
+                        </span>
+                    </a>
+                </div>
 
-            <div class="mobilebar-tab-item">
-              <span class="mobilebar-tab__icon">
-                <i class="fas fa-bell"></i>
-              </span>
-            </div>
+                <div class="mobilebar-tab-item {{ request()->is('admin/cities') ? 'active' : '' }}">
+                    <span class="mobilebar-tab__icon">
+                        <i class="fas fa-bell"></i>
+                    </span>
+                </div>
 
-            <div class="mobilebar-tab-item">
-              <span class="mobilebar-tab__icon">
-                <i class="fas fa-user"></i>
-              </span>
-            </div>
+                <div class="mobilebar-tab-item {{ request()->is('admin/cities') ? 'active' : '' }}">
+                    <span class="mobilebar-tab__icon">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
 
-            <div class="mobilebar-tab-overlay"></div>
-          </nav>
+                <div class="mobilebar-tab-overlay"></div>
+            </nav>
         </div>
-      </div>
+    </div>
 
- {{-- toastr js --}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-        <script>
-            $(document).ready(function() {
-                toastr.options.timeOut = 10000;
-                @if (Session::has('error'))
-                    toastr.error('{{ Session::get('error') }}');
-                @elseif(Session::has('success'))
-                    toastr.success('{{ Session::get('success') }}');
-                @elseif(Session::has('warning'))
-                    toastr.warning('{{ Session::get('warning') }}');
-                @endif
-            });
-
-        </script>
+    {{-- toastr js --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script>
+        $(document).ready(function() {
+            toastr.options.timeOut = 10000;
+            @if (Session::has('error'))
+                toastr.error('{{ Session::get('error') }}');
+            @elseif (Session::has('success'))
+                toastr.success('{{ Session::get('success') }}');
+            @elseif (Session::has('warning'))
+                toastr.warning('{{ Session::get('warning') }}');
+            @endif
+        });
+    </script>

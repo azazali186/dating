@@ -32,6 +32,9 @@ Route::controller(HomeController::class)->group(function () {
 Route::get('/pricing-table', function () {
     return view('website.pricingTable');
 });
+Route::get('/search', function () {
+    return view('website.search');
+});
 
 Route::get('/register', function () {
     return view('website.register');

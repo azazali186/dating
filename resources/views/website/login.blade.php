@@ -24,7 +24,7 @@
                     <div class="log-reg-inner">
                         {{-- <div class="section-header inloginp"> --}}
                         <div class="">
-                            <h2 class="title">Welcome to Ollya</h2>
+                            <h3 class="title">Welcome to xmakelove</h3>
                         </div>
                         <div class="main-content inloginp">
                             <form action="{{route('check.login')}}" method="POST">
