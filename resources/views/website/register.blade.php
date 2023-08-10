@@ -114,8 +114,7 @@
                             @endif
                             <div class="form-group">
                                 <label>City*</label>
-                                <input type="text" name="city" class="my-form-control"
-                                    placeholder="Enter Your City">
+                                <input type="text" name="city" class="my-form-control" id="location" />
                                 @if ($errors->has('city'))
                                     <p class="text-danger">{{ $errors->first('city') }}</p>
                                 @endif

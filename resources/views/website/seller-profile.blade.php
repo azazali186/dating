@@ -125,14 +125,15 @@
                                                     aria-labelledby="profileShowEdit-tab">
                                                     <div class="info-card-content">
                                                         <div class="main-content">
-                                                            <form action="{{ url('seller-profile') }}"
-                                                                method="POST" enctype="multipart/form-data">
+                                                            <form action="{{ url('seller-profile') }}" method="POST"
+                                                                enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input required type="hidden" name="sellerId"
                                                                     value="{{ $sellerId }}">
                                                                 <div class="form-group">
                                                                     <label>Name*</label>
-                                                                    <input required value="{{ $seller->name }}" type="text" class="fmy-form-control"
+                                                                    <input required value="{{ $seller->name }}"
+                                                                        type="text" class="fmy-form-control"
                                                                         name="name" placeholder="Enter Your Full Name">
                                                                     @if ($errors->has('name'))
                                                                         <p class="text-danger">{{ $errors->first('name') }}
@@ -143,12 +144,16 @@
                                                                     <label>Gender*</label>
                                                                     <div class="banner__inputlist">
                                                                         <div class="s-input me-3">
-                                                                            <input required {{ $seller->gender == 'men' ? 'checked' : '' }} type="radio" name="gender"
+                                                                            <input required
+                                                                                {{ $seller->gender == 'men' ? 'checked' : '' }}
+                                                                                type="radio" name="gender"
                                                                                 value="men" id="males1">
                                                                             <label for="males1">Man</label>
                                                                         </div>
                                                                         <div class="s-input">
-                                                                            <input required {{ $seller->gender == 'women' ? 'checked' : '' }} type="radio" name="gender"
+                                                                            <input required
+                                                                                {{ $seller->gender == 'women' ? 'checked' : '' }}
+                                                                                type="radio" name="gender"
                                                                                 value="women" id="females1">
 
                                                                             <label for="females1">Woman</label>
@@ -163,7 +168,8 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Date of Birth*</label>
-                                                                    <input required value="{{ $seller->birthday }}" type="date" name="birthday"
+                                                                    <input required value="{{ $seller->birthday }}"
+                                                                        type="date" name="birthday"
                                                                         class="my-form-control">
                                                                     @if ($errors->has('birthday'))
                                                                         <p class="text-danger">
@@ -172,7 +178,8 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Mobile*</label>
-                                                                    <input readonly value="{{ $seller->mobile }}" type="text" class="my-form-control"
+                                                                    <input readonly value="{{ $seller->mobile }}"
+                                                                        type="text" class="my-form-control"
                                                                         placeholder="Enter Your Mobile Num">
                                                                     @if ($errors->has('mobile'))
                                                                         <p class="text-danger">
@@ -206,7 +213,8 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Enter Your Price*</label>
-                                                                    <input required value="{{ $seller->price }}" type="text" name="price"
+                                                                    <input required value="{{ $seller->price }}"
+                                                                        type="text" name="price"
                                                                         class="my-form-control"
                                                                         placeholder="Enter Your Price">
                                                                     @if ($errors->has('price'))
@@ -217,9 +225,9 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Enter Your Address*</label>
-                                                                    <input required value="{{ $seller->city }}" type="text" name="address"
-                                                                        class="my-form-control"
-                                                                        placeholder="Enter Your Address">
+                                                                    <input required value="{{ $seller->city }}"
+                                                                        type="text" name="address"
+                                                                        class="my-form-control" id="location" />
                                                                     @if ($errors->has('address'))
                                                                         <p class="text-danger">
                                                                             {{ $errors->first('address') }}
@@ -231,8 +239,8 @@
                                                                     <input type="file" name="image"
                                                                         class="my-form-control" placeholder="">
                                                                 </div>
-                                                                <button class="default-btn reverse mt-4" data-toggle="modal"
-                                                                    type="submit"
+                                                                <button class="default-btn reverse mt-4"
+                                                                    data-toggle="modal" type="submit"
                                                                     data-target="#email-confirm"><span>Update
                                                                         Your Profile</span></button>
                                                             </form>

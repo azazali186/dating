@@ -83,9 +83,8 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label>Enter Your Address*</label>
-                                <input type="text" name="address" class="my-form-control"
-                                    placeholder="Enter Your Address">
+                                <label>City*</label>
+                                <input type="text" name="address" class="my-form-control" id="location" />
                                 @if ($errors->has('address'))
                                     <p class="text-danger">{{ $errors->first('address') }}</p>
                                 @endif

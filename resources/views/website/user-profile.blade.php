@@ -251,8 +251,7 @@
                                                                     <label>City*</label>
                                                                     <input required value="{{ $user->city }}"
                                                                         type="text" name="city"
-                                                                        class="my-form-control"
-                                                                        placeholder="Enter Your City">
+                                                                        class="my-form-control" id="location" />
                                                                     @if ($errors->has('city'))
                                                                         <p class="text-danger">
                                                                             {{ $errors->first('city') }}</p>

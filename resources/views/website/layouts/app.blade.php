@@ -21,7 +21,8 @@
     {{-- toastr --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCajbaAg3ejkh48fnl57SvL3_fV8Cl9Wx4&libraries=places"></script>
 </head>
 
 <body>
@@ -63,7 +64,18 @@
             @endif
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var autocomplete;
+            var id = "location";
 
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById(id), {
+                    types: ["geocode"],
+                }
+            );
+        });
+    </script>
     {{-- <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a> --}}
 
     <!-- All Needed JS -->
@@ -96,4 +108,5 @@
     </script>
     <script src="../../../../www.google-analytics.com/analytics.js" async></script> --}}
 </body>
+
 </html>
