@@ -31,7 +31,7 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="gt6-tab" data-bs-toggle="tab" data-bs-target="#gt6"
                                     type="button" role="tab" aria-controls="gt6" aria-selected="false"><i
-                                        class="fa-solid fa-photo-film"></i> Media <span>06</span></button>
+                                        class="fa-solid fa-photo-film"></i> Media <span>{{ count($sellerPhotos) }}</span></button>
                             </li>
                         </ul>
                     </div>
@@ -87,10 +87,6 @@
                                                         </span>
                                                         <span>{{ $seller->city }}</span>
                                                     </li>
-                                                    {{-- <li>
-                                                        <p class="info-name">Loking for a</p>
-                                                        <p class="info-details">{{ $seller->gender }}</p>
-                                                    </li> --}}
                                                 </ul>
                                             </div>
                                         </div>
@@ -113,18 +109,14 @@
                                                         <div class="story__content--author mt-3 pb-2">
                                                             <h6 class="d-block w-100 mb-3">{{ $seller->name }} Photos</h6>
                                                             <div class="row g-2">
-                                                                <div class="col-4">
-                                                                    <a href="#groupmodal"
-                                                                        data-rel="lightcase:callection"><img
-                                                                            src="{{ URL::to('public/website/assets/images/member/profile/01.jpg') }}"
-                                                                            alt="dating thumb"></a>
-                                                                </div>
-                                                                <div class="col-4">
-                                                                    <a href="#groupmodal"
-                                                                        data-rel="lightcase:callection"><img
-                                                                            src="{{ URL::to('public/website/assets/images/member/profile/02.jpg') }}"
-                                                                            alt="dating thumb"></a>
-                                                                </div>
+                                                                @foreach ($sellerPhotos as $item)
+                                                                    <div class="col-4">
+                                                                        <a href="#groupmodal"
+                                                                            data-rel="lightcase:callection"><img
+                                                                                src="{{ $item->photo_path }}"
+                                                                                alt="dating thumb"></a>
+                                                                    </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
                                                     </div>
@@ -199,13 +191,13 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="post-description">
-                            <div class="post-desc-img">
-                                <img src="{{ URL::to('public/website/assets/images/member/profile/01.jpg') }}"
-                                    alt="dating thumb">
+                        @foreach ($sellerPhotos as $item)
+                            <div class="post-description">
+                                <div class="post-desc-img">
+                                    <img src="{{ $item->photo_path }}" alt="dating thumb">
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

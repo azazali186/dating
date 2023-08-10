@@ -3182,6 +3182,16 @@ iframe {
     background: #fff;
 }
 
+.banner__inputlist .selectInput {
+    padding-inline: 0;
+    padding-block: 13.5px;
+    background: #fff;
+}
+.log-reg .log-reg-inner .main-content .form-group>.banner__inputlist .selectInput {
+    padding: 3px;
+    background-color: #eaf2fc;
+}
+
 .banner--style2 .banner__content {
     padding: 0px;
     background: transparent;

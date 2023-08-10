@@ -94,7 +94,7 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <label>Price</label>
+                                    <label>Age</label>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="banner__inputlist">
@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="banner__inputlist">
-                                                <input type="text">
+                                                <input type="text" style="width: -webkit-fill-available;">
                                             </div>
                                         </div>
                                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Photo;
 use App\Models\Seller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,24 +25,26 @@ class HomeController extends Controller
     {
         $sellerId = $request->id;
         $seller = Seller::where('id', $sellerId)->where('status', 1)->first();
+        $sellerPhotos = Photo::where('seller_id', $sellerId)->get();
         if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user') {
             if (getSubscription() == 'Free') {
                 return Redirect::to('pricing-table');
             }
         } elseif (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller' && Session::get('sessdata')['id'] == $sellerId) {
-            return view('website.member-single', compact('seller', 'sellerId'));
+            return view('website.member-single', compact('seller', 'sellerId', 'sellerPhotos'));
         } else {
             return Redirect::to('login');
         }
         // dd($seller);
-        return view('website.member-single', compact('seller', 'sellerId'));
+        return view('website.member-single', compact('seller', 'sellerId', 'sellerPhotos'));
     }
     function sellerProfile(Request $request)
     {
         if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller') {
             $sellerId = Session::get('sessdata')['id'];
             $seller = Seller::where('id', $sellerId)->where('status', 1)->first();
-            return view('website.seller-profile', compact('seller', 'sellerId'));
+            $sellerPhotos = Photo::where('seller_id', $sellerId)->get();
+            return view('website.seller-profile', compact('seller', 'sellerId','sellerPhotos'));
         } else {
             return Redirect::to('login');
         }
@@ -123,5 +126,20 @@ class HomeController extends Controller
             ]);
         }
         return redirect()->back()->with('success', 'Update successfully!');
+    }
+
+    function sellerPhotoUpdate(Request $request)
+    {
+        foreach ($request->photos as $item) {
+            if ($item) {
+                $file = $item;
+                $filename = 'photos_' . date('Ymd') . $file->getClientOriginalName();
+                $file->move(public_path('website/assets/photos/'), $filename);
+                $img_url = URL::asset('public/website/assets/photos') . '/' . $filename;
+
+                Photo::create(['photo_path' => $img_url, 'seller_id' => $request->sellerId]);
+            }
+        }
+        return redirect()->back()->with('success', 'Added successfully!');
     }
 }

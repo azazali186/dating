@@ -40,7 +40,8 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="gt6-tab" data-bs-toggle="tab" data-bs-target="#gt6"
                                     type="button" role="tab" aria-controls="gt6" aria-selected="false"><i
-                                        class="fa-solid fa-photo-film"></i> Media <span>06</span></button>
+                                        class="fa-solid fa-photo-film"></i> Media
+                                    <span>{{ count($sellerPhotos) }}</span></button>
                             </li>
                         </ul>
                     </div>
@@ -266,7 +267,7 @@
                                                                 type="button" role="tab" aria-controls="all-media"
                                                                 aria-selected="true"><i
                                                                     class="fa-solid fa-table-cells-large"></i> All
-                                                                <span>12</span></button>
+                                                                <span>{{ count($sellerPhotos) }}</span></button>
                                                         </li>
                                                         {{-- <li class="nav-item" role="presentation">
                                                         <button class="nav-link" id="album-tab" data-bs-toggle="tab" data-bs-target="#album" type="button" role="tab" aria-controls="album" aria-selected="false"><i class="fa-solid fa-camera"></i> Albums <span>4</span></button>
@@ -287,21 +288,28 @@
                                                             <div class="media-content">
                                                                 <ul class="media-upload">
                                                                     <li class="upload-now">
-                                                                        <div class="custom-upload">
-                                                                            <div class="file-btn"><i
-                                                                                    class="fa-solid fa-upload"></i> Upload
+                                                                        <form action="{{ url('seller-photo-update') }}"
+                                                                            method="POST" enctype="multipart/form-data">
+                                                                            @csrf
+                                                                            <input type="hidden" name="sellerId"
+                                                                                value="{{ $sellerId }}">
+                                                                            <div class="custom-upload">
+                                                                                <div class="file-btn"><i
+                                                                                        class="fa-solid fa-upload"></i>
+                                                                                    Upload
+                                                                                </div>
+                                                                                <input required type="file"
+                                                                                    name="photos[]" multiple
+                                                                                    accept="image/*">
                                                                             </div>
-                                                                            <input required type="file" required>
-                                                                        </div>
-
-                                                                        <div>
-                                                                            {{-- <div class="file-btn"><i class="fa-solid fa-upload"></i> Save</div> --}}
-                                                                            <input value="Save" class="custom-upload"
-                                                                                type="submit">
-                                                                        </div>
+                                                                            <div>
+                                                                                <input value="Save"
+                                                                                    class="custom-upload" type="submit">
+                                                                            </div>
+                                                                        </form>
                                                                     </li>
                                                                 </ul>
-                                                                <div
+                                                                {{-- <div
                                                                     class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-3 g-3">
                                                                     <div class="col">
                                                                         <div class="media-thumb video-thumb">
@@ -313,7 +321,7 @@
                                                                             </a>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
                                                                 {{-- <div class="text-center mt-5">
                                                                 <a href="#" class="default-btn"><i class="fa-solid fa-spinner"></i> Load More</a>
                                                             </div> --}}
@@ -340,18 +348,20 @@
                                                         <div class="story__content--author mt-3 pb-2">
                                                             <h6 class="d-block w-100 mb-3">{{ $seller->name }} Photos</h6>
                                                             <div class="row g-2">
-                                                                <div class="col-4">
-                                                                    <a href="#groupmodal"
-                                                                        data-rel="lightcase:callection"><img
-                                                                            src="{{ URL::to('public/website/assets/images/member/profile/01.jpg') }}"
-                                                                            alt="dating thumb"></a>
-                                                                </div>
-                                                                <div class="col-4">
+                                                                @foreach ($sellerPhotos as $item)
+                                                                    <div class="col-4">
+                                                                        <a href="#groupmodal"
+                                                                            data-rel="lightcase:callection"><img
+                                                                                src="{{ $item->photo_path }}"
+                                                                                alt="dating thumb"></a>
+                                                                    </div>
+                                                                @endforeach
+                                                                {{-- <div class="col-4">
                                                                     <a href="#groupmodal"
                                                                         data-rel="lightcase:callection"><img
                                                                             src="{{ URL::to('public/website/assets/images/member/profile/02.jpg') }}"
                                                                             alt="dating thumb"></a>
-                                                                </div>
+                                                                </div> --}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -382,13 +392,14 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="post-description">
-                            <div class="post-desc-img">
-                                <img src="{{ URL::to('public/website/assets/images/member/profile/01.jpg') }}"
-                                    alt="dating thumb">
+                        @foreach ($sellerPhotos as $item)
+                            <div class="post-description">
+                                <div class="post-desc-img">
+                                    <img src="{{ $item->photo_path }}" alt="dating thumb">
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>

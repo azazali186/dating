@@ -28,6 +28,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/seller-profile', 'sellerProfile');
     Route::post('/seller-profile', 'sellerProfileEdit');
+    Route::post('/seller-photo-update', 'sellerPhotoUpdate');
     Route::get('/user-profile', 'userProfile');
     Route::post('/user-profile', 'userProfileEdit');
     Route::get('/member-single/{id}', 'singleMember');
