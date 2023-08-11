@@ -283,10 +283,12 @@
                     </div>
                 @endif
 
-                <div class="mobilebar-tab-item {{ request()->is('admin/cities') ? 'active' : '' }}">
-                    <span class="mobilebar-tab__icon">
-                        <i class="fas fa-bell"></i>
-                    </span>
+                <div class="mobilebar-tab-item" style="{{ request()->is('user-message') ? 'background: black;' : '' }}">
+                    <a href="{{ url('user-message') }}">
+                        <span class="mobilebar-tab__icon">
+                            <i class="fas fa-bell"></i>
+                        </span>
+                    </a>
                 </div>
 
 

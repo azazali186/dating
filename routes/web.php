@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\AdminUserController;
 use App\Http\Controllers\backend\AdminSellerController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Contracts\Session\Session;
 
 /*
@@ -32,6 +33,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/user-profile', 'userProfile');
     Route::post('/user-profile', 'userProfileEdit');
     Route::get('/member-single/{id}', 'singleMember');
+});
+Route::controller(MessageController::class)->group(function () {
+    Route::get('user-message/', 'index');
+    Route::get('seller-message/', 'indexSeller');
 });
 
 Route::get('/pricing-table', function () {
