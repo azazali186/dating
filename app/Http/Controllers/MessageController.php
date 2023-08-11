@@ -10,7 +10,10 @@ class MessageController extends Controller
 {
     public function index()
     {
-        return view('website.message');
+        $role = Session::get('sessdata')['role'];
+        $messages = Message::with(['user', 'seller'])->groupBy('seller_id')->orderBy('created_at', 'desc')->where('user_id', Session::get('sessdata')['id'])->get();
+        // return $messages;
+        return view('website.message', compact('messages'));
     }
 
     public function indexSeller()
@@ -32,7 +35,8 @@ class MessageController extends Controller
             return Redirect::to('login');
         }
         $data['sender_type'] = Session::get('sessdata')['role'];
+        Message::create($data);
 
-        dd($data);
+        return redirect()->back()->with('success', 'Sent successfully!');
     }
 }
