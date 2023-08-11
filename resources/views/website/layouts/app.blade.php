@@ -8,6 +8,7 @@
     <meta name="keywords" content="make love with Xmakelove." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    <META NAME="GOOGLEBOT" CONTENT="NOSNIPPET">
     <!-- site favicon -->
     {{-- <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/favicon.png') }}"> --}}
     <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/logo/logo.png') }}">
