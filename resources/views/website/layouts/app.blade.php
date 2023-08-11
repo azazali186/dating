@@ -10,7 +10,7 @@
     <meta name="google-site-verification" content="x5kxHRMHozlrugcxyCpAOiavoBs6s39CRapyatenQS4" />
     <!-- site favicon -->
     {{-- <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/favicon.png') }}"> --}}
-    <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/logo/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/logo/Icon.png') }}">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- All stylesheet and icons css  -->

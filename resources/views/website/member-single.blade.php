@@ -148,9 +148,11 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="lab-content">
-                                                                    <form action="#" class="post-form">
-                                                                        <input type="text"
-                                                                            placeholder="Send me message">
+                                                                    <form action="{{ url('send-message') }}" class="post-form" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" value="{{ $sellerId }}" name="seller_id">
+                                                                        <input type="text" name="text"
+                                                                            placeholder="Send me message" required>
                                                                         <div class="content-type">
                                                                             <ul class="content-list">
                                                                                 <li class="post-submit">

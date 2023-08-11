@@ -35,8 +35,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/member-single/{id}', 'singleMember');
 });
 Route::controller(MessageController::class)->group(function () {
-    Route::get('user-message/', 'index');
-    Route::get('seller-message/', 'indexSeller');
+    Route::get('user-message', 'index');
+    Route::get('seller-message', 'indexSeller');
+    Route::post('send-message', 'sendMessage');
 });
 
 Route::get('/pricing-table', function () {
