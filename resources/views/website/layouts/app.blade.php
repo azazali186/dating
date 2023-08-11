@@ -2,10 +2,11 @@
 <html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Xmakelove</title>
-    <meta name="Description" content="Welcome to Xmakelove.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to Xmakelove.">
+    <meta name="keywords" content="make love with Xmakelove.">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- site favicon -->
     {{-- <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/favicon.png') }}"> --}}
     <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/logo/logo.png') }}">
