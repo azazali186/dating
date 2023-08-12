@@ -97,8 +97,7 @@
     </div>
 @endif
 <!-- ================> Banner section end here <================== -->
-
-@if (!Session::has('sessdata') || (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user'))
+@if (!Session::has('sessdata'))
     <div class="banner banner--style3 padding-bottom"
         style="background-image: url({{ URL::to('public/website/assets/images/banner/bg-3.jpg') }});">
         <div class="container">
@@ -147,6 +146,8 @@
             </div>
         </div>
     </div>
+@endif
+@if (!Session::has('sessdata') || (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user'))
     <!-- ================> Member section start here <================== -->
     <div class="member member--style2 padding-bottom">
         <div class="container">
@@ -158,15 +159,18 @@
                 <form action="{{ url()->full() }}">
                     <ul class="nav nav-tabs member__tab" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <button class="nav-link @if (isset($_GET['type']) && $_GET['type'] == 'newest') active @endif" type="submit" name="type" value="newest">Newest</button>
+                            <button class="nav-link @if (isset($_GET['type']) && $_GET['type'] == 'newest') active @endif" type="submit"
+                                name="type" value="newest">Newest</button>
                         </li>
                         <li class="nav-item">
-                            <button class="nav-link @if (isset($_GET['type']) && $_GET['type'] == 'popular') active @endif" type="submit" name="type" value="popular">Popular</button>
+                            <button class="nav-link @if (isset($_GET['type']) && $_GET['type'] == 'popular') active @endif" type="submit"
+                                name="type" value="popular">Popular</button>
                         </li>
                     </ul>
                 </form>
                 <div class="tab-content mx-12-none" id="myTabContent">
-                    <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
+                    <div class="tab-pane fade show active" id="newest" role="tabpanel"
+                        aria-labelledby="newest-tab">
                         <div class="row g-0 justify-content-center" id="formobile">
                             @foreach ($seller as $item)
                                 <div class="member__inner"
