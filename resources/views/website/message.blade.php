@@ -318,7 +318,7 @@
                                                     <img src="{{ $item?->seller?->image }}" style="width: 70px;">
                                                 </div>
                                                 <a style="width: 80%; float: left; text-align: left; padding-left: 11px;">
-                                                    <h5>{{ $item->seller->name }}</h5>
+                                                    <h5>{{ $item?->seller?->name }}</h5>
                                                     <p>{{ strlen($item->text) > 70 ? substr($item->text, 0, 70) . '...' : $item->text }}
                                                     </p>
                                                 </a>

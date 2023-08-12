@@ -87,6 +87,10 @@ Route::get('/admincon/allusers', [AdminUserController::class, 'list']);
 // Route::get('/adminlogout', [AdminController::class, 'logout']);
 Route::get('/admincon/allseller', [AdminSellerController::class, 'listseller']);
 
+Route::controller(AdminSellerController::class)->group(function () {
+    Route::get('admincon/pricing-config', 'pricingConfig');
+    Route::post('admincon/price-update/{slug}', 'priceUpdate');
+});
 
 Route::get('/admincon/userForm/{end?}', [AdminUserController::class, 'new'])->name('form.user');
 Route::post('/admincon/userSave', [AdminUserController::class, 'save'])->name('save.user');
