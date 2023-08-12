@@ -45,11 +45,11 @@
     <!-- Main Wrapper -->
     @yield('content')
     <!-- /Main Wrapper -->
-    @if (Session::has('sessdata'))
-        <!-- Footer Start -->
-        @include('website.layouts.footer')
-        <!-- Footer End -->
-    @endif
+    {{-- @if (Session::has('sessdata')) --}}
+    <!-- Footer Start -->
+    @include('website.layouts.footer')
+    <!-- Footer End -->
+    {{-- @endif --}}
 
 
     {{-- toastr js --}}

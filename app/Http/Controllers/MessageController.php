@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Session;
 
 class MessageController extends Controller
 {
     public function index()
     {
+        if ((!Session::has('sessdata'))) {
+            return Redirect::to('login');
+        }
         $role = Session::get('sessdata')['role'];
         $messages = Message::with(['user', 'seller'])->groupBy('seller_id')->orderBy('created_at', 'desc')->where('user_id', Session::get('sessdata')['id'])->get();
-        // return $messages;
+
         return view('website.message', compact('messages'));
     }
 

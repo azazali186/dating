@@ -281,9 +281,27 @@
                             </span>
                         </a>
                     </div>
+                @elseif (!Session::has('sessdata'))
+                    <div class="mobilebar-tab-item" style="{{ request()->is('search') ? 'background: black;' : '' }}">
+                        <a href="{{ url('login') }}">
+                            <span class="mobilebar-tab__icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="mobilebar-tab-item"
+                        style="{{ request()->is('pricing-table') ? 'background: black;' : '' }}">
+                        <a href="{{ url('login') }}">
+                            <span class="mobilebar-tab__icon">
+                                <i class="fab fa-themeco"></i>
+                            </span>
+                        </a>
+                    </div>
                 @endif
 
-                <div class="mobilebar-tab-item" style="{{ request()->is('user-message') ? 'background: black;' : '' }}">
+                <div class="mobilebar-tab-item"
+                    style="{{ request()->is('user-message') ? 'background: black;' : '' }}">
                     <a href="{{ url('user-message') }}">
                         <span class="mobilebar-tab__icon">
                             <i class="fas fa-bell"></i>
