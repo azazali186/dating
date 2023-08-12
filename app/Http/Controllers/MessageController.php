@@ -15,14 +15,14 @@ class MessageController extends Controller
             return Redirect::to('login');
         }
         $role = Session::get('sessdata')['role'];
-        $messages = Message::with(['user', 'seller'])->groupBy('seller_id')->orderBy('created_at', 'desc')->where('user_id', Session::get('sessdata')['id'])->get();
+        if ($role == 'user') {
+            $messages = Message::with(['user', 'seller'])->groupBy('seller_id')->orderBy('created_at', 'desc')->where('user_id', Session::get('sessdata')['id'])->get();
+        }
+        if ($role == 'seller') {
+            $messages = Message::with(['user', 'seller'])->groupBy('user_id')->orderBy('created_at', 'desc')->where('seller_id', Session::get('sessdata')['id'])->get();
+        }
 
-        return view('website.message', compact('messages'));
-    }
-
-    public function indexSeller()
-    {
-        return view('website.seller-message');
+        return view('website.message', compact('messages', 'role'));
     }
 
     public function sendMessage(Request $request)

@@ -13,20 +13,18 @@
                                     <div class="banner__inputlist">
                                         <select>
                                             <option>Select Gender</option>
-                                            <option value="male" selected>Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="others">Others</option>
+                                            <option value="men" selected>Male</option>
+                                            <option value="women">Female</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <label>Looking for</label>
                                     <div class="banner__inputlist">
-                                        <select>
+                                        <select name="gender">
                                             <option>Select Gender</option>
-                                            <option value="male">Male</option>
-                                            <option value="female" selected>Female</option>
-                                            <option value="others">Others</option>
+                                            <option value="men">Male</option>
+                                            <option value="women" selected>Female</option>
                                         </select>
                                     </div>
                                 </div>
@@ -35,7 +33,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="banner__inputlist">
-                                                <select>
+                                                <select name="age_start">
                                                     <option value="18" selected>18</option>
                                                     <option value="19">19</option>
                                                     <option value="20">20</option>
@@ -64,7 +62,7 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="banner__inputlist">
-                                                <select>
+                                                <select name="age_end">
                                                     <option value="18">18</option>
                                                     <option value="19">19</option>
                                                     <option value="20">20</option>
@@ -94,16 +92,16 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <label>Age</label>
+                                    <label>Price</label>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="banner__inputlist">
-                                                <input type="text">
+                                                <input type="text" name="price_start">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="banner__inputlist">
-                                                <input type="text" style="width: -webkit-fill-available;">
+                                                <input type="text" style="width: -webkit-fill-available;" name="price_end">
                                             </div>
                                         </div>
                                     </div>
@@ -111,12 +109,13 @@
                                 <div class="col">
                                     <label>City</label>
                                     <div class="banner__inputlist">
-                                        <input type="text" id="location" />
+                                        <input type="text" id="location" name="city" />
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="default-btn reverse d-block"><span>Find Your
-                                            Partner</span></button>
+                                    <button type="submit" class="default-btn reverse d-block">
+                                        <span>Find Your Partner</span>
+                                        </button>
                                 </div>
                             </div>
                         </div>

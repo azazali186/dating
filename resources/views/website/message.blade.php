@@ -250,7 +250,7 @@
             <div class="row">
                 <div class="col-md-4">
                     {{-- <div class="chat-list-box"> --}}
-                        {{-- <div class="head-box">
+                    {{-- <div class="head-box">
                             <ul class="list-inline text-left d-inline-block float-left">
                                 <li>
                                     <img src="https://i.ibb.co/fCzfFJw/person.jpg" alt="" width="40px" />
@@ -262,8 +262,8 @@
                             </ul> -->
                         </div> --}}
 
-                        {{-- <div class="chat-person-list"> --}}
-                            {{-- <ul class="list-inline">
+                    {{-- <div class="chat-person-list"> --}}
+                    {{-- <ul class="list-inline">
                                 <li>
                                     <a href="#" class="flip">
                                         <img src="https://i.ibb.co/6JpcfrK/p4.png" alt="" />
@@ -306,27 +306,47 @@
                                     </a>
                                 </li>
                             </ul> --}}
-                            <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
-                                <div class="row g-0 justify-content-center" id="formobile">
-                                    @foreach ($messages as $item)
-                                        <div class="member__inner" style="height: 90px;border-bottom: 2px solid;margin-bottom: 8px;">
-                                            <div class="member__content">
-                                                <div style="width: 100%;">
-                                                    <div style="width: 20%; float: left;">
-                                                        <img src="{{ $item->seller->image }}" style="width: 70px;">
-                                                    </div>
-                                                    <a style="width: 80%; float: left; text-align: left; padding-left: 11px;">
-                                                        <h5>{{ $item->seller->name }}</h5>
-                                                        <p>{{ strlen($item->text) > 70 ? substr($item->text, 0, 70) . '...' : $item->text }}
-                                                        </p>
-                                                    </a>
+                    <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
+                        <div class="row g-0 justify-content-center" id="formobile">
+                            @foreach ($messages as $item)
+                                @if ($role == 'user')
+                                    <div class="member__inner"
+                                        style="height: 90px;border-bottom: 2px solid;margin-bottom: 8px;">
+                                        <div class="member__content">
+                                            <div style="width: 100%;">
+                                                <div style="width: 20%; float: left;">
+                                                    <img src="{{ $item->seller->image }}" style="width: 70px;">
                                                 </div>
+                                                <a style="width: 80%; float: left; text-align: left; padding-left: 11px;">
+                                                    <h5>{{ $item->seller->name }}</h5>
+                                                    <p>{{ strlen($item->text) > 70 ? substr($item->text, 0, 70) . '...' : $item->text }}
+                                                    </p>
+                                                </a>
                                             </div>
                                         </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        {{-- </div> --}}
+                                    </div>
+                                @endif
+                                @if ($role == 'seller')
+                                    <div class="member__inner"
+                                        style="height: 90px;border-bottom: 2px solid;margin-bottom: 8px;">
+                                        <div class="member__content">
+                                            <div style="width: 100%;">
+                                                <div style="width: 20%; float: left;">
+                                                    <img src="{{ $item->user->image }}" style="width: 70px;">
+                                                </div>
+                                                <a style="width: 80%; float: left; text-align: left; padding-left: 11px;">
+                                                    <h5>{{ $item->user->name }}</h5>
+                                                    <p>{{ strlen($item->text) > 70 ? substr($item->text, 0, 70) . '...' : $item->text }}
+                                                    </p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                    {{-- </div> --}}
                     {{-- </div> --}}
                 </div>
                 <!-- col-md-4 closed -->
@@ -343,21 +363,21 @@
                             </ul>
 
                             <!-- <ul class="flat-icon list-inline text-right d-inline-block float-right">
-                          <li> <a href="#"> <i class="fas fa-video"></i> </a> </li>
-                          <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
-                          <li>
-                          <a href="#" id="dset"> <i class="fas fa-ellipsis-v"></i> </a>
-                          <div class="setting-drop">
-                          <ul class="list-inline">
-                              <li> <a href="#"> My Profile</a> </li>
-                              <li> <a href="#"> Setting </a> </li>
-                              <li> <a href="#"> Privacy Policy </a> </li>
-                              <li> <a href="#"> Hidden chat  </a> </li>
-                              <li> <a href="#"> Logout </a> </li>
-                              </ul>
-                          </div>
-                          </li>
-                      </ul> -->
+                              <li> <a href="#"> <i class="fas fa-video"></i> </a> </li>
+                              <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
+                              <li>
+                              <a href="#" id="dset"> <i class="fas fa-ellipsis-v"></i> </a>
+                              <div class="setting-drop">
+                              <ul class="list-inline">
+                                  <li> <a href="#"> My Profile</a> </li>
+                                  <li> <a href="#"> Setting </a> </li>
+                                  <li> <a href="#"> Privacy Policy </a> </li>
+                                  <li> <a href="#"> Hidden chat  </a> </li>
+                                  <li> <a href="#"> Logout </a> </li>
+                                  </ul>
+                              </div>
+                              </li>
+                          </ul> -->
                         </div>
 
                         <div class="msg_history">
@@ -414,18 +434,18 @@
                                     class="form-control" placeholder="Type your message here ..." />
                                 <ul class="list-inline">
                                     <!--    <li>
-                                                    <a href="#" id="attach">  <i class="fas fa-paperclip"></i> </a>
-                                                    <div class="attachement">
-                                                        <ul class="list-inline">
-                                                        <li> <a href="#"> <i class="fas fa-file"></i> </a> </li>
-                                                        <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
-                                                        <li> <a href="#"> <i class="fas fa-image"></i> </a> </li>
-                                                        <li> <a href="#"> <i class="far fa-play-circle"></i> </a> </li>
-                                                        <li> <a href="#"> <i class="fas fa-map-marker-alt"></i> </a> </li>
-                                                        <li> <a href="#"> <i class="fas fa-id-card"></i> </a> </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>	   -->
+                                                        <a href="#" id="attach">  <i class="fas fa-paperclip"></i> </a>
+                                                        <div class="attachement">
+                                                            <ul class="list-inline">
+                                                            <li> <a href="#"> <i class="fas fa-file"></i> </a> </li>
+                                                            <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
+                                                            <li> <a href="#"> <i class="fas fa-image"></i> </a> </li>
+                                                            <li> <a href="#"> <i class="far fa-play-circle"></i> </a> </li>
+                                                            <li> <a href="#"> <i class="fas fa-map-marker-alt"></i> </a> </li>
+                                                            <li> <a href="#"> <i class="fas fa-id-card"></i> </a> </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>	   -->
                                     <li><i class="fas fa-paper-plane"></i></li>
                                 </ul>
                             </form>

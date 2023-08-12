@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 use URL;
 use Session;
 
@@ -17,8 +18,38 @@ class HomeController extends Controller
 
     function index(Request $request)
     {
-        // dd(Session::get('sessdata'));
-        $seller = Seller::where('status', 1)->get();
+        $perPage = $request->rowsPerPage ?: 5;
+        $page = $request->page ?: 1;
+        $sortBy = $request->sortBy ?: 'created_at';
+        $sortOrder = $request->descending == 'true' ? 'desc' : 'asc';
+
+        $query = Seller::orderBy($sortBy, $sortOrder)->where('status', 1);
+
+        $query->when($request->price_start && $request->price_end, function ($query) use ($request) {
+            $query->whereBetween('price', [$request->price_start, $request->price_end,]);
+        });
+        $query->when($request->city, function ($query) use ($request) {
+            $query->where('city', 'like', "%$request->city%");
+        });
+        $query->when($request->gender, function ($query) use ($request) {
+            $query->where('gender', $request->gender);
+        });
+
+        $query->when($request->type, function ($query) use ($request) {
+            if($request->type == 'newest'){
+                $query->orderBy('created_at', 'desc');
+            }
+            // if($request->type == 'popular'){
+            //     $query->where('gender', $request->gender);
+            // }
+        });
+
+        $query->when($request->age_start && $request->age_end, function ($query) use ($request) {
+            $query->whereRaw('timestampdiff(year, birthday, curdate()) between ? and ?', [$request->age_start, $request->age_end,]);
+        });
+
+        $seller = $query->paginate($perPage, ['*'], 'page', $page)->withQueryString();
+        // return $seller;
         return view('website.index', compact('seller'));
     }
     function singleMember(Request $request)
@@ -44,7 +75,7 @@ class HomeController extends Controller
             $sellerId = Session::get('sessdata')['id'];
             $seller = Seller::where('id', $sellerId)->where('status', 1)->first();
             $sellerPhotos = Photo::where('seller_id', $sellerId)->get();
-            return view('website.seller-profile', compact('seller', 'sellerId','sellerPhotos'));
+            return view('website.seller-profile', compact('seller', 'sellerId', 'sellerPhotos'));
         } else {
             return Redirect::to('login');
         }
