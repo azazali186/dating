@@ -45,7 +45,7 @@
         <div class="group__bottom">
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-xl-6 order-xl-1">
+                    <div class="col-xl-6 order-xl-1 m-auto">
                         <div class="group__bottom--left">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade active show" id="gt2" role="tabpanel"
@@ -117,7 +117,7 @@
                                                     aria-labelledby="profileShowEdit-tab">
                                                     <div class="info-card-content">
                                                         <div class="main-content">
-                                                            <form action="{{ url('user-profile') }}" method="POST">
+                                                            <form enctype="multipart/form-data" action="{{ url('user-profile') }}" method="POST">
                                                                 @csrf
                                                                 <input required type="hidden" name="userId"
                                                                     value="{{ $userId }}">
@@ -257,6 +257,17 @@
                                                                             {{ $errors->first('city') }}</p>
                                                                     @endif
                                                                 </div>
+
+                                                                <div class="form-group">
+                                                                    <label>Upload Your Photo</label>
+                                                                    <input type="file" name="image"
+                                                                        class="my-form-control" placeholder="">
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <img src="{{ $user->image }}"/>
+                                                                </div>
+
                                                                 <button class="default-btn reverse mt-4"
                                                                     data-toggle="modal" type="submit"
                                                                     data-target="#email-confirm"><span>Update Your

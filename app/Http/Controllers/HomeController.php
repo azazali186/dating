@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
+use App\Models\PricingTable;
 use App\Models\Seller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class HomeController extends Controller
         });
 
         $query->when($request->type, function ($query) use ($request) {
-            if($request->type == 'newest'){
+            if ($request->type == 'newest') {
                 $query->orderBy('created_at', 'desc');
             }
             // if($request->type == 'popular'){
@@ -94,6 +95,15 @@ class HomeController extends Controller
     {
         $user = User::where('id', $request->userId)->first();
         $password = $request->password;
+        $img_url = 'http://localhost/dating/public/website/assets/images/member/home2/01.jpg';
+        // dd($user->update(['image' => $img_url]));
+        if ($request->file('image')) {
+            // dd($request->file('image'));
+            $file = $request->file('image');
+            $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+            $file->move(public_path('website/assets/profile_pic/'), $filename);
+            $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
+        }
         if ($password != '') {
             if ($request->password == $request->confirmpassword) {
                 $user->update([
@@ -103,6 +113,7 @@ class HomeController extends Controller
                     'lookingfor' => $request->lookingfor,
                     'gender' => $request->gender,
                     'matrital_status' => $request->matrital_status,
+                    'image' => $img_url,
                     'city' => $request->city,
                 ]);
             } else {
@@ -115,6 +126,7 @@ class HomeController extends Controller
                 'lookingfor' => $request->lookingfor,
                 'gender' => $request->gender,
                 'matrital_status' => $request->matrital_status,
+                'image' => $img_url,
                 'city' => $request->city,
             ]);
         }
@@ -172,5 +184,12 @@ class HomeController extends Controller
             }
         }
         return redirect()->back()->with('success', 'Added successfully!');
+    }
+    public function pricingTable()
+    {
+        $months = PricingTable::where('pricing_type', 'Month')->first();
+        $years = PricingTable::where('pricing_type', 'Year')->first();
+
+        return view('website.pricingTable', compact('months', 'years'));
     }
 }

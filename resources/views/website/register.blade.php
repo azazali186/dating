@@ -14,7 +14,7 @@
             <div class="col-lg-7">
                 <div class="log-reg-inner">
                     <div class="main-content">
-                        <form action="{{ route('save.register') }}" method="POST">
+                        <form enctype="multipart/form-data" action="{{ route('save.register') }}" method="POST">
                             @csrf
                             <h4 class="content-title">Acount Details</h4>
                             <div class="form-group">
@@ -119,6 +119,12 @@
                                     <p class="text-danger">{{ $errors->first('city') }}</p>
                                 @endif
                             </div>
+
+                            <div class="form-group">
+                                <label>Upload Your Photo</label>
+                                <input required type="file" name="image" class="my-form-control" placeholder="">
+                            </div>
+
                             <button class="default-btn reverse" data-toggle="modal" type="submit"
                                 data-target="#email-confirm"><span>Create Your Profile</span></button>
                         </form>

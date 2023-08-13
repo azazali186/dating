@@ -51,6 +51,13 @@ class AuthController extends Controller
         //      return redirect()->back()->withErrors($validateUser)->withInput();
         // }
         if ($request->password == $request->confirmpassword) {
+            $img_url = '';
+            if ($request->file('image')) {
+                $file = $request->file('image');
+                $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+                $file->move(public_path('website/assets/profile_pic/'), $filename);
+                $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
+            }
 
             $user = User::create([
                 'mobile' => $request->mobile,
@@ -62,6 +69,8 @@ class AuthController extends Controller
                 'gender' => $request->gender,
                 'matrital_status' => $request->matrital_status,
                 'city' => $request->city,
+
+                'image' => $img_url,
             ]);
 
 

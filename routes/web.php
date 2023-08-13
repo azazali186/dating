@@ -31,6 +31,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/seller-profile', 'sellerProfileEdit');
     Route::post('/seller-photo-update', 'sellerPhotoUpdate');
     Route::get('/user-profile', 'userProfile');
+
+    Route::get('/pricing-table', 'pricingTable');
+
     Route::post('/user-profile', 'userProfileEdit');
     Route::get('/member-single/{id}', 'singleMember');
 });
@@ -39,9 +42,9 @@ Route::controller(MessageController::class)->group(function () {
     Route::post('send-message', 'sendMessage');
 });
 
-Route::get('/pricing-table', function () {
-    return view('website.pricingTable');
-});
+// Route::get('/pricing-table', function () {
+//     return view('website.pricingTable');
+// });
 Route::get('/search', function () {
     return view('website.search');
 });

@@ -40,8 +40,8 @@
         </div>
         <div class="group__bottom">
             <div class="container">
-                <div class="row g-4">
-                    <div class="col-xl-6 order-xl-1">
+                <div class="row g-4 m-auto">
+                    <div class="col-xl-6 order-xl-1 m-auto">
                         <div class="group__bottom--left">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade active show" id="gt2" role="tabpanel"
@@ -92,14 +92,15 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="gt6" role="tabpanel" aria-labelledby="gt6-tab">
-                                    <div class="col-xl-3 order-xl-0">
+                                    <div class="col-xl-12 order-xl-0">
                                         <div class="group__bottom--center">
                                             <div class="story__item style2">
                                                 <div class="story__inner">
                                                     <div class="story__thumb position-relative">
-                                                        <img src="{{ $seller->image }}" alt="dating thumb">
+                                                        <img src="{{ $seller->image }}" alt="dating thumb" style="
+                                                        width: 35%;
+                                                    ">
                                                     </div>
                                                     <div class="story__content px-0 pb-0">
                                                         <h4>{{ $seller->name }}</h4>
@@ -125,7 +126,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="gt3" role="tabpanel" aria-labelledby="gt3-tab">
                                     <div class="">
                                         <div class="group__bottom--allmedia">

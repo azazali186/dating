@@ -2,7 +2,6 @@
 @section('content')
 @section('title', 'pricing-table')
 <style>
-    /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"); */
     :root {
         --pinkish-red: #c35a74;
         --medium-blue: #307baa;
@@ -119,13 +118,24 @@
         margin-top: 10px;
     }
 
-    .liClass::before {
+    .liClassCheck::before {
         content: "";
-        background-image: url("https://i.postimg.cc/ht7g996V/check.png");
+        background-image: url("{{ URL::to('public/website/photos/check.png') }}");
         background-position: center;
         background-size: cover;
         opacity: 0.5;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+    }
 
+    .liClassUncheck::before {
+        content: "";
+        background-image: url("{{ URL::to('public/website/photos/uncheck.png') }}");
+        background-position: center;
+        background-size: cover;
+        opacity: 0.5;
         display: inline-block;
         width: 10px;
         height: 10px;
@@ -171,8 +181,44 @@
             margin-top: 25px;
         }
     }
+</style>
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
 
-    /* Responsiveness:End */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 94%;
+    }
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        text-align: end;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
 </style>
 <section class="padding-bottom">
     <div class="contentSub">
@@ -189,12 +235,12 @@
             </div>
             <div class="descriptionSub">
                 <ul class="ulClass">
-                    <li class="liClass">Lorem, ipsum dolor.</li>
-                    <li class="liClass">Harum, beatae laudantium.</li>
-                    <li class="liClass">Odit, fugit saepe.</li>
-                    <li class="liClass">Harum, veniam suscipit!</li>
-                    <li class="liClass">A, aut veritatis!</li>
-                    <li class="liClass">Aliquid, quasi repellat!</li>
+                    <li class="liClass liClassUncheck">Lorem, ipsum dolor.</li>
+                    <li class="liClass liClassUncheck">Harum, beatae laudantium.</li>
+                    <li class="liClass liClassUncheck">Odit, fugit saepe.</li>
+                    <li class="liClass liClassUncheck">Harum, veniam suscipit!</li>
+                    <li class="liClass liClassUncheck">A, aut veritatis!</li>
+                    <li class="liClass liClassUncheck">Aliquid, quasi repellat!</li>
                 </ul>
             </div>
             <div class="button">
@@ -215,12 +261,12 @@
             </div>
             <div class="descriptionSub">
                 <ul class="ulClass">
-                    <li class="liClass">Lorem, ipsum dolor.</li>
-                    <li class="liClass">Harum, beatae laudantium.</li>
-                    <li class="liClass">Odit, fugit saepe.</li>
-                    <li class="liClass">Harum, veniam suscipit!</li>
-                    <li class="liClass">A, aut veritatis!</li>
-                    <li class="liClass">Aliquid, quasi repellat!</li>
+                    <li class="liClass liClassCheck">Lorem, ipsum dolor.</li>
+                    <li class="liClass liClassCheck">Harum, beatae laudantium.</li>
+                    <li class="liClass liClassCheck">Odit, fugit saepe.</li>
+                    <li class="liClass liClassCheck">Harum, veniam suscipit!</li>
+                    <li class="liClass liClassCheck">A, aut veritatis!</li>
+                    <li class="liClass liClassCheck">Aliquid, quasi repellat!</li>
                 </ul>
             </div>
             <div class="button">
@@ -241,19 +287,54 @@
             </div>
             <div class="descriptionSub">
                 <ul class="ulClass">
-                    <li class="liClass">Lorem, ipsum dolor.</li>
-                    <li class="liClass">Harum, beatae laudantium.</li>
-                    <li class="liClass">Odit, fugit saepe.</li>
-                    <li class="liClass">Harum, veniam suscipit!</li>
-                    <li class="liClass">A, aut veritatis!</li>
-                    <li class="liClass">Aliquid, quasi repellat!</li>
+                    <li class="liClass liClassCheck">Lorem, ipsum dolor.</li>
+                    <li class="liClass liClassCheck">Harum, beatae laudantium.</li>
+                    <li class="liClass liClassCheck">Odit, fugit saepe.</li>
+                    <li class="liClass liClassCheck">Harum, veniam suscipit!</li>
+                    <li class="liClass liClassCheck">A, aut veritatis!</li>
+                    <li class="liClass liClassCheck">Aliquid, quasi repellat!</li>
                 </ul>
             </div>
             <div class="button">
-                <button class="buttonBT" type="submit">CONTINUE</button>
+                <button id="myBtn" class="buttonBT">CONTINUE</button>
             </div>
         </div>
+
+
+        {{-- <button id="myBtn">Open Modal</button> --}}
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+
     </div>
+    <script>
+        var modal = document.getElementById("myModal");
+
+        var btn = document.getElementById("myBtn");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </section>
 @endsection
 @section('script')
