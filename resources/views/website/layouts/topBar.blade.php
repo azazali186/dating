@@ -53,7 +53,7 @@
     </div> --}}
     <div class="header__bottom">
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg" style="padding-top: 0px; padding-bottom: 0px;">
                 <a class="navbar-brand" href="{{ url('/') }}"><img
                         src="{{ URL::to('public/website/assets/images/logo/logo.png') }}" alt="logo"></a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"

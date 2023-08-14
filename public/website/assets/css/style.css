@@ -2684,7 +2684,7 @@ iframe {
 }
 
 .header__bottom {
-    /* padding-block: 2.5px; */
+    padding-block: 1.5px;
 }
 
 .header.header-fixed .header__top {
@@ -2777,7 +2777,7 @@ iframe {
 }
 
 .header--style2 .header__bottom .button-group li a {
-    padding: 17px 20px;
+    /* padding: 17px 20px; */
     letter-spacing: 0.85px;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
