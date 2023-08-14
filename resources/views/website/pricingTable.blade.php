@@ -255,8 +255,8 @@
                     <img src="https://i.postimg.cc/DzrTN72Z/airplane.png" alt="airplane" />
                 </div>
                 <div class="costSub">
-                    <p class="amountSub">$99</p>
-                    <p class="detailSub">per student per year</p>
+                    <p class="amountSub">${{ $months->pricing }}</p>
+                    <p class="detailSub">per monthly</p>
                 </div>
             </div>
             <div class="descriptionSub">
@@ -270,7 +270,7 @@
                 </ul>
             </div>
             <div class="button">
-                <button class="buttonBT" type="submit">CONTINUE</button>
+                <button id="myBtn1" class="buttonBT" type="submit">CONTINUE</button>
             </div>
         </div>
 
@@ -281,8 +281,8 @@
                     <img src="https://i.postimg.cc/wvFd6FRY/startup.png" alt="startup" />
                 </div>
                 <div class="costSub">
-                    <p class="amountSub">$199</p>
-                    <p class="detailSub">per team per year</p>
+                    <p class="amountSub">${{ $years->pricing }}</p>
+                    <p class="detailSub">per year</p>
                 </div>
             </div>
             <div class="descriptionSub">
@@ -296,41 +296,68 @@
                 </ul>
             </div>
             <div class="button">
-                <button id="myBtn" class="buttonBT">CONTINUE</button>
+                <button id="myBtn2" class="buttonBT">CONTINUE</button>
             </div>
         </div>
 
 
         {{-- <button id="myBtn">Open Modal</button> --}}
 
-        <div id="myModal" class="modal">
+        <div id="myModal1" class="modal">
 
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <p>Some text in the Modal..</p>
+                <img src="{{ $months->qr_image }}" />
             </div>
 
         </div>
-
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="row">
+                    <div class="col-md-6 col-12 m-auto text-center">
+                        <img src="{{ $years->qr_image }}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
-        var modal = document.getElementById("myModal");
+        var modal1 = document.getElementById("myModal1");
+        var modal2 = document.getElementById("myModal2");
 
-        var btn = document.getElementById("myBtn");
+        var btn1 = document.getElementById("myBtn1");
+        var btn2 = document.getElementById("myBtn2");
 
-        var span = document.getElementsByClassName("close")[0];
+        var span1 = document.getElementsByClassName("close")[0];
+        var span2 = document.getElementsByClassName("close")[1];
 
-        btn.onclick = function() {
-            modal.style.display = "block";
+        btn1.onclick = function() {
+            modal1.style.display = "block";
         }
 
-        span.onclick = function() {
-            modal.style.display = "none";
+        span1.onclick = function() {
+            modal1.style.display = "none";
         }
 
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == modal1) {
+                modal1.style.display = "none";
+            }
+        }
+
+
+        btn2.onclick = function() {
+            modal2.style.display = "block";
+        }
+
+        span2.onclick = function() {
+            modal2.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
             }
         }
     </script>
