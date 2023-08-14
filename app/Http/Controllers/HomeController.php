@@ -19,7 +19,7 @@ class HomeController extends Controller
 
     function index(Request $request)
     {
-        $perPage = $request->rowsPerPage ?: 5;
+        $perPage = $request->rowsPerPage ?: 15;
         $page = $request->page ?: 1;
         $sortBy = $request->sortBy ?: 'created_at';
         $sortOrder = $request->descending == 'true' ? 'desc' : 'asc';

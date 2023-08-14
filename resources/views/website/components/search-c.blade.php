@@ -1,8 +1,8 @@
-
 <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
     <form action="{{ url('/') }}">
         <div class="banner__list">
-            <div class="row align-items-center row-cols-xl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1">
+            <div class="row align-items-center">
+                {{-- row-cols-xl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 --}}
                 <div class="col-6">
                     <label>I am a</label>
                     <div class="banner__inputlist">
@@ -23,7 +23,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12">
                     <label>Age</label>
                     <div class="row">
                         <div class="col-6">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12">
                     <label>Price</label>
                     <div class="row">
                         <div class="col-6">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12">
                     <label>City</label>
                     <div class="banner__inputlist">
                         <input type="text" id="location" name="city" />
@@ -110,7 +110,7 @@
                 <div class="col m-auto">
                     <button type="submit" class="default-btn reverse d-block">
                         <span>Find Your Partner</span>
-                        </button>
+                    </button>
                 </div>
             </div>
         </div>

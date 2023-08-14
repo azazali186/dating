@@ -90,14 +90,6 @@
     <div class="containerMain pageheader bg_img"
         style="background-image: url({{ URL::to('public/website/assets/images/bg-img/pageheader.jpg') }});"
         id="imagePreview2">
-        {{-- <div class="top-right">
-            <div class="bottom-left avatar-upload">
-                <div class="avatar-edit">
-                    <input type="file" id="imageUpload2" accept=".png, .jpg, .jpeg" />
-                    <label for="imageUpload2"></label>
-                </div>
-            </div>
-        </div> --}}
         <div class="container">
             <div class="pageheader__content text-center">
                 <h2>{{ $seller->name }}</h2>
@@ -110,10 +102,6 @@
                 </div>
                 <div class="col-xl-9">
                     <div class="bottom-left avatar-upload">
-                        {{-- <div class="avatar-edit">
-                            <input type="file" id="imageUpload1" accept=".png, .jpg, .jpeg" />
-                            <label for="imageUpload1"></label>
-                        </div> --}}
                         <div class="avatar-preview">
                             <div id="imagePreview1" style="background-image: url('{{ $seller->image }}')"></div>
                         </div>
@@ -210,17 +198,7 @@
                                         <div class="group__bottom--center">
                                             <div class="story__item style2">
                                                 <div class="story__inner">
-                                                    {{-- <div class="story__thumb position-relative">
-                                                        <img src="{{ $seller->image }}" alt="dating thumb"
-                                                            style="
-                                                        width: 35%;
-                                                    ">
-                                                    </div> --}}
                                                     <div class="story__content px-0 pb-0">
-                                                        {{-- <h4>{{ $seller->name }}</h4>
-                                                        <div class="story__content--content mb-2 pb-3">
-                                                            <p>{{ $seller->mobile }}</p>
-                                                        </div> --}}
                                                         <div class="story__content--author mt-3 pb-2">
                                                             <h6 class="d-block w-100 mb-3">{{ $seller->name }} Photos</h6>
                                                             <div class="row g-2">
