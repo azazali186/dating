@@ -14,12 +14,125 @@
             font-size: 1.125rem;
         }
     </style>
+    <style>
+        .avatar-upload {
+            position: relative;
+            max-width: 120px;
+            /* margin: 50px auto; */
+        }
+
+        .avatar-upload .avatar-edit {
+            position: absolute;
+            right: -8px;
+            z-index: 1;
+            top: 3px;
+        }
+
+        .avatar-upload .avatar-edit input {
+            display: none;
+        }
+
+        .avatar-upload .avatar-edit input+label {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-bottom: 0;
+            border-radius: 100%;
+            background: #ffffff;
+            border: 1px solid transparent;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            font-weight: normal;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .avatar-upload .avatar-edit input+label:hover {
+            background: #f1f1f1;
+            border-color: #d6d6d6;
+        }
+
+        .avatar-upload .avatar-edit input+label:after {
+            content: "\f040";
+            font-family: "FontAwesome";
+            color: #757575;
+            position: absolute;
+            top: 4px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            margin: auto;
+        }
+
+        .avatar-upload .avatar-preview {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            border-radius: 100%;
+            border: 6px solid #f8f8f8;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .avatar-upload .avatar-preview>div {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+    <style>
+        .containerMain {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 1px;
+            right: 14px;
+        }
+
+        .bottom-left {
+            position: absolute;
+            bottom: 0px;
+            /* left: 3px; */
+        }
+    </style>
     <!-- ================> Page Header section start here <================== -->
-    <div class="pageheader bg_img"
-        style="background-image: url({{ URL::to('public/website/assets/images/bg-img/pageheader.jpg') }});">
+    <div class="containerMain pageheader bg_img"
+        style="background-image: url({{ URL::to('public/website/assets/images/bg-img/pageheader.jpg') }});"
+        id="imagePreview2">
+        <div class="top-right">
+            <div class="bottom-left avatar-upload">
+                <div class="avatar-edit">
+                    <input type="file" id="imageUpload2" accept=".png, .jpg, .jpeg" />
+                    <label for="imageUpload2"></label>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="pageheader__content text-center">
                 <h2>{{ $seller->name }}</h2>
+            </div>
+        </div>
+
+        <div class="container ">
+            <div class="row">
+                <div class="col-xl-3 d-none d-xl-block">
+                </div>
+                <div class="col-xl-9">
+                    <div class="bottom-left avatar-upload">
+                        <div class="avatar-edit">
+                            <input type="file" id="imageUpload1" accept=".png, .jpg, .jpeg" />
+                            <label for="imageUpload1"></label>
+                        </div>
+                        <div class="avatar-preview">
+                            <div id="imagePreview1" style="background-image: url('http://i.pravatar.cc/500?img=7')"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -114,10 +227,6 @@
                                                                 </span>
                                                                 <span>{{ $seller->city }}</span>
                                                             </li>
-                                                            {{-- <li>
-                                                            <p class="info-name">Loking for a</p>
-                                                            <p class="info-details">{{ $seller->gender }}</p>
-                                                        </li> --}}
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -137,7 +246,8 @@
                                                                         type="text" class="fmy-form-control"
                                                                         name="name" placeholder="Enter Your Full Name">
                                                                     @if ($errors->has('name'))
-                                                                        <p class="text-danger">{{ $errors->first('name') }}
+                                                                        <p class="text-danger">
+                                                                            {{ $errors->first('name') }}
                                                                         </p>
                                                                     @endif
                                                                 </div>
@@ -269,18 +379,6 @@
                                                                     class="fa-solid fa-table-cells-large"></i> All
                                                                 <span>{{ count($sellerPhotos) }}</span></button>
                                                         </li>
-                                                        {{-- <li class="nav-item" role="presentation">
-                                                        <button class="nav-link" id="album-tab" data-bs-toggle="tab" data-bs-target="#album" type="button" role="tab" aria-controls="album" aria-selected="false"><i class="fa-solid fa-camera"></i> Albums <span>4</span></button>
-                                                    </li>
-                                                    <li class="nav-item" role="presentation">
-                                                        <button class="nav-link" id="photos-media-tab" data-bs-toggle="tab" data-bs-target="#photos-media" type="button" role="tab" aria-controls="photos-media" aria-selected="false"><i class="fa-solid fa-image"></i> Photos <span>4</span></button>
-                                                    </li>
-                                                    <li class="nav-item" role="presentation">
-                                                        <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video" type="button" role="tab" aria-controls="video" aria-selected="false"><i class="fa-solid fa-video"></i> Videos <span>4</span></button>
-                                                    </li>
-                                                    <li class="nav-item" role="presentation">
-                                                        <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music" type="button" role="tab" aria-controls="music" aria-selected="false"><i class="fa-solid fa-music"></i> Music <span>0</span></button>
-                                                    </li> --}}
                                                     </ul>
                                                     <div class="tab-content" id="myTabContent3">
                                                         <div class="tab-pane fade show active" id="all-media"
@@ -309,22 +407,6 @@
                                                                         </form>
                                                                     </li>
                                                                 </ul>
-                                                                {{-- <div
-                                                                    class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-3 g-3">
-                                                                    <div class="col">
-                                                                        <div class="media-thumb video-thumb">
-                                                                            <img src="{{ URL::to('public/website/assets/images/allmedia/01.jpg') }}"
-                                                                                alt="dating thumb">
-                                                                            <a href="#groupmodalvideo"
-                                                                                data-rel="lightcase" class="icon">
-                                                                                <i class="fa-solid fa-circle-play"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> --}}
-                                                                {{-- <div class="text-center mt-5">
-                                                                <a href="#" class="default-btn"><i class="fa-solid fa-spinner"></i> Load More</a>
-                                                            </div> --}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -337,14 +419,14 @@
                                         <div class="group__bottom--center">
                                             <div class="story__item style2">
                                                 <div class="story__inner">
-                                                    <div class="story__thumb position-relative">
+                                                    {{-- <div class="story__thumb position-relative">
                                                         <img src="{{ $seller->image }}" alt="dating thumb">
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="story__content px-0 pb-0">
-                                                        <h4>{{ $seller->name }}</h4>
+                                                        {{-- <h4>{{ $seller->name }}</h4>
                                                         <div class="story__content--content mb-2 pb-3">
                                                             <p>{{ $seller->mobile }}</p>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="story__content--author mt-3 pb-2">
                                                             <h6 class="d-block w-100 mb-3">{{ $seller->name }} Photos</h6>
                                                             <div class="row g-2">
@@ -356,12 +438,6 @@
                                                                                 alt="dating thumb"></a>
                                                                     </div>
                                                                 @endforeach
-                                                                {{-- <div class="col-4">
-                                                                    <a href="#groupmodal"
-                                                                        data-rel="lightcase:callection"><img
-                                                                            src="{{ URL::to('public/website/assets/images/member/profile/02.jpg') }}"
-                                                                            alt="dating thumb"></a>
-                                                                </div> --}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -399,13 +475,34 @@
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- ================> Group section end here <================== -->
+    <script>
+        function readURL(input, id) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#imagePreview" + id).css(
+                        "background-image",
+                        "url(" + e.target.result + ")"
+                    );
+                    $("#imagePreview" + id).hide();
+                    $("#imagePreview" + id).fadeIn(650);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imageUpload1").change(function() {
+            readURL(this, 1);
+        });
+        $("#imageUpload2").change(function() {
+            readURL(this, 2);
+        });
+    </script>
 @endsection
 @section('script')
 @endsection

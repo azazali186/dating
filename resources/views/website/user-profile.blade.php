@@ -14,12 +14,126 @@
             font-size: 1.125rem;
         }
     </style>
+
+    <style>
+        .avatar-upload {
+            position: relative;
+            max-width: 120px;
+            /* margin: 50px auto; */
+        }
+
+        .avatar-upload .avatar-edit {
+            position: absolute;
+            right: -8px;
+            z-index: 1;
+            top: 3px;
+        }
+
+        .avatar-upload .avatar-edit input {
+            display: none;
+        }
+
+        .avatar-upload .avatar-edit input+label {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-bottom: 0;
+            border-radius: 100%;
+            background: #ffffff;
+            border: 1px solid transparent;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            font-weight: normal;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .avatar-upload .avatar-edit input+label:hover {
+            background: #f1f1f1;
+            border-color: #d6d6d6;
+        }
+
+        .avatar-upload .avatar-edit input+label:after {
+            content: "\f040";
+            font-family: "FontAwesome";
+            color: #757575;
+            position: absolute;
+            top: 4px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            margin: auto;
+        }
+
+        .avatar-upload .avatar-preview {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            border-radius: 100%;
+            border: 6px solid #f8f8f8;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .avatar-upload .avatar-preview>div {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+    <style>
+        .containerMain {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 1px;
+            right: 14px;
+        }
+
+        .bottom-left {
+            position: absolute;
+            bottom: 0px;
+            /* left: 3px; */
+        }
+    </style>
     <!-- ================> Page Header section start here <================== -->
-    <div class="pageheader bg_img"
-        style="background-image: url({{ URL::to('public/website/assets/images/bg-img/pageheader.jpg') }});">
+    <div class="containerMain pageheader bg_img"
+        style="background-image: url({{ URL::to('public/website/assets/images/bg-img/pageheader.jpg') }});"
+        id="imagePreview2">
+        <div class="top-right">
+            <div class="bottom-left avatar-upload">
+                <div class="avatar-edit">
+                    <input type="file" id="imageUpload2" accept=".png, .jpg, .jpeg" />
+                    <label for="imageUpload2"></label>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="pageheader__content text-center">
                 <h2>{{ $user->name }}</h2>
+            </div>
+        </div>
+
+        <div class="container ">
+            <div class="row">
+                <div class="col-xl-3 d-none d-xl-block">
+                </div>
+                <div class="col-xl-9">
+                    <div class="bottom-left avatar-upload">
+                        <div class="avatar-edit">
+                            <input type="file" id="imageUpload1" accept=".png, .jpg, .jpeg" />
+                            <label for="imageUpload1"></label>
+                        </div>
+                        <div class="avatar-preview">
+                            <div id="imagePreview1" style="background-image: url('http://i.pravatar.cc/500?img=7')"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -28,13 +142,14 @@
         <div class="group__top">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-3 d-none d-xl-block"></div>
+                    <div class="col-xl-3 d-none d-xl-block">
+                    </div>
                     <div class="col-xl-9">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="gt2-tab" data-bs-toggle="tab" data-bs-target="#gt2"
-                                    type="button" role="tab" aria-controls="gt2" aria-selected="false"><i
-                                        class="fa-solid fa-users"></i> Profile
+                                    type="button" role="tab" aria-controls="gt2" aria-selected="false">
+                                    <i class="fa-solid fa-users"></i> Profile
                                 </button>
                             </li>
                         </ul>
@@ -117,7 +232,8 @@
                                                     aria-labelledby="profileShowEdit-tab">
                                                     <div class="info-card-content">
                                                         <div class="main-content">
-                                                            <form enctype="multipart/form-data" action="{{ url('user-profile') }}" method="POST">
+                                                            <form enctype="multipart/form-data"
+                                                                action="{{ url('user-profile') }}" method="POST">
                                                                 @csrf
                                                                 <input required type="hidden" name="userId"
                                                                     value="{{ $userId }}">
@@ -265,7 +381,7 @@
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <img src="{{ $user->image }}"/>
+                                                                    <img src="{{ $user->image }}" />
                                                                 </div>
 
                                                                 <button class="default-btn reverse mt-4"
@@ -314,6 +430,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function readURL(input, id) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#imagePreview" + id).css(
+                        "background-image",
+                        "url(" + e.target.result + ")"
+                    );
+                    $("#imagePreview" + id).hide();
+                    $("#imagePreview" + id).fadeIn(650);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imageUpload1").change(function() {
+            readURL(this, 1);
+        });
+        $("#imageUpload2").change(function() {
+            readURL(this, 2);
+        });
+    </script>
     <!-- ================> Group section end here <================== -->
 @endsection
 @section('script')

@@ -308,6 +308,9 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <img src="{{ $months->qr_image }}" />
+                {{-- <div class="">
+
+                </div> --}}
             </div>
 
         </div>
