@@ -149,23 +149,32 @@
                 <h2 style=" font-size: 25px; ">Most Popular Members</h2>
             </div>
             <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
-                <form action="{{ url()->full() }}">
-                    <ul class="nav nav-tabs member__tab" id="myTab" role="tablist" style="margin: 0px !important">
-                        <li class="nav-item">
-                            <button class="nav-link @if (isset($_GET['type']) && $_GET['type'] == 'newest') active @endif" type="submit"
-                                name="type" value="newest">Newest</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link @if (isset($_GET['type']) && $_GET['type'] == 'popular') active @endif" type="submit"
-                                name="type" value="popular">Popular</button>
-                        </li>
-                    </ul>
-                </form>
                 <div class="tab-content mx-10-none" id="myTabContent">
                     {{-- <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab"> --}}
                     <div class="row g-0 justify-content-center">
-                        <div class="col-md-8" style="text-align: end;">
-                            <button id="myBtn1" class="btn" style=" background: #f24570; color: white; "><i class="fa-solid fa-filter"></i></button>
+                        <div class="col-8" style="text-align: end;">
+                            <div class="row">
+                                <div class="col-10">
+                                    <form action="{{ url()->full() }}">
+                                        <ul class="nav nav-tabs member__tab" id="myTab" role="tablist"
+                                            style="margin: 0px !important">
+                                            <li class="nav-item">
+                                                <button class="nav-link @if (isset($_GET['type']) && $_GET['type'] == 'newest') active @endif"
+                                                    type="submit" name="type" value="newest">Newest</button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link @if (isset($_GET['type']) && $_GET['type'] == 'popular') active @endif"
+                                                    type="submit" name="type" value="popular">Popular</button>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                                <div class="col-2" style="text-align: end">
+                                    <button id="myBtn1" class="btn" style=" background: #f24570; color: white; ">
+                                        <i class="fa-solid fa-filter"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         @foreach ($seller as $item)
                             <div class="member__inner col-md-4 m-2"
@@ -193,10 +202,11 @@
                                                 </div>
                                             @else
                                                 <div style="width: 60%; float: left;">
-                                                    <a href="{{ url('pricing-table') }}">
+                                                    <a href="{{ url('member-single') }}/{{ $item->id }}">
                                                         <h5>{{ $item->name }}</h5>
                                                     </a>
-                                                    <p>9125XXXXXXX</p>
+                                                    <p>Age - {{ ageCalc($item->birthday) }} / Price -
+                                                        {{ $item->price }}$</p>
                                                 </div>
                                                 <div style="width: 20%; float: left;">
                                                     <a href="{{ url('pricing-table') }}">
@@ -208,10 +218,11 @@
                                             @endif
                                         @else
                                             <div style="width: 60%; float: left;">
-                                                <a href="{{ url('login') }}">
+                                                <a href="{{ url('member-single') }}/{{ $item->id }}">
                                                     <h5>{{ $item->name }}</h5>
                                                 </a>
-                                                <p>9125XXXXXXX</p>
+                                                <p>Age - {{ ageCalc($item->birthday) }} / Price -
+                                                    {{ $item->price }}$</p>
                                             </div>
                                             <div style="width: 20%; float: left;">
                                                 <a href="{{ url('login') }}">
@@ -244,7 +255,7 @@
                 <div class="group group--single mb-2">
                     <div class="about about--style3 pt-xl-0">
                         {{-- <div class="container"> --}}
-                            @include('website.components.search-c')
+                        @include('website.components.search-c')
                         {{-- </div> --}}
                     </div>
                 </div>

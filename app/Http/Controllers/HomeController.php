@@ -58,16 +58,7 @@ class HomeController extends Controller
         $sellerId = $request->id;
         $seller = Seller::where('id', $sellerId)->where('status', 1)->first();
         $sellerPhotos = Photo::where('seller_id', $sellerId)->get();
-        if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user') {
-            if (getSubscription() == 'Free') {
-                return Redirect::to('pricing-table');
-            }
-        } elseif (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller' && Session::get('sessdata')['id'] == $sellerId) {
-            return view('website.member-single', compact('seller', 'sellerId', 'sellerPhotos'));
-        } else {
-            return Redirect::to('login');
-        }
-        // dd($seller);
+
         return view('website.member-single', compact('seller', 'sellerId', 'sellerPhotos'));
     }
     function sellerProfile(Request $request)
