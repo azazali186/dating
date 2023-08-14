@@ -39,7 +39,9 @@
     {{-- <a href="#" class="scrollToTop"><i class="fa-solid fa-angle-up"></i></a> --}}
 
     <!-- Top Bar Start -->
+    <!-- ================> header section start here <================== -->
     @include('website.layouts.topBar')
+    <!-- ================> header section end here <================== -->
     <!-- Nav Bar End -->
 
     <!-- Main Wrapper -->
