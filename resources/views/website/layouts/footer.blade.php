@@ -298,7 +298,7 @@
 
                     <div class="mobilebar-tab-item"
                         style="{{ request()->is('pricing-table') ? 'background: black;' : '' }}">
-                        <a href="{{ url('login') }}">
+                        <a href="{{ url('pricing-table') }}">
                             <span class="mobilebar-tab__icon">
                                 <i class="fab fa-themeco"></i>
                             </span>
