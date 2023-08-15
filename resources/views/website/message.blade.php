@@ -245,7 +245,8 @@
             display: flex;
             position: relative;
             flex-shrink: 0;
-            bottom: 0px;
+            /* bottom: 0px; */
+            bottom: -46px;
             border-radius: 6px;
         }
 
