@@ -148,7 +148,7 @@
     <div class="member member--style2 padding-bottom">
         <div class="container">
             <div class="section__header style-2 text-center wow fadeInUp mt-2" data-wow-duration="1.5s">
-                <h2 style=" font-size: 20px; ">Most Popular Members</h2>
+                <h2 style=" font-size: 22px; ">Most Popular Members</h2>
             </div>
             <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
                 <div class="tab-content mx-10-none" id="myTabContent">
