@@ -343,7 +343,7 @@
                                 </li>
                             </ul> --}}
                     </div>
-                    <div class="msg_history">
+                    <div class="msg_history" style=" margin-bottom: 100px; ">
                         <div class="incoming_msg">
                             <div class="incoming_msg_img">
                                 <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
@@ -558,12 +558,12 @@
                                 <span class="time_date"> 11:01 AM | Today</span>
                             </div>
                         </div>
-                        <div class="incoming_msg">
+                        {{-- <div class="incoming_msg">
                             <div class="received_msg"></div>
                         </div>
                         <div class="incoming_msg">
                             <div class="received_msg"></div>
-                        </div>
+                        </div> --}}
                     </div>
                     {{-- send-message --}}
                     <div class="mobilebar-container-message">
