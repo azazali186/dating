@@ -16,10 +16,10 @@ class MessageController extends Controller
         }
         $role = Session::get('sessdata')['role'];
         if ($role == 'user') {
-            $messages = Message::with(['user', 'seller'])->groupBy('seller_id')->orderBy('messages.created_at', 'desc')->where('user_id', Session::get('sessdata')['id'])->get();
+            $messages = Message::with(['user', 'seller'])->groupBy('seller_id')->sortBy('created_at', 'desc')->where('user_id', Session::get('sessdata')['id'])->get();
         }
         if ($role == 'seller') {
-            $messages = Message::with(['user', 'seller'])->groupBy('user_id')->orderBy('messages.created_at', 'desc')->where('seller_id', Session::get('sessdata')['id'])->get();
+            $messages = Message::with(['user', 'seller'])->groupBy('user_id')->sortBy('created_at', 'desc')->where('seller_id', Session::get('sessdata')['id'])->get();
         }
 
         return view('website.message', compact('messages', 'role'));
