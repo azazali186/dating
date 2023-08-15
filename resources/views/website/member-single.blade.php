@@ -277,7 +277,8 @@
                                                                     <div class="lab-thumb">
                                                                         @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
                                                                             @if (getSubscription() != 'Free')
-                                                                                <a target="_blank" href="https://t.me/+855{{ $seller->mobile }}"
+                                                                                <a target="_blank"
+                                                                                    href="https://t.me/+855{{ $seller->mobile }}"
                                                                                     class="btn default-btn"
                                                                                     style="width: 100%">Go To Telegram</a>
                                                                             @else
@@ -285,6 +286,9 @@
                                                                                     class="btn default-btn"
                                                                                     style="width: 100%">Go To Telegram</a>
                                                                             @endif
+                                                                            <a href="{{ 'login' }}"
+                                                                                class="btn default-btn"
+                                                                                style="width: 100%">Go To Telegram</a>
                                                                         @endif
                                                                     </div>
                                                                     {{-- </form> --}}
