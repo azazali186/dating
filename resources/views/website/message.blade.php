@@ -103,7 +103,7 @@
         .msg_history {
             padding: 10px;
             /* height: 280px; */
-            height: 557px;
+            height: 500px;
             overflow: overlay;
         }
 
@@ -237,16 +237,25 @@
             border-left: 1px solid #9c9a9a;
         }
 
+        .mobilebar-container-message {
+            position: fixed;
+            bottom: 139px;
+            z-index: 12;
+            /* left: 50%; */
+            bottom: 114px;
+            border-radius: 6px;
+        }
+
         .mobilebar-tab-message {
             height: 50px;
-            width: 96vw;
+            width: 100vw;
             background-color: #f5f5f5;
             overflow: hidden;
             display: flex;
             position: relative;
             flex-shrink: 0;
             /* bottom: 0px; */
-            bottom: -46px;
+            bottom: -57px;
             border-radius: 6px;
         }
 
@@ -261,7 +270,7 @@
 @endsection
 
 @section('content')
-    <div class="member member--style2 padding-bottom">
+    <div class="member member--style2">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-12 message-box-profile">
@@ -561,9 +570,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="send-message mobilebar-tab-message">
-                        <div class="lab-content">
-                            <form action="" method="">
+                    {{-- send-message --}}
+                    <div class="mobilebar-container-message">
+                        <div class="mobilebar-tab-message">
+                            <form action="" method="" style=" width: 100%; ">
                                 <div class="row" style=" margin: 0px !important; ">
                                     <div class="col-10">
                                         <input style="height: 100% !important" type="text" cols="10"
