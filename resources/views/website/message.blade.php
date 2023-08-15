@@ -102,7 +102,8 @@
 
         .msg_history {
             padding: 10px;
-            height: 280px;
+            /* height: 280px; */
+            height: 557px;
             overflow: overlay;
         }
 
@@ -205,9 +206,9 @@
         }
 
         .send-message {
-            padding: 15px;
+            padding: 5px;
             background: #f5f5f5;
-            height: 85px;
+            height: 89px;
         }
 
         .send-message textarea:focus {
@@ -240,7 +241,7 @@
             .message-box {
                 display: none;
                 position: relative;
-                top: -100%;
+                top: -56%;
             }
         }
     </style>
@@ -255,7 +256,7 @@
                         <div class="row g-0 justify-content-center" id="formobile">
                             @foreach ($messages as $item)
                                 @if ($role == 'user')
-                                    <div class="member__inner"
+                                    <div class="member__inner flip"
                                         style="height: 90px;border-bottom: 2px solid;margin-bottom: 8px;">
                                         <div class="member__content">
                                             <div style="width: 100%;">
@@ -272,7 +273,7 @@
                                     </div>
                                 @endif
                                 @if ($role == 'seller')
-                                    <div class="member__inner"
+                                    <div class="member__inner flip"
                                         style="height: 90px;border-bottom: 2px solid;margin-bottom: 8px;">
                                         <div class="member__content">
                                             <div style="width: 100%;">
@@ -368,11 +369,25 @@
                             </div>
                         </div>
                         <div class="send-message">
-                            <form action="" method="">
-                                <input style="height: 100% !important" type="text" cols="10" rows="2"
-                                    class="form-control" placeholder="Type your message here ..." />
-                                <ul class="list-inline">
-                                    {{-- <li>
+                            <div class="lab-content">
+                                <form action="http://localhost/datingapp/send-message" class="post-form" method="POST">
+                                    <input type="hidden" name="_token" value="VdzgbOtcRorn3wy3STzY2pTumDAAnIDX1uZZXr00">
+                                    <input type="hidden" value="1" name="seller_id">
+                                    <input type="text" name="text" placeholder="Send me message" required="">
+                                    <div class="content-type">
+                                        <ul class="content-list">
+                                            <li class="post-submit">
+                                                <input type="submit" value="Send" class="default-btn">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<form action="" method="">
+                                    <input style="height: 100% !important" type="text" cols="10" rows="2"
+                                        class="form-control" placeholder="Type your message here ..." />
+                                    <ul class="list-inline">
+                                        {{-- <li>
                                         <a href="#" id="attach"> <i class="fas fa-paperclip"></i> </a>
                                         <div class="attachement">
                                             <ul class="list-inline">
@@ -385,9 +400,9 @@
                                             </ul>
                                         </div>
                                     </li> --}}
-                                    <li><i class="fas fa-paper-plane"></i></li>
-                                </ul>
-                            </form>
+                                        <li><i class="fas fa-paper-plane"></i></li>
+                                    </ul>
+                                </form>-->
                         </div>
                     </div>
                 </div>
@@ -397,20 +412,16 @@
 @endsection
 
 @section('script')
-    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script>
         $("#attach").click(function() {
             $(".attachement").toggle();
         });
-    </script>
-    <script>
         $("#dset").click(function() {
             $(".setting-drop").toggle("1000");
         });
-    </script>
-    <script>
         $(document).ready(function() {
             $(".flip").click(function() {
                 $(".message-box").show("slide", {
@@ -418,8 +429,6 @@
                 }, 10000);
             });
         });
-    </script>
-    <script>
         $(document).ready(function() {
             $("#back").click(function() {
                 $(".message-box").hide("slide", {

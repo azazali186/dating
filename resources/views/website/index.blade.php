@@ -156,7 +156,7 @@
                     <div class="row g-0 justify-content-center">
                         <div class="col-12 col-md-8">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-9">
                                     <form action="{{ url()->full() }}">
                                         <ul class="nav nav-tabs member__tab" id="myTab" role="tablist"
                                             style="margin: 0px !important">
@@ -171,7 +171,7 @@
                                         </ul>
                                     </form>
                                 </div>
-                                <div class="col-4" style="text-align: end">
+                                <div class="col-3" style="text-align: end">
                                     <button id="myBtn1" class="btn" style=" background: #f24570; color: white; ">
                                         <i class="fa-solid fa-filter"></i>
                                     </button>

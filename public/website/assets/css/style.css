@@ -1584,7 +1584,7 @@ body h6 {
 .about--style2 .about__bottom--navi div,
 .footer--style2 .footer__newsletter--social ul li,
 .footer__newsletter--social ul li {
-    margin: 5px;
+    margin: 2px;
 }
 
 .app__content ul li {
@@ -4408,7 +4408,7 @@ iframe {
 }
 
 .member--style2 .member__tab {
-    justify-content: center;
+    justify-content: end;
 }
 
 .member--style2 .member__tab li button {

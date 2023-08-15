@@ -198,6 +198,12 @@
                                                                 <span>{{ $seller->name }}</span>
                                                             </li>
                                                             <li>
+                                                                <span><b>Number:&nbsp;&nbsp;&nbsp;</b></span>
+                                                                <span>
+                                                                    {{ $seller->mobile }}
+                                                                </span>
+                                                            </li>
+                                                            <li>
                                                                 <span>
                                                                     <b>I'm
                                                                         a:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
