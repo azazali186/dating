@@ -282,11 +282,12 @@
                                                                                     class="btn default-btn"
                                                                                     style="width: 100%">Go To Telegram</a>
                                                                             @else
-                                                                                <a href="{{ 'pricing-table' }}"
+                                                                                <a href="{{ url('pricing-table') }}"
                                                                                     class="btn default-btn"
                                                                                     style="width: 100%">Go To Telegram</a>
                                                                             @endif
-                                                                            <a href="{{ 'login' }}"
+                                                                        @else
+                                                                            <a href="{{ url('login') }}"
                                                                                 class="btn default-btn"
                                                                                 style="width: 100%">Go To Telegram</a>
                                                                         @endif
