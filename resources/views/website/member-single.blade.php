@@ -124,15 +124,15 @@
                                 </button>
                             </li>
 
-                            @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-                                @if (getSubscription() != 'Free')
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="gt3-tab" data-bs-toggle="tab" data-bs-target="#gt3"
-                                            type="button" role="tab" aria-controls="gt3" aria-selected="false"><i
-                                                class="fa-solid fas fa-bell"></i> Messages</button>
-                                    </li>
-                                @endif
-                            @endif
+                            {{-- @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                                @if (getSubscription() != 'Free') --}}
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="gt3-tab" data-bs-toggle="tab" data-bs-target="#gt3"
+                                    type="button" role="tab" aria-controls="gt3" aria-selected="false"><i
+                                        class="fa-solid fas fa-bell"></i> Messages</button>
+                            </li>
+                            {{-- @endif
+                            @endif --}}
 
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="gt6-tab" data-bs-toggle="tab" data-bs-target="#gt6"
@@ -242,50 +242,52 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-                                    @if (getSubscription() != 'Free')
-                                        <div class="tab-pane fade" id="gt3" role="tabpanel" aria-labelledby="gt3-tab">
-                                            <div class="">
-                                                <div class="group__bottom--allmedia">
-                                                    <div class="media-wrapper">
-                                                        <div class="tab-content" id="myTabContent2">
-                                                            <div class="tab-pane fade show active" id="Personal"
-                                                                role="tabpanel" aria-labelledby="Personal-tab">
-                                                                <div class="create-post mb-4">
-                                                                    <div class="lab-inner">
-                                                                        <div class="lab-thumb">
-                                                                            <div class="thumb-inner">
-                                                                                <div class="thumb-img">
-                                                                                    <img src="{{ $seller->image }}"
-                                                                                        alt="datting thumb">
-                                                                                </div>
-                                                                                <div class="thumb-content">
-                                                                                    <h6><a href="#">
-                                                                                            {{ $seller->name }}</a></h6>
-                                                                                </div>
-                                                                            </div>
+                                {{-- @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                                    @if (getSubscription() != 'Free') --}}
+                                <div class="tab-pane fade" id="gt3" role="tabpanel" aria-labelledby="gt3-tab">
+                                    <div class="">
+                                        <div class="group__bottom--allmedia">
+                                            <div class="media-wrapper">
+                                                <div class="tab-content" id="myTabContent2">
+                                                    <div class="tab-pane fade show active" id="Personal" role="tabpanel"
+                                                        aria-labelledby="Personal-tab">
+                                                        <div class="create-post mb-4">
+                                                            <div class="lab-inner">
+                                                                <div class="lab-thumb">
+                                                                    <div class="thumb-inner">
+                                                                        <div class="thumb-img">
+                                                                            <img src="{{ $seller->image }}"
+                                                                                alt="datting thumb">
                                                                         </div>
-                                                                        <div class="lab-content">
-                                                                            <form action="{{ url('send-message') }}"
+                                                                        <div class="thumb-content">
+                                                                            <h6><a href="#">
+                                                                                    {{ $seller->name }}</a></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="lab-content">
+                                                                    {{-- <form action="{{ url('send-message') }}"
                                                                                 class="post-form" method="POST">
                                                                                 @csrf
                                                                                 <input type="hidden"
                                                                                     value="{{ $sellerId }}"
                                                                                     name="seller_id">
                                                                                 <input type="text" name="text"
-                                                                                    placeholder="Send me message" required>
-                                                                                <div class="content-type">
-                                                                                    <ul class="content-list">
-                                                                                        <li class="post-submit">
-                                                                                            <input type="submit"
-                                                                                                value="Send"
-                                                                                                class="default-btn">
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
+                                                                                    placeholder="Send me message" required> --}}
+                                                                    <div class="lab-thumb">
+                                                                        @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                                                                            @if (getSubscription() != 'Free')
+                                                                                <a target="_blank" href="https://t.me/+855{{ $seller->mobile }}"
+                                                                                    class="btn default-btn"
+                                                                                    style="width: 100%">Go To Telegram</a>
+                                                                            @else
+                                                                                <a href="{{ 'pricing-table' }}"
+                                                                                    class="btn default-btn"
+                                                                                    style="width: 100%">Go To Telegram</a>
+                                                                            @endif
+                                                                        @endif
                                                                     </div>
+                                                                    {{-- </form> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -293,8 +295,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endif
-                                @endif
+                                    </div>
+                                </div>
+                                {{-- @endif
+                                @endif --}}
                             </div>
                         </div>
                     </div>

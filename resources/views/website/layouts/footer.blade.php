@@ -25,7 +25,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: calc(100% / 5);
+        width: calc(100% / 4);
         flex-shrink: 0;
         cursor: pointer;
         transition: 0.3s;
@@ -143,13 +143,13 @@
                         </a>
                     </div>
                 @endif
-                <div class="mobilebar-tab-item" style="{{ request()->is('messages') ? 'background: black;' : '' }}">
+                {{-- <div class="mobilebar-tab-item" style="{{ request()->is('messages') ? 'background: black;' : '' }}">
                     <a href="{{ url('messages') }}">
                         <span class="mobilebar-tab__icon">
                             <i class="fas fa-bell"></i>
                         </span>
                     </a>
-                </div>
+                </div> --}}
                 @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
                     <div class="mobilebar-tab-item"
                         style="{{ request()->is('seller-profile') ? 'background: black;' : '' }}">
