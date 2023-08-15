@@ -559,11 +559,10 @@
                             </div>
                         </div>
                         <div class="incoming_msg">
-                            <div class="received_msg">
-                                <div class="received_withd_msg">
-                                    <br />
-                                </div>
-                            </div>
+                            <div class="received_msg"></div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="received_msg"></div>
                         </div>
                     </div>
                     {{-- send-message --}}
