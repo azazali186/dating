@@ -1685,7 +1685,7 @@ body h6 {
 .footer__content--title,
 .banner__content p,
 .section__header {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .log-reg .log-reg-inner .section-header P,
@@ -1816,7 +1816,7 @@ ul li {
 .footer__content--title,
 .banner__content p,
 .section__header {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .form-message.error,

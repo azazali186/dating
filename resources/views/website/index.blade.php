@@ -145,16 +145,16 @@
     <!-- ================> Member section start here <================== -->
     <div class="member member--style2 padding-bottom">
         <div class="container">
-            <div class="section__header style-2 text-center wow fadeInUp mt-4" data-wow-duration="1.5s">
-                <h2 style=" font-size: 25px; ">Most Popular Members</h2>
+            <div class="section__header style-2 text-center wow fadeInUp mt-2" data-wow-duration="1.5s">
+                <h2 style=" font-size: 20px; ">Most Popular Members</h2>
             </div>
             <div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
                 <div class="tab-content mx-10-none" id="myTabContent">
                     {{-- <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab"> --}}
                     <div class="row g-0 justify-content-center">
-                        <div class="col-8" style="text-align: end;">
+                        <div class="col-12 col-md-8">
                             <div class="row">
-                                <div class="col-10">
+                                <div class="col-8">
                                     <form action="{{ url()->full() }}">
                                         <ul class="nav nav-tabs member__tab" id="myTab" role="tablist"
                                             style="margin: 0px !important">
@@ -169,7 +169,7 @@
                                         </ul>
                                     </form>
                                 </div>
-                                <div class="col-2" style="text-align: end">
+                                <div class="col-4" style="text-align: end">
                                     <button id="myBtn1" class="btn" style=" background: #f24570; color: white; ">
                                         <i class="fa-solid fa-filter"></i>
                                     </button>
