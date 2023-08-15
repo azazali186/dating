@@ -247,7 +247,7 @@
         }
 
         .mobilebar-tab-message {
-            height: 50px;
+            height: 65px;
             width: 100vw;
             background-color: #f5f5f5;
             overflow: hidden;
@@ -569,7 +569,7 @@
                     <div class="mobilebar-container-message">
                         <div class="mobilebar-tab-message">
                             <form action="" method="" style=" width: 100%; ">
-                                <div class="row" style=" margin: 0px !important; ">
+                                <div class="row" style="margin: 0px !important;height: 52px;">
                                     <div class="col-10">
                                         <input style="height: 100% !important" type="text" cols="10"
                                             rows="2" class="form-control"
