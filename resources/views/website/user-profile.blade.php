@@ -1,5 +1,5 @@
 @extends('website.layouts.app')
-@section('content')
+@section('style')
     <style>
         .my-form-control {
             border: 1px solid rgba(59, 54, 140, 0.1);
@@ -101,6 +101,9 @@
             /* left: 3px; */
         }
     </style>
+@endsection
+
+@section('content')
     <!-- ================> Page Header section start here <================== -->
     <div class="containerMain pageheader bg_img"
         style="background-image: url({{ URL::to('public/website/assets/images/bg-img/pageheader.jpg') }});"
@@ -430,7 +433,10 @@
             </div>
         </div>
     </div>
+    <!-- ================> Group section end here <================== -->
+@endsection
 
+@section('script')
     <script>
         function readURL(input, id) {
             if (input.files && input.files[0]) {
@@ -453,7 +459,4 @@
             readURL(this, 2);
         });
     </script>
-    <!-- ================> Group section end here <================== -->
-@endsection
-@section('script')
 @endsection

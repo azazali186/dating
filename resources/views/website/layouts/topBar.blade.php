@@ -13,12 +13,15 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav mainmenu">
                         <ul>
-                            <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
+                            <li class="{{ request()->is('/') ? 'active' : '' }}">
+                                <a href="{{ url('/') }}">Home</a>
+                            </li>
                             @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
                                 <li class="{{ request()->is('messages') ? 'active' : '' }}"><a
                                         href="{{ url('messages') }}">Messages</a></li>
                             @elseif (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-                                <li class="{{ request()->is('messages') ? 'active' : '' }}"><a href="{{ url('messages') }}">Messages</a></li>
+                                <li class="{{ request()->is('messages') ? 'active' : '' }}"><a
+                                        href="{{ url('messages') }}">Messages</a></li>
                             @else
                             @endif
                         </ul>

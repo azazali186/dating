@@ -1,5 +1,5 @@
 @extends('website.layouts.app')
-@section('content')
+@section('style')
     <style>
         section {
             padding-top: 60px;
@@ -244,68 +244,13 @@
             }
         }
     </style>
+@endsection
+
+@section('content')
     <div class="member member--style2 padding-bottom">
-        <!-- <section> -->
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    {{-- <div class="chat-list-box"> --}}
-                    {{-- <div class="head-box">
-                            <ul class="list-inline text-left d-inline-block float-left">
-                                <li>
-                                    <img src="https://i.ibb.co/fCzfFJw/person.jpg" alt="" width="40px" />
-                                </li>
-                            </ul>
-                            <!-- <ul class="flat-icon list-inline text-right d-inline-block float-right">
-                                <li> <a href="#"> <i class="fas fa-search"></i> </a> </li>
-                                <li> <a href="#"> <i class="fas fa-ellipsis-v"></i> </a> </li>
-                            </ul> -->
-                        </div> --}}
-
-                    {{-- <div class="chat-person-list"> --}}
-                    {{-- <ul class="list-inline">
-                                <li>
-                                    <a href="#" class="flip">
-                                        <img src="https://i.ibb.co/6JpcfrK/p4.png" alt="" />
-                                        <span> Naveen Mandwariya</span>
-                                        <span class="chat-time">12:00 Am</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flip">
-                                        <img src="https://i.ibb.co/vdyYVvp/p1.png" alt="" />
-                                        <span> Sunena Daksh </span>
-                                        <span class="chat-time">11:45 Pm</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flip">
-                                        <img src="https://i.ibb.co/vY406Hp/p3.png" alt="" />
-                                        <span> Arpit Singh </span>
-                                        <span class="chat-time">12:15 Pm</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flip">
-                                        <img src="https://i.ibb.co/KhYZwPg/p2.png" alt="" />
-                                        <span> Arpita </span> <span class="chat-time">09:10 Am</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flip">
-                                        <img src="https://i.ibb.co/ChGLXKZ/p5.png" alt="" />
-                                        <span> Sorasth parmar </span>
-                                        <span class="chat-time">02:00 Pm</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flip">
-                                        <img src="https://i.ibb.co/KDZymW5/p6.png" alt="" />
-                                        <span> Sushmita </span>
-                                        <span class="chat-time">08:00 Am</span>
-                                    </a>
-                                </li>
-                            </ul> --}}
                     <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
                         <div class="row g-0 justify-content-center" id="formobile">
                             @foreach ($messages as $item)
@@ -346,11 +291,8 @@
                             @endforeach
                         </div>
                     </div>
-                    {{-- </div> --}}
-                    {{-- </div> --}}
                 </div>
                 <!-- col-md-4 closed -->
-
                 <div class="col-md-8">
                     <div class="message-box">
                         <div class="head-box-1">
@@ -361,25 +303,23 @@
                                     <span> Naveen mandwariya </span>
                                 </li>
                             </ul>
-
-                            <!-- <ul class="flat-icon list-inline text-right d-inline-block float-right">
-                              <li> <a href="#"> <i class="fas fa-video"></i> </a> </li>
-                              <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
-                              <li>
-                              <a href="#" id="dset"> <i class="fas fa-ellipsis-v"></i> </a>
-                              <div class="setting-drop">
-                              <ul class="list-inline">
-                                  <li> <a href="#"> My Profile</a> </li>
-                                  <li> <a href="#"> Setting </a> </li>
-                                  <li> <a href="#"> Privacy Policy </a> </li>
-                                  <li> <a href="#"> Hidden chat  </a> </li>
-                                  <li> <a href="#"> Logout </a> </li>
-                                  </ul>
-                              </div>
-                              </li>
-                          </ul> -->
+                            {{-- <ul class="flat-icon list-inline text-right d-inline-block float-right">
+                                <li> <a href="#"> <i class="fas fa-video"></i> </a> </li>
+                                <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
+                                <li>
+                                    <a href="#" id="dset"> <i class="fas fa-ellipsis-v"></i> </a>
+                                    <div class="setting-drop">
+                                        <ul class="list-inline">
+                                            <li> <a href="#"> My Profile</a> </li>
+                                            <li> <a href="#"> Setting </a> </li>
+                                            <li> <a href="#"> Privacy Policy </a> </li>
+                                            <li> <a href="#"> Hidden chat </a> </li>
+                                            <li> <a href="#"> Logout </a> </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul> --}}
                         </div>
-
                         <div class="msg_history">
                             <div class="incoming_msg">
                                 <div class="incoming_msg_img">
@@ -427,25 +367,24 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="send-message">
                             <form action="" method="">
                                 <input style="height: 100% !important" type="text" cols="10" rows="2"
                                     class="form-control" placeholder="Type your message here ..." />
                                 <ul class="list-inline">
-                                    <!--    <li>
-                                                        <a href="#" id="attach">  <i class="fas fa-paperclip"></i> </a>
-                                                        <div class="attachement">
-                                                            <ul class="list-inline">
-                                                            <li> <a href="#"> <i class="fas fa-file"></i> </a> </li>
-                                                            <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
-                                                            <li> <a href="#"> <i class="fas fa-image"></i> </a> </li>
-                                                            <li> <a href="#"> <i class="far fa-play-circle"></i> </a> </li>
-                                                            <li> <a href="#"> <i class="fas fa-map-marker-alt"></i> </a> </li>
-                                                            <li> <a href="#"> <i class="fas fa-id-card"></i> </a> </li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>	   -->
+                                    {{-- <li>
+                                        <a href="#" id="attach"> <i class="fas fa-paperclip"></i> </a>
+                                        <div class="attachement">
+                                            <ul class="list-inline">
+                                                <li> <a href="#"> <i class="fas fa-file"></i> </a> </li>
+                                                <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
+                                                <li> <a href="#"> <i class="fas fa-image"></i> </a> </li>
+                                                <li> <a href="#"> <i class="far fa-play-circle"></i> </a> </li>
+                                                <li> <a href="#"> <i class="fas fa-map-marker-alt"></i> </a> </li>
+                                                <li> <a href="#"> <i class="fas fa-id-card"></i> </a> </li>
+                                            </ul>
+                                        </div>
+                                    </li> --}}
                                     <li><i class="fas fa-paper-plane"></i></li>
                                 </ul>
                             </form>
@@ -454,33 +393,9 @@
                 </div>
             </div>
         </div>
-        <!-- </section> -->
-        {{-- <div class="container">
-            <div class="tab-content mx-12-none" id="myTabContent">
-                <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
-                    <div class="row g-0 justify-content-center" id="formobile">
-                        @foreach ($messages as $item)
-                            <div class="member__inner" style="height: 90px;border-bottom: 2px solid;margin-bottom: 8px;">
-                                <div class="member__content">
-                                    <div style="width: 100%;">
-                                        <div style="width: 20%; float: left;">
-                                            <img src="{{ $item->seller->image }}" style="width: 70px;">
-                                        </div>
-                                        <a style="width: 80%; float: left; text-align: left; padding-left: 11px;">
-                                            <h5>{{ $item->seller->name }}</h5>
-                                            <p>{{ strlen($item->text) > 70 ? substr($item->text, 0, 70) . '...' : $item->text }}
-                                            </p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
 @endsection
+
 @section('script')
     {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

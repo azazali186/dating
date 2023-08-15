@@ -159,6 +159,24 @@
                                                         <span>{{ $seller->name }}</span>
                                                     </li>
                                                     <li>
+                                                        <span><b>Number:&nbsp;&nbsp;&nbsp;</b></span>
+                                                        <span>
+                                                            @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                                                                @if (getSubscription() != 'Free')
+                                                                    {{ $seller->mobile }}
+                                                                @else
+                                                                    @php
+                                                                        echo substr($seller->mobile, 0, 4) . 'XXXXXX';
+                                                                    @endphp
+                                                                @endif
+                                                            @else
+                                                                @php
+                                                                    echo substr($seller->mobile, 0, 4) . 'XXXXXX';
+                                                                @endphp
+                                                            @endif
+                                                        </span>
+                                                    </li>
+                                                    <li>
                                                         <span>
                                                             <b>I'm a:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
                                                         </span>

@@ -99,7 +99,9 @@
         cursor: pointer;
     }
 </style>
+
 @include('website.components.slider')
+
 @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
     <div class="banner banner--style3 padding-bottom"
         style="background-image: url({{ URL::to('public/website/assets/images/banner/bg-3.jpg') }});">
@@ -265,7 +267,8 @@
 </div>
 
 <!-- ================> Member section end here <================== -->
-
+@endsection
+@section('script')
 <script>
     var modal1 = document.getElementById("myModal1");
 
@@ -287,6 +290,4 @@
         }
     }
 </script>
-@endsection
-@section('script')
 @endsection

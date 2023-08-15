@@ -25,6 +25,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCajbaAg3ejkh48fnl57SvL3_fV8Cl9Wx4&libraries=places"></script>
+
+    @yield('style')
 </head>
 
 <body>
@@ -52,7 +54,6 @@
     @include('website.layouts.footer')
     <!-- Footer End -->
     {{-- @endif --}}
-
 
     {{-- toastr js --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
@@ -97,20 +98,7 @@
     <script src="{{ URL::to('public/website/assets/js/plugins.js') }}"></script>
     <script src="{{ URL::to('public/website/assets/js/main.js') }}"></script>
 
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    {{-- <script>
-        window.ga = function() {
-            ga.q.push(arguments)
-        };
-        ga.q = [];
-        ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('set', 'anonymizeIp', true);
-        ga('set', 'transport', 'beacon');
-        ga('send', 'pageview')
-    </script>
-    <script src="../../../../www.google-analytics.com/analytics.js" async></script> --}}
+    @yield('script')
 </body>
 
 </html>
