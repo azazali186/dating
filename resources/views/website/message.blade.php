@@ -109,18 +109,18 @@
 
         .incoming_msg_img {
             display: inline-block;
-            width: 6%;
+            width: 9%;
         }
 
         .received_msg {
             display: inline-block;
             padding: 0 0 0 10px;
             vertical-align: top;
-            width: 92%;
+            width: auto;
         }
 
         .received_withd_msg {
-            width: 57%;
+            width: auto;
         }
 
         .received_withd_msg p {
@@ -155,7 +155,7 @@
 
         .sent_msg {
             float: right;
-            width: 46%;
+            width: auto;
         }
 
         .sent_msg p {
@@ -206,9 +206,9 @@
         }
 
         .send-message {
-            padding: 5px;
+            padding: 2px;
             background: #f5f5f5;
-            height: 89px;
+            height: 42px;
         }
 
         .send-message textarea:focus {
@@ -237,11 +237,23 @@
             border-left: 1px solid #9c9a9a;
         }
 
+        .mobilebar-tab-message {
+            height: 50px;
+            width: 96vw;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+            flex-shrink: 0;
+            bottom: 0px;
+            border-radius: 6px;
+        }
+
         @media only screen and (max-width: 800px) {
             .message-box {
                 display: none;
                 position: relative;
-                top: -56%;
+                /* top: -56%; */
             }
         }
     </style>
@@ -251,7 +263,7 @@
     <div class="member member--style2 padding-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-12 message-box-profile">
                     <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
                         <div class="row g-0 justify-content-center" id="formobile">
                             @foreach ($messages as $item)
@@ -294,17 +306,17 @@
                     </div>
                 </div>
                 <!-- col-md-4 closed -->
-                <div class="col-md-8">
-                    <div class="message-box">
-                        <div class="head-box-1">
-                            <ul class="msg-box list-inline text-left d-inline-block float-left">
-                                <li><i class="fas fa-arrow-left" id="back"></i></li>
-                                <li>
-                                    <img src="https://i.ibb.co/fCzfFJw/person.jpg" alt="" width="40px" />
-                                    <span> Naveen mandwariya </span>
-                                </li>
-                            </ul>
-                            {{-- <ul class="flat-icon list-inline text-right d-inline-block float-right">
+                {{-- <div class=""> --}}
+                <div class="col-md-8 col-12 message-box g-0">
+                    <div class="head-box-1">
+                        <ul class="msg-box list-inline text-left d-inline-block float-left">
+                            <li><i class="fas fa-arrow-left" id="back"></i></li>
+                            <li>
+                                <img src="https://i.ibb.co/fCzfFJw/person.jpg" alt="" width="40px" />
+                                <span> Naveen mandwariya </span>
+                            </li>
+                        </ul>
+                        {{-- <ul class="flat-icon list-inline text-right d-inline-block float-right">
                                 <li> <a href="#"> <i class="fas fa-video"></i> </a> </li>
                                 <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
                                 <li>
@@ -320,92 +332,266 @@
                                     </div>
                                 </li>
                             </ul> --}}
-                        </div>
-                        <div class="msg_history">
-                            <div class="incoming_msg">
-                                <div class="incoming_msg_img">
-                                    <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
-                                </div>
-                                <div class="received_msg">
-                                    <div class="received_withd_msg">
-                                        <p>Hi, How are you ?</p>
-                                        <span class="time_date"> 11:01 AM | June 9</span>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="msg_history">
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
                             </div>
-                            <div class="outgoing_msg">
-                                <div class="sent_msg">
-                                    <p>Hello, i am fine thankyou, what about you ?</p>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Hi, How are you ?</p>
                                     <span class="time_date"> 11:01 AM | June 9</span>
                                 </div>
                             </div>
-                            <div class="incoming_msg">
-                                <div class="incoming_msg_img">
-                                    <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
-                                </div>
-                                <div class="received_msg">
-                                    <div class="received_withd_msg">
-                                        <p>I am also good thankyou!</p>
-                                        <span class="time_date"> 11:01 AM | Yesterday</span>
-                                    </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>Hello, i am fine thankyou, what about you ?</p>
+                                <span class="time_date"> 11:01 AM | June 9</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>I am also good thankyou!</p>
+                                    <span class="time_date"> 11:01 AM | Yesterday</span>
                                 </div>
                             </div>
-                            <div class="outgoing_msg">
-                                <div class="sent_msg">
-                                    <p>ok</p>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>ok</p>
+                                <span class="time_date"> 11:01 AM | Today</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>What's going on ?</p>
                                     <span class="time_date"> 11:01 AM | Today</span>
                                 </div>
                             </div>
-                            <div class="incoming_msg">
-                                <div class="incoming_msg_img">
-                                    <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
-                                </div>
-                                <div class="received_msg">
-                                    <div class="received_withd_msg">
-                                        <p>What's going on ?</p>
-                                        <span class="time_date"> 11:01 AM | Today</span>
-                                    </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Hi, How are you ?</p>
+                                    <span class="time_date"> 11:01 AM | June 9</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="send-message">
-                            <div class="lab-content">
-                                <form action="http://localhost/datingapp/send-message" class="post-form" method="POST">
-                                    <input type="hidden" name="_token" value="VdzgbOtcRorn3wy3STzY2pTumDAAnIDX1uZZXr00">
-                                    <input type="hidden" value="1" name="seller_id">
-                                    <input type="text" name="text" placeholder="Send me message" required="">
-                                    <div class="content-type">
-                                        <ul class="content-list">
-                                            <li class="post-submit">
-                                                <input type="submit" value="Send" class="default-btn">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </form>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>Hello, i am fine thankyou, what about you ?</p>
+                                <span class="time_date"> 11:01 AM | June 9</span>
                             </div>
-                            <!--<form action="" method="">
-                                    <input style="height: 100% !important" type="text" cols="10" rows="2"
-                                        class="form-control" placeholder="Type your message here ..." />
-                                    <ul class="list-inline">
-                                        {{-- <li>
-                                        <a href="#" id="attach"> <i class="fas fa-paperclip"></i> </a>
-                                        <div class="attachement">
-                                            <ul class="list-inline">
-                                                <li> <a href="#"> <i class="fas fa-file"></i> </a> </li>
-                                                <li> <a href="#"> <i class="fas fa-camera"></i> </a> </li>
-                                                <li> <a href="#"> <i class="fas fa-image"></i> </a> </li>
-                                                <li> <a href="#"> <i class="far fa-play-circle"></i> </a> </li>
-                                                <li> <a href="#"> <i class="fas fa-map-marker-alt"></i> </a> </li>
-                                                <li> <a href="#"> <i class="fas fa-id-card"></i> </a> </li>
-                                            </ul>
-                                        </div>
-                                    </li> --}}
-                                        <li><i class="fas fa-paper-plane"></i></li>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>I am also good thankyou!</p>
+                                    <span class="time_date"> 11:01 AM | Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>ok</p>
+                                <span class="time_date"> 11:01 AM | Today</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>What's going on ?</p>
+                                    <span class="time_date"> 11:01 AM | Today</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Hi, How are you ?</p>
+                                    <span class="time_date"> 11:01 AM | June 9</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>Hello, i am fine thankyou, what about you ?</p>
+                                <span class="time_date"> 11:01 AM | June 9</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>I am also good thankyou!</p>
+                                    <span class="time_date"> 11:01 AM | Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>ok</p>
+                                <span class="time_date"> 11:01 AM | Today</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>What's going on ?</p>
+                                    <span class="time_date"> 11:01 AM | Today</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Hi, How are you ?</p>
+                                    <span class="time_date"> 11:01 AM | June 9</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>Hello, i am fine thankyou, what about you ?</p>
+                                <span class="time_date"> 11:01 AM | June 9</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>I am also good thankyou!</p>
+                                    <span class="time_date"> 11:01 AM | Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>ok</p>
+                                <span class="time_date"> 11:01 AM | Today</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>What's going on ?</p>
+                                    <span class="time_date"> 11:01 AM | Today</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Hi, How are you ?</p>
+                                    <span class="time_date"> 11:01 AM | June 9</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>Hello, i am fine thankyou, what about you ?</p>
+                                <span class="time_date"> 11:01 AM | June 9</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>I am also good thankyou!</p>
+                                    <span class="time_date"> 11:01 AM | Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>ok</p>
+                                <span class="time_date"> 11:01 AM | Today</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img">
+                                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" />
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>What's going on ?</p>
+                                    <span class="time_date"> 11:01 AM | Today</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="send-message">
+                        <div class="lab-content">
+                            <form action="" method="">
+                                <div class="row" style=" margin: 0px !important; ">
+                                    <div class="col-10">
+                                        <input style="height: 100% !important" type="text" cols="10"
+                                            rows="2" class="form-control"
+                                            placeholder="Type your message here ..." />
+                                    </div>
+                                    <div class="col-2 m-auto">
+                                        <button class="btn btn-primary">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            {{-- <form action="{{ url('send-message') }}" class="post-form" method="POST">
+                                @csrf
+                                <input type="hidden" value="1" name="seller_id">
+                                <input type="text" name="text" placeholder="Send me message" required="">
+                                <div class="content-type">
+                                    <ul class="content-list">
+                                        <li class="post-submit">
+                                            <input type="submit" value="Send" class="default-btn">
+                                        </li>
                                     </ul>
-                                </form>-->
+                                </div>
+                            </form> --}}
                         </div>
                     </div>
                 </div>
+                {{-- </div> --}}
             </div>
         </div>
     </div>
@@ -427,12 +613,18 @@
                 $(".message-box").show("slide", {
                     direction: "right"
                 }, 10000);
+                $(".message-box-profile").hide("slide", {
+                    direction: "left"
+                }, 10000);
             });
         });
         $(document).ready(function() {
             $("#back").click(function() {
                 $(".message-box").hide("slide", {
                     direction: "left"
+                }, 10000);
+                $(".message-box-profile").show("slide", {
+                    direction: "right"
                 }, 10000);
             });
         });
