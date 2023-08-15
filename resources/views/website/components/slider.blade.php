@@ -1,10 +1,9 @@
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
+    {{-- <div class="carousel-indicators">
         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-    </div>
-
+    </div> --}}
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="https://ccasinize.co/assets/images/slider/khmer%20game%20culture%20(1).png" alt="Los Angeles"
