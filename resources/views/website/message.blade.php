@@ -560,7 +560,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="send-message">
+                    <div class="send-message mobilebar-tab-message">
                         <div class="lab-content">
                             <form action="" method="">
                                 <div class="row" style=" margin: 0px !important; ">
