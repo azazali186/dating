@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use DB;
 use App\Models\User;
+use Carbon\Carbon;
 use Validator;
 use Session;
 
@@ -46,7 +47,7 @@ class AdminSellerController extends Controller
 
     public function pricingSubscription(Request $request)
     {
-        if(Session::get('adminsesion') == null){
+        if (Session::get('adminsesion') == null) {
             dd(Session::get('adminsesion'));
         }
 
@@ -57,9 +58,25 @@ class AdminSellerController extends Controller
 
     public function pricingSubscriptionApprove(Request $request)
     {
-        $pricingTable = SubscriptionUpload::find($request->id);
-        // dd($pricingTable);
-        $pricingTable->update(['status' => '1']);
+        $data = [];
+        $pricingTable = SubscriptionUpload::with(['pricingTable'])->find($request->id);
+
+        $data['status'] =  '1';
+        $data['join_date'] =  Carbon::now();
+
+        // if ($pricingTable->pricingTable->pricing_type == 'Year') {
+        //     $data['expiry_date'] = Carbon::now()->addMonth(3);
+        // } elseif ($pricingTable->pricingTable->pricing_type == 'Month') {
+        //     $data['expiry_date'] = Carbon::now()->addMonth();
+        // } else {
+        //     $data['expiry_date'] = Carbon::now()->addDay(7);
+        // }
+
+        $data['expiry_date_7days'] = Carbon::now()->addDay(7);
+        $data['expiry_date_1month'] = Carbon::now()->addMonth();
+        $data['expiry_date_3month'] = Carbon::now()->addMonth(3);
+        dd($data);
+        $pricingTable->update($data);
 
         return back()->with('success', 'Approved successfully!');
     }
