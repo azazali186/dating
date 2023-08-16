@@ -51,15 +51,15 @@ class AuthController extends Controller
         //      return redirect()->back()->withErrors($validateUser)->withInput();
         // }
         if ($request->password == $request->confirmpassword) {
-            $img_url = '';
-            if ($request->file('image')) {
-                $file = $request->file('image');
-                $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
-                $file->move(public_path('website/assets/profile_pic/'), $filename);
-                $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
-            }
+            // $img_url = '';
+            // if ($request->file('image')) {
+            //     $file = $request->file('image');
+            //     $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+            //     $file->move(public_path('website/assets/profile_pic/'), $filename);
+            //     $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
+            // }
 
-            $user = User::create([
+            User::create([
                 'mobile' => $request->mobile,
                 // 'email' => $request->email,
                 'password' => Hash::make($request->password),
@@ -70,7 +70,7 @@ class AuthController extends Controller
                 'matrital_status' => $request->matrital_status,
                 'city' => $request->city,
 
-                'image' => $img_url,
+                // 'image' => $img_url,
             ]);
 
 

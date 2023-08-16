@@ -383,15 +383,15 @@
                                                                     @endif
                                                                 </div>
 
-                                                                <div class="form-group">
+                                                                {{-- <div class="form-group">
                                                                     <label>Upload Your Photo</label>
                                                                     <input type="file" name="image"
                                                                         class="my-form-control" placeholder="">
-                                                                </div>
+                                                                </div> --}}
 
-                                                                <div class="form-group">
+                                                                {{-- <div class="form-group">
                                                                     <img src="{{ $user->image }}" />
-                                                                </div>
+                                                                </div> --}}
 
                                                                 <button class="default-btn reverse mt-4"
                                                                     data-toggle="modal" type="submit"

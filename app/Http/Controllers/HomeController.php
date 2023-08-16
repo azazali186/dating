@@ -87,15 +87,15 @@ class HomeController extends Controller
     {
         $user = User::where('id', $request->userId)->first();
         $password = $request->password;
-        $img_url = 'http://localhost/dating/public/website/assets/images/member/home2/01.jpg';
-        // dd($user->update(['image' => $img_url]));
-        if ($request->file('image')) {
-            // dd($request->file('image'));
-            $file = $request->file('image');
-            $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
-            $file->move(public_path('website/assets/profile_pic/'), $filename);
-            $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
-        }
+        // $img_url = 'http://localhost/dating/public/website/assets/images/member/home2/01.jpg';
+        // // dd($user->update(['image' => $img_url]));
+        // if ($request->file('image')) {
+        //     // dd($request->file('image'));
+        //     $file = $request->file('image');
+        //     $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+        //     $file->move(public_path('website/assets/profile_pic/'), $filename);
+        //     $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
+        // }
         if ($password != '') {
             if ($request->password == $request->confirmpassword) {
                 $user->update([
@@ -105,7 +105,7 @@ class HomeController extends Controller
                     'lookingfor' => $request->lookingfor,
                     'gender' => $request->gender,
                     'matrital_status' => $request->matrital_status,
-                    'image' => $img_url,
+                    // 'image' => $img_url,
                     'city' => $request->city,
                 ]);
             } else {
@@ -118,7 +118,7 @@ class HomeController extends Controller
                 'lookingfor' => $request->lookingfor,
                 'gender' => $request->gender,
                 'matrital_status' => $request->matrital_status,
-                'image' => $img_url,
+                // 'image' => $img_url,
                 'city' => $request->city,
             ]);
         }
@@ -129,20 +129,20 @@ class HomeController extends Controller
     {
         $seller = Seller::where('id', $request->sellerId)->first();
         $password = $request->password;
-        $img_url = $seller->image;
-        if ($request->file('image')) {
-            $file = $request->file('image');
-            $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
-            $file->move(public_path('website/assets/profile_pic/'), $filename);
-            $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
-        }
+        // $img_url = $seller->image;
+        // if ($request->file('image')) {
+        //     $file = $request->file('image');
+        //     $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+        //     $file->move(public_path('website/assets/profile_pic/'), $filename);
+        //     $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
+        // }
         if ($password != '') {
             if ($request->password == $request->confirmpassword) {
                 $seller->update([
                     'password' => Hash::make($request->password),
                     'name' => $request->name,
                     'birthday' => $request->birthday,
-                    'image' => $img_url,
+                    // 'image' => $img_url,
                     'gender' => $request->gender,
                     'price' => $request->price,
                     'city' => $request->address,
@@ -154,7 +154,7 @@ class HomeController extends Controller
             $seller->update([
                 'name' => $request->name,
                 'birthday' => $request->birthday,
-                'image' => $img_url,
+                // 'image' => $img_url,
                 'gender' => $request->gender,
                 'price' => $request->price,
                 'city' => $request->address,

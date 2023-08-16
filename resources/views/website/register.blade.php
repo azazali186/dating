@@ -116,10 +116,10 @@
                                     @endif
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Upload Your Photo</label>
                                     <input required type="file" name="image" class="my-form-control" placeholder="">
-                                </div>
+                                </div> --}}
 
                                 <button class="default-btn reverse" data-toggle="modal" type="submit"
                                     data-target="#email-confirm"><span>Create Your Profile</span></button>
