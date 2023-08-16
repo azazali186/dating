@@ -56,6 +56,11 @@ Route::controller(MessageController::class)->group(function () {
     Route::post('send-message', 'sendMessage');
 });
 
+Route::get('/logout', [AuthController::class, 'logout']);
+Route::post('/register', [AuthController::class, 'registersave'])->name('save.register');
+Route::post('/login', [AuthController::class, 'login'])->name('check.login');
+Route::post('/seller', [AuthController::class, 'Sellerregister'])->name('save.seller_register');
+
 // for Admin section Start
 
 Route::get('/admincon', function () {
@@ -63,12 +68,7 @@ Route::get('/admincon', function () {
 });
 Route::post('/admincon', [AdminController::class, 'adminLogin'])->name('check.admin');
 
-
 Route::group(['middleware' => ['adminsession']], function () {
-    Route::get('/logout', [AuthController::class, 'logout']);
-    Route::post('/register', [AuthController::class, 'registersave'])->name('save.register');
-    Route::post('/login', [AuthController::class, 'login'])->name('check.login');
-    Route::post('/seller', [AuthController::class, 'Sellerregister'])->name('save.seller_register');
 
     Route::get('/admincon/dashboard', function () {
         return view('admin.dashboard');
