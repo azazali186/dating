@@ -184,7 +184,7 @@
                                 <div class="member__content">
                                     <div style="width: 100%">
                                         <div
-                                            style="width: 20%; float: left; width: 67px; height: 67px; position: relative; border-radius: 100%;">
+                                            style="width: 20%; float: left; width: 65px; height: 65px; position: relative; border-radius: 100%;">
                                             <img src="{{ $item->profile_photo ?? 'http://i.pravatar.cc/500?img=7' }}"
                                                 style="width: 100%; height: 100%; border-radius: 100%; background-size: cover; background-repeat: no-repeat; background-position: center;">
                                         </div>
