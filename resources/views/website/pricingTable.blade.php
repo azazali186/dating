@@ -32,8 +32,8 @@
         .boxSub {
             display: flex;
             flex-direction: column;
-            height: 586px;
-            width: 300px;
+            height: 370px;
+            width: 350px;
             border-radius: 20px;
             margin-left: 10px;
             margin-right: 10px;
@@ -43,7 +43,8 @@
         }
 
         .titleSub {
-            width: 100%;
+            width: 95%;
+            margin: auto;
             padding: 10px 0;
             font-size: 1.2em;
             font-weight: lighter;
@@ -63,7 +64,12 @@
         }
 
         .business .titleSub {
+            /* margin-top: 10px; */
             background: var(--greenish-blue);
+        }
+
+        .titleSub {
+            margin-top: 10px;
         }
 
         .viewSub {
@@ -143,7 +149,7 @@
         }
 
         .button {
-            margin: 0 auto 30px;
+            margin: auto;
         }
 
         .buttonBT {
@@ -224,8 +230,8 @@
 
 @section('content')
     <section class="padding-bottom">
-        <div class="contentSub">
-            <div class="basicSub boxSub">
+        <div class="contentSub row g-0 justify-content-center">
+            <div class="basicSub boxSub col-md-4 mb-5">
                 <h2 class="titleSub">Free</h2>
                 <div class="viewSub">
                     <div class="iconSub">
@@ -236,7 +242,7 @@
                         <p class="detailSub">unlimited</p>
                     </div>
                 </div>
-                <div class="descriptionSub">
+                {{-- <div class="descriptionSub">
                     <ul class="ulClass">
                         <li class="liClass liClassUncheck">Lorem, ipsum dolor.</li>
                         <li class="liClass liClassUncheck">Harum, beatae laudantium.</li>
@@ -245,13 +251,13 @@
                         <li class="liClass liClassUncheck">A, aut veritatis!</li>
                         <li class="liClass liClassUncheck">Aliquid, quasi repellat!</li>
                     </ul>
+                </div> --}}
+                <div class="button">
+                    <button class="buttonBT" type="submit">CONTINUE</button>
                 </div>
-                {{-- <div class="button">
-                <button class="buttonBT" type="submit">CONTINUE</button>
-            </div> --}}
             </div>
 
-            <div class="standard boxSub">
+            <div class="standard boxSub col-md-4 mb-5">
                 <h2 class="titleSub">Monthly</h2>
                 <div class="viewSub">
                     <div class="iconSub">
@@ -262,7 +268,7 @@
                         <p class="detailSub">per monthly</p>
                     </div>
                 </div>
-                <div class="descriptionSub">
+                {{-- <div class="descriptionSub">
                     <ul class="ulClass">
                         <li class="liClass liClassCheck">Lorem, ipsum dolor.</li>
                         <li class="liClass liClassCheck">Harum, beatae laudantium.</li>
@@ -271,7 +277,7 @@
                         <li class="liClass liClassCheck">A, aut veritatis!</li>
                         <li class="liClass liClassCheck">Aliquid, quasi repellat!</li>
                     </ul>
-                </div>
+                </div> --}}
                 <div class="button">
                     @if (Session::has('sessdata'))
                         <button id="myBtn1" class="buttonBT">CONTINUE</button>
@@ -281,7 +287,7 @@
                 </div>
             </div>
 
-            <div class="business boxSub">
+            <div class="business boxSub col-md-4 mb-5">
                 <h2 class="titleSub">Yearly</h2>
                 <div class="viewSub">
                     <div class="iconSub">
@@ -292,6 +298,27 @@
                         <p class="detailSub">per year</p>
                     </div>
                 </div>
+                {{-- <div class="descriptionSub">
+                    <ul class="ulClass">
+                        <li class="liClass liClassCheck">Lorem, ipsum dolor.</li>
+                        <li class="liClass liClassCheck">Harum, beatae laudantium.</li>
+                        <li class="liClass liClassCheck">Odit, fugit saepe.</li>
+                        <li class="liClass liClassCheck">Harum, veniam suscipit!</li>
+                        <li class="liClass liClassCheck">A, aut veritatis!</li>
+                        <li class="liClass liClassCheck">Aliquid, quasi repellat!</li>
+                    </ul>
+                </div> --}}
+                <div class="button">
+                    @if (Session::has('sessdata'))
+                        <button id="myBtn2" class="buttonBT">CONTINUE</button>
+                    @else
+                        <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
+                    @endif
+                </div>
+            </div>
+
+
+            <div class="basicSub boxSub col-md-4" style="height: 252px">
                 <div class="descriptionSub">
                     <ul class="ulClass">
                         <li class="liClass liClassCheck">Lorem, ipsum dolor.</li>
@@ -302,13 +329,6 @@
                         <li class="liClass liClassCheck">Aliquid, quasi repellat!</li>
                     </ul>
                 </div>
-                <div class="button">
-                    @if (Session::has('sessdata'))
-                        <button id="myBtn2" class="buttonBT">CONTINUE</button>
-                    @else
-                        <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
-                    @endif
-                </div>
             </div>
 
             <div id="myModal1" class="modal">
@@ -317,7 +337,8 @@
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <img src="{{ $months->qr_image }}" />
-                            <form action="{{ url('pricing-subscription-upload') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('pricing-subscription-upload') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="pricing_table_id" value="{{ $months->id }}" />
                                 <div class="form-group">
@@ -338,7 +359,8 @@
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <img src="{{ $years->qr_image }}" />
-                            <form action="{{ url('pricing-subscription-upload') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('pricing-subscription-upload') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="pricing_table_id" value="{{ $years->id }}" />
                                 <div class="form-group">
