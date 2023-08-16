@@ -184,7 +184,7 @@
                                 <div class="member__content">
                                     <div style="width: 100%">
                                         <div style="width: 20%; float: left;">
-                                            <img src="{{ $item->image }}" style="width: 70px;">
+                                            <img src="{{ $item->profile_photo }}" style="width: 70px;">
                                         </div>
                                         @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
                                             @if (getSubscription() != 'Free')

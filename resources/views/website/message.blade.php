@@ -283,7 +283,7 @@
                                         <div class="member__content">
                                             <div style="width: 100%;">
                                                 <div style="width: 20%; float: left;">
-                                                    <img src="{{ $item?->seller?->image }}" style="width: 70px;">
+                                                    <img src="{{ $item?->seller?->profile_photo }}" style="width: 70px;">
                                                 </div>
                                                 <a style="width: 80%; float: left; text-align: left; padding-left: 11px;">
                                                     <h5>{{ $item?->seller?->name }}</h5>
@@ -300,7 +300,7 @@
                                         <div class="member__content">
                                             <div style="width: 100%;">
                                                 <div style="width: 20%; float: left;">
-                                                    <img src="{{ $item->user->image }}" style="width: 70px;">
+                                                    <img src="{{ $item->user->profile_photo }}" style="width: 70px;">
                                                 </div>
                                                 <a style="width: 80%; float: left; text-align: left; padding-left: 11px;">
                                                     <h5>{{ $item->user->name }}</h5>

@@ -74,7 +74,7 @@
 @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
     <style>
         .mobilebar-tab-item {
-            width: calc(100% / 3);
+            width: calc(100% / 2);
         }
     </style>
 @endif

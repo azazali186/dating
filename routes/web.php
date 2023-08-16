@@ -21,7 +21,6 @@ use Illuminate\Contracts\Session\Session;
 |
 */
 
-
 Route::get('/search', function () {
     return view('website.search');
 });
@@ -47,6 +46,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/pricing-table', 'pricingTable');
     Route::post('/pricing-subscription-upload', 'pricingSubscriptionUpload');
 
+    Route::post('/profile-update', 'profileUpdate');
 
     Route::post('/user-profile', 'userProfileEdit');
     Route::get('/member-single/{id}', 'singleMember');

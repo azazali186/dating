@@ -129,7 +129,7 @@ class HomeController extends Controller
     {
         $seller = Seller::where('id', $request->sellerId)->first();
         $password = $request->password;
-        // $img_url = $seller->image;
+        // $img_url = $seller->profile_photo;
         // if ($request->file('image')) {
         //     $file = $request->file('image');
         //     $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
@@ -203,5 +203,27 @@ class HomeController extends Controller
         }
     }
 
+    public function profileUpdate(Request $request)
+    {
+        $data = [];
+        if ($request->file('profile_photo')) {
+            $file = $request->file('profile_photo');
+            $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+            $file->move(public_path('website/assets/profile_pic/'), $filename);
+            $data['profile_photo'] = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
+        }
+        if ($request->file('cover_photo')) {
+            $file = $request->file('cover_photo');
+            $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+            $file->move(public_path('website/assets/profile_pic/'), $filename);
+            $data['cover_photo'] = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
+        }
+        if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user') {
+            User::where('id', Session::get('sessdata')['id'])->update($data);
+        } else {
+            Seller::where('id', Session::get('sessdata')['id'])->update($data);
+        }
 
+        return redirect()->back()->with('success', 'Uploaded successfully!');
+    }
 }

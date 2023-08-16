@@ -104,14 +104,17 @@
 @section('content')
     <!-- ================> Page Header section start here <================== -->
     <div class="containerMain pageheader bg_img"
-        style="background-image: url({{ URL::to('public/website/assets/images/bg-img/pageheader.jpg') }});"
+        style="background-image: url({{ $seller->cover_photo ?? URL::to('public/website/assets/images/bg-img/pageheader.jpg') }});"
         id="imagePreview2">
         <div class="top-right">
             <div class="bottom-left avatar-upload">
-                <div class="avatar-edit">
-                    <input type="file" id="imageUpload2" accept=".png, .jpg, .jpeg" />
-                    <label for="imageUpload2"></label>
-                </div>
+                <form action="{{ url('profile-update') }}" id="aweberform2" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="avatar-edit">
+                        <input type="file" id="imageUpload2" name="cover_photo" accept=".png, .jpg, .jpeg" />
+                        <label for="imageUpload2"></label>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="container">
@@ -126,13 +129,19 @@
                 </div>
                 <div class="col-xl-9">
                     <div class="bottom-left avatar-upload">
-                        <div class="avatar-edit">
-                            <input type="file" id="imageUpload1" accept=".png, .jpg, .jpeg" />
-                            <label for="imageUpload1"></label>
-                        </div>
-                        <div class="avatar-preview">
-                            <div id="imagePreview1" style="background-image: url('http://i.pravatar.cc/500?img=7')"></div>
-                        </div>
+                        <form action="{{ url('profile-update') }}" id="aweberform1" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="avatar-edit">
+                                <input type="file" id="imageUpload1" name="profile_photo" accept=".png, .jpg, .jpeg" />
+                                <label for="imageUpload1"></label>
+                            </div>
+                            <div class="avatar-preview">
+                                <div id="imagePreview1"
+                                    style="background-image: url('{{ $seller->profile_photo ?? 'http://i.pravatar.cc/500?img=7' }}')">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -428,7 +437,7 @@
                                             <div class="story__item style2">
                                                 <div class="story__inner">
                                                     {{-- <div class="story__thumb position-relative">
-                                                        <img src="{{ $seller->image }}" alt="dating thumb">
+                                                        <img src="{{ $seller->profile_photo }}" alt="dating thumb">
                                                     </div> --}}
                                                     <div class="story__content px-0 pb-0">
                                                         {{-- <h4>{{ $seller->name }}</h4>
@@ -469,7 +478,7 @@
                         <div class="post-author">
                             <div class="post-author-inner">
                                 <div class="author-thumb">
-                                    <img src="{{ $seller->image }}" alt="datting thumb">
+                                    <img src="{{ $seller->profile_photo }}" alt="datting thumb">
                                 </div>
                                 <div class="author-details">
                                     <h6><a href="#">{{ $seller->name }}</a></h6>
@@ -508,9 +517,11 @@
         }
         $("#imageUpload1").change(function() {
             readURL(this, 1);
+            $('#aweberform1').submit();
         });
         $("#imageUpload2").change(function() {
             readURL(this, 2);
+            $('#aweberform2').submit();
         });
     </script>
 @endsection

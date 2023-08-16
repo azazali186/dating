@@ -103,7 +103,7 @@
                 <div class="col-xl-9">
                     <div class="bottom-left avatar-upload">
                         <div class="avatar-preview">
-                            <div id="imagePreview1" style="background-image: url('{{ $seller->image }}')"></div>
+                            <div id="imagePreview1" style="background-image: url('{{ $seller->profile_photo }}')"></div>
                         </div>
                     </div>
                 </div>
@@ -256,7 +256,7 @@
                                                                 <div class="lab-thumb">
                                                                     <div class="thumb-inner">
                                                                         <div class="thumb-img">
-                                                                            <img src="{{ $seller->image }}"
+                                                                            <img src="{{ $seller->profile_photo }}"
                                                                                 alt="datting thumb">
                                                                         </div>
                                                                         <div class="thumb-content">
@@ -319,7 +319,7 @@
                         <div class="post-author">
                             <div class="post-author-inner">
                                 <div class="author-thumb">
-                                    <img src="{{ $seller->image }}" alt="datting thumb">
+                                    <img src="{{ $seller->profile_photo }}" alt="datting thumb">
                                 </div>
                                 <div class="author-details">
                                     <h6><a href="#">{{ $seller->name }}</a></h6>

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -12,12 +13,8 @@ use Session;
 
 class AuthController extends Controller
 {
-    //
     function registersave(Request $request)
     {
-
-        // print_r($request->all());njknkjnjbhbvh
-        // die('======');
         $validateUser = Validator::make(
             $request->all(),
             [
@@ -47,18 +44,7 @@ class AuthController extends Controller
             ]
         );
 
-        // if($validateUser->fails()){
-        //      return redirect()->back()->withErrors($validateUser)->withInput();
-        // }
         if ($request->password == $request->confirmpassword) {
-            // $img_url = '';
-            // if ($request->file('image')) {
-            //     $file = $request->file('image');
-            //     $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
-            //     $file->move(public_path('website/assets/profile_pic/'), $filename);
-            //     $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
-            // }
-
             User::create([
                 'mobile' => $request->mobile,
                 // 'email' => $request->email,
@@ -69,26 +55,16 @@ class AuthController extends Controller
                 'gender' => $request->gender,
                 'matrital_status' => $request->matrital_status,
                 'city' => $request->city,
-
                 // 'image' => $img_url,
             ]);
-
-
-
-            // print_r($user);
-            // die('========');
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
             return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod');
-
         }
-
     }
 
     function login(Request $request)
     {
-
-
         $validateUser = Validator::make(
             $request->all(),
             [
@@ -116,7 +92,6 @@ class AuthController extends Controller
         if (!empty($user)) {
             if ($user->status != '1') {
                 return back()->with('error', 'Your Account has been blocked,Please Contact Administrator!');
-
             }
             if (Hash::check($request->password, $user->password)) {
                 $sessdata = array(
@@ -134,7 +109,6 @@ class AuthController extends Controller
                 );
                 $request->session()->put('sessdata', $sessdata);
                 return redirect('/')->withsuccess('Login Successfully!');
-
             } else {
                 return back()->with('warning', 'Invalid Mobile or Password!');
             }
@@ -152,7 +126,7 @@ class AuthController extends Controller
                         'email' => $seller->email,
                         'name' => $seller->name,
                         'birthday' => $seller->birthday,
-                        'image' => $seller->image,
+                        'profile_photo' => $seller->profile_photo,
                         'gender' => $seller->gender,
                         'price' => $seller->price,
                         'city' => $seller->city,
@@ -161,38 +135,23 @@ class AuthController extends Controller
                     $request->session()->put('sessdata', $sessdata);
 
                     return redirect('/')->withsuccess('Login Successfully!');
-
                 } else {
                     return back()->with('warning', 'Invalid Mobile or Password!');
                 }
-
-
-
             }
 
             return back()->with('warning', 'Your mobile Number is not reister with us!');
         }
-
-        // print_r($user);
-        // die('========');
-        // return redirect()->to('login/')->with('success','Login successfully!');
-
     }
 
     function logout()
     {
-
         Session::flush();
         return redirect('/')->withsuccess('LogOut Successfully !');
-
-
     }
 
     function Sellerregister(Request $request)
     {
-
-        // print_r($request->all());
-        // die('======');
         $validateUser = Validator::make(
             $request->all(),
             [
@@ -232,29 +191,22 @@ class AuthController extends Controller
                 $file->move(public_path('website/assets/profile_pic/'), $filename);
                 $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
             }
-            $user = Seller::create([
+            Seller::create([
                 'mobile' => $request->mobile,
                 // 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'name' => $request->name,
                 'birthday' => $request->birthday,
-                'image' => $img_url,
+                'profile_photo' => $img_url,
                 'gender' => $request->gender,
                 'price' => $request->price,
                 'city' => $request->address,
 
             ]);
 
-
-
-            // print_r($user);
-            // die('========');
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
             return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod');
-
         }
-
     }
-
 }
