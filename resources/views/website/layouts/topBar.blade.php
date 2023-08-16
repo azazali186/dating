@@ -16,9 +16,11 @@
                             <li class="{{ request()->is('/') ? 'active' : '' }}">
                                 <a href="{{ url('/') }}">Home</a>
                             </li>
-                            <li class="{{ request()->is('pricing-table') ? 'active' : '' }}">
-                                <a href="{{ url('pricing-table') }}">Pricing</a>
-                            </li>
+                            @if (!Session::has('sessdata') || Session::get('sessdata')['role'] == 'user')
+                                <li class="{{ request()->is('pricing-table') ? 'active' : '' }}">
+                                    <a href="{{ url('pricing-table') }}">Pricing</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                     <div class="header__more">
