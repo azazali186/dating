@@ -41,7 +41,7 @@
             cursor: pointer;
         }
     </style>
-    <?php $pagename = 'all-user-list'; ?>
+    <?php $pagename = 'all-pricing-subscription-list'; ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -137,17 +137,6 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <img src="" id="updateSrc" />
-                    {{-- <form action="{{ url('pricing-subscription-upload') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="pricing_table_id" value="{{ $months->id }}" />
-                        <div class="form-group">
-                            <label>Please Upload Your Receipt</label>
-                            <input required type="file" name="image" class="form-control" />
-                        </div>
-                        <div class="form-group mt-3 text-center">
-                            <button class="default-btn reverse" type="submit"><span>Submit</span></button>
-                        </div>
-                    </form> --}}
                 </div>
             </div>
         </div>

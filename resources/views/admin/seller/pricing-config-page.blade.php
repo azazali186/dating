@@ -3,7 +3,7 @@
     Company
 @endpush
 @section('main-section')
-    <?php $pagename = 'all-seller-list'; ?>
+    <?php $pagename = 'all-pricing-config-list'; ?>
 
 
 

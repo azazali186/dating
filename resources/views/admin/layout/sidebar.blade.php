@@ -1,14 +1,10 @@
- <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-     <!-- Brand Logo -->
      <a href="index3.html" class="brand-link">
-         <img src="{{ URL::to('public/admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+         <img src="{{ URL::to('public/website/assets/images/logo/logo.png') }}" alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3" style="opacity: .8 ">
          <span class="brand-text font-weight-light">XmakeLove</span>
      </a>
-     <!-- Sidebar -->
      <div class="sidebar">
-         <!-- Sidebar user panel (optional) -->
          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
              <div class="image">
                  <img src="{{ URL::to('public/admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
@@ -17,17 +13,12 @@
              <div class="info">
                  <a href="#" class="d-block">XmakeLove</a>
              </div>
-             <!-- Main Sidebar Container -->
              <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                 <!-- Brand Logo -->
-                 <a href="" class="brand-link">
-                     <img src="{{ url('public/admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-                         class="brand-image img-circle elevation-3" style="opacity: .8">
-                     <span class="brand-text font-weight-light">Admin Panel</span>
+                 <a href="" class="brand-link" style="background: white;height: 57px; padding: 0px;">
+                     <img src="{{ url('public/website/assets/images/logo/logo.png') }}" alt="XmakeLove" class=""
+                         style="opacity: .8; width: 162px;">
                  </a>
-                 <!-- Sidebar -->
                  <div class="sidebar">
-                     <!-- Sidebar user panel (optional) -->
                      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                          <div class="image">
                              <img src="{{ url('public/admin/dist/img/user2-160x160.jpg') }}"
@@ -37,7 +28,6 @@
                              <a href="" class="d-block">Admin</a>
                          </div>
                      </div>
-                     <!-- Sidebar Menu -->
                      <nav class="mt-2">
                          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                              data-accordion="false">
@@ -58,17 +48,28 @@
                              <li class="nav-item">
                                  <a href="{{ url('admincon/allseller') }}"
                                      class="nav-link {{ $pagename == 'all-seller-list' ? 'active' : '' }}">
-                                     <i class="fas fa-shopping-basket"></i> &nbsp;
+                                     <i class="fas fa-users"></i> &nbsp;
                                      <p>All Seller</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="{{ url('admincon/pricing-config') }}"
+                                     class="nav-link {{ $pagename == 'all-pricing-config-list' ? 'active' : '' }}">
+                                     <i class="fas fa-shopping-basket"></i> &nbsp;
+                                     <p>Pricing Config</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="{{ url('admincon/pricing-subscription') }}"
+                                     class="nav-link {{ $pagename == 'all-pricing-subscription-list' ? 'active' : '' }}">
+                                     <i class="fas fa-shopping-basket"></i> &nbsp;
+                                     <p>Subscription Request</p>
                                  </a>
                              </li>
                          </ul>
                      </nav>
-                     <!-- /.sidebar-menu -->
                  </div>
-                 <!-- /.sidebar -->
              </aside>
          </div>
      </div>
-     <!-- /.sidebar -->
  </aside>
