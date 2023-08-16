@@ -205,9 +205,9 @@ class HomeController extends Controller
 
     public function profileUpdate(Request $request)
     {
+        ini_set('upload_max_filesize', '100M');
+        ini_set('post_max_size', '100M');
         $data = [];
-        ini_set('upload_max_filesize', '50M');
-        ini_set('post_max_size', '55M');
         if ($request->file('profile_photo')) {
             $file = $request->file('profile_photo');
             $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
