@@ -7,7 +7,7 @@ title: Introduction
 There are multiple ways to install AdminLTE.
 
 ### Download & Changelog:
-Always Recommended to download from GitHub latest release [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/releases/latest) for bug free and latest features.\
+Always Recommended to download from GitHub latest release [XmakeLove](https://github.com/ColorlibHQ/AdminLTE/releases/latest) for bug free and latest features.\
 Visit the [releases](https://github.com/ColorlibHQ/AdminLTE/releases) page to view the changelog.\
 Legacy Releases are [AdminLTE 2](https://github.com/ColorlibHQ/AdminLTE/releases/tag/v2.4.18) / [AdminLTE 1](https://github.com/ColorlibHQ/AdminLTE/releases/tag/1.3.1).
 

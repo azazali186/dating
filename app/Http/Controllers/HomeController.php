@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Photo;
 use App\Models\PricingTable;
 use App\Models\Seller;
+use App\Models\SubscriptionUpload;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -183,4 +184,24 @@ class HomeController extends Controller
 
         return view('website.pricingTable', compact('months', 'years'));
     }
+
+    public function pricingSubscriptionUpload(Request $request)
+    {
+        if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user') {
+            $data = $request->all();
+            $data['user_id'] = Session::get('sessdata')['id'];
+            if ($request->file('image')) {
+                $file = $request->file('image');
+                $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+                $file->move(public_path('website/assets/subscription/'), $filename);
+                $data['image'] = URL::asset('public/website/assets/subscription') . '/' . $filename;
+            }
+            SubscriptionUpload::create($data);
+            return redirect()->back()->with('success', 'Submited successfully!');
+        } else {
+            return Redirect::to('login');
+        }
+    }
+
+
 }

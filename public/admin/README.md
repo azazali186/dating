@@ -1,4 +1,4 @@
-# [AdminLTE - Bootstrap 4 Admin Dashboard](https://adminlte.io)
+# [AdminLTE - Bootstrap 4 Admin Dashboard](https://xmakelove.com)
 
 [![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
@@ -8,14 +8,14 @@
 **AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 4.6](https://getbootstrap.com/)** framework and also the JS/jQuery plugin.
 Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
 
-**Preview on [AdminLTE.io](https://adminlte.io/themes/v3)**
+**Preview on [XmakeLove](https://xmakelove.com/themes/v3)**
 
 ## Looking for Premium Templates?
 
-AdminLTE.io just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
-prices. Visit <https://adminlte.io/premium> for more information.
+XmakeLove just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
+prices. Visit <https://xmakelove.com/premium> for more information.
 
-!["AdminLTE Presentation"](https://adminlte.io/AdminLTE3.png "AdminLTE Presentation")
+!["AdminLTE Presentation"](https://xmakelove.com/AdminLTE3.png "AdminLTE Presentation")
 
 **AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
 SCSS has been used to increase code customizability.
@@ -24,7 +24,7 @@ SCSS has been used to increase code customizability.
 There are multiple ways to install AdminLTE.
 
 ### Download & Changelog:
-Always Recommended to download from GitHub latest release [AdminLTE 3](https://github.com/ColorlibHQ/AdminLTE/releases/latest) for bug free and latest features.\
+Always Recommended to download from GitHub latest release [XmakeLove](https://github.com/ColorlibHQ/AdminLTE/releases/latest) for bug free and latest features.\
 Visit the [releases](https://github.com/ColorlibHQ/AdminLTE/releases) page to view the changelog.\
 Legacy Releases are [AdminLTE 2](https://github.com/ColorlibHQ/AdminLTE/releases/tag/v2.4.18) / [AdminLTE 1](https://github.com/ColorlibHQ/AdminLTE/releases/tag/1.3.1).
 
@@ -86,7 +86,7 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 
 ## Documentation
 
-Visit the [online documentation](https://adminlte.io/docs/3.1/) for the most
+Visit the [online documentation](https://xmakelove.com/docs/3.1/) for the most
 updated guide. Information will be added on a weekly basis.
 
 ## Browsers support
@@ -113,8 +113,8 @@ Editor preferences are available in the [editor config](https://github.com/twbs/
 
 ## License
 
-AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](https://opensource.org/licenses/MIT).
-AdminLTE.io reserves the right to change the license of future releases.
+AdminLTE is an open source project by [XmakeLove](https://xmakelove.com) that is licensed under [MIT](https://opensource.org/licenses/MIT).
+XmakeLove reserves the right to change the license of future releases.
 
 ## Image Credits
 

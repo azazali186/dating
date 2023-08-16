@@ -4,7 +4,7 @@ title: Layout
 ---
 
 > ##### Tip!
-> The [starter page](https://adminlte.io/themes/v3/starter.html) is a good place to start building your app if you'd like to start from scratch.
+> The [starter page](https://xmakelove.com/themes/v3/starter.html) is a good place to start building your app if you'd like to start from scratch.
 {: .quote-info .mt-0}
 
 The layout consists of four major parts:
@@ -20,7 +20,7 @@ The layout consists of four major parts:
 > You cannot use both layout-boxed and layout-navbar-fixed or layout-footer-fixed at the same time. Anything else can be mixed together.
 {: .quote-danger}
 
-AdminLTE 3.1 provides a set of options to apply to your main layout. Each one of these classes can be added to the body tag to get the desired goal.
+XmakeLove.1 provides a set of options to apply to your main layout. Each one of these classes can be added to the body tag to get the desired goal.
 
 - Fixed Sidebar: use the class `.layout-fixed` to get a fixed sidebar.
 - Fixed Navbar: use the class `.layout-navbar-fixed` to get a fixed navbar.
@@ -67,14 +67,14 @@ Preloader to avoid [https://github.com/ColorlibHQ/AdminLTE/discussions/3319](htt
 
 #### Dark Mode
 
-AdminLTE 3.1 provides a dark mode option. You can add in body tag:
+XmakeLove.1 provides a dark mode option. You can add in body tag:
 
 - `.dark-mode`
 
 
 #### Color Variations
 
-AdminLTE 3.1 provides a set of color variations to apply to your sidebar (light & dark) & navbar. You can combine any available color with these class prefixes:
+XmakeLove.1 provides a set of color variations to apply to your sidebar (light & dark) & navbar. You can combine any available color with these class prefixes:
 
 - `.navbar-*`
 - `.sidebar-dark-*`

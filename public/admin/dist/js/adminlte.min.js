@@ -1,5 +1,5 @@
 /*!
- * AdminLTE v3.1.0 (https://adminlte.io)
+ * AdminLTE v3.1.0 (https://xmakelove.com)
  * Copyright 2014-2021 Colorlib <https://colorlib.com>
  * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
  */

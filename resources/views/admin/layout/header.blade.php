@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>XmakeLove | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -42,7 +42,7 @@
   </div>
 
   <!-- Navbar -->
-  
+
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__wobble" src="{{ URL::to('public/admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
@@ -76,14 +76,14 @@
           <a href="" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-             
+
              <!--  <div class="media-body">
                 <h3 class="dropdown-item-title">
                 <i class="fas fa-key"></i>&nbsp;
                   Change Password
                   <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                 </h3>
-               
+
               </div> -->
             </div>
             <!-- Message End -->
@@ -92,21 +92,21 @@
           <a href="{{ url('adminlogout') }}" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-             
+
               <div class="media-body">
                 <h3  class="dropdown-item-title">
                   <i class="fas fa-sign-out-alt" ></i>&nbsp;
                   Logout
                   <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                 </h3>
-               
+
               </div>
             </div>
             <!-- Message End -->
           </a>
-         
+
       </li>
-     
+
      </ul>
   </nav>
   <!-- /.navbar -->

@@ -312,22 +312,43 @@
             </div>
 
             <div id="myModal1" class="modal">
-
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <img src="{{ $months->qr_image }}" />
-                    {{-- <div class="">
-
-                </div> --}}
+                <div class="row">
+                    <div class="col-md-4 m-auto">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="{{ $months->qr_image }}" />
+                            <form action="{{ url('pricing-subscription-upload') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="pricing_table_id" value="{{ $months->id }}" />
+                                <div class="form-group">
+                                    <label>Please Upload Your Receipt</label>
+                                    <input required type="file" name="image" class="form-control" />
+                                </div>
+                                <div class="form-group mt-3 text-center">
+                                    <button class="default-btn reverse" type="submit"><span>Submit</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
             </div>
             <div id="myModal2" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <div class="row">
-                        <div class="col-md-6 col-12 m-auto text-center">
+                <div class="row">
+                    <div class="col-md-4 m-auto">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
                             <img src="{{ $years->qr_image }}" />
+                            <form action="{{ url('pricing-subscription-upload') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="pricing_table_id" value="{{ $years->id }}" />
+                                <div class="form-group">
+                                    <label>Please Upload Your Receipt</label>
+                                    <input required type="file" name="image" class="form-control" />
+                                </div>
+                                <div class="form-group mt-3 text-center">
+                                    <button class="default-btn reverse" type="submit"><span>Submit</span></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
