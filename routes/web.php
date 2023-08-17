@@ -44,6 +44,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/user-profile', 'userProfile');
 
     Route::get('/pricing-table', 'pricingTable');
+
+    Route::get('/delete-image/{id}', 'deleteImage');
+
     Route::post('/pricing-subscription-upload', 'pricingSubscriptionUpload');
 
     Route::post('/profile-update', 'profileUpdate');

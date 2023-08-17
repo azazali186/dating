@@ -175,7 +175,7 @@
         <div class="group__bottom">
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-xl-6 order-xl-1">
+                    <div class="col-xl-6 order-xl-1 m-auto">
                         <div class="group__bottom--left">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade active show" id="gt2" role="tabpanel"
@@ -260,7 +260,7 @@
                                                                 <div class="form-group">
                                                                     <label>Name*</label>
                                                                     <input required value="{{ $seller->name }}"
-                                                                        type="text" class="fmy-form-control"
+                                                                        type="text" class="my-form-control"
                                                                         name="name" placeholder="Enter Your Full Name">
                                                                     @if ($errors->has('name'))
                                                                         <p class="text-danger">
@@ -432,7 +432,7 @@
                                         </div>
                                     @endif
 
-                                    <div class="col-xl-3 order-xl-0">
+                                    <div class="order-xl-0">
                                         <div class="group__bottom--center">
                                             <div class="story__item style2">
                                                 <div class="story__inner">
@@ -453,6 +453,10 @@
                                                                             data-rel="lightcase:callection"><img
                                                                                 src="{{ $item->photo_path }}"
                                                                                 alt="dating thumb"></a>
+                                                                        <button
+                                                                            onclick="return myConfirm({{ $item->id }});"
+                                                                            class="badge badge-danger w-100"
+                                                                            style="background: #f24570;">Delete</button>
                                                                     </div>
                                                                 @endforeach
                                                             </div>
@@ -523,5 +527,12 @@
             readURL(this, 2);
             $('#aweberform2').submit();
         });
+
+        function myConfirm(id) {
+            var result = confirm("Want to delete?");
+            if (result == true) {
+                window.location.replace("{{ url('delete-image') }}/" + id);
+            }
+        }
     </script>
 @endsection

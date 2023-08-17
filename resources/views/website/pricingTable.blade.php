@@ -239,7 +239,7 @@
                     </div>
                     <div class="costSub">
                         <p class="amountSub">$00</p>
-                        <p class="detailSub">unlimited</p>
+                        <p class="detailSub">7 Days</p>
                     </div>
                 </div>
                 {{-- <div class="descriptionSub">
@@ -252,9 +252,11 @@
                         <li class="liClass liClassUncheck">Aliquid, quasi repellat!</li>
                     </ul>
                 </div> --}}
-                <div class="button">
-                    <button class="buttonBT" type="submit">CONTINUE</button>
-                </div>
+                @if (Session::has('sessdata'))
+                    <button id="myBtn2" class="buttonBT">CONTINUE</button>
+                @else
+                    <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
+                @endif
             </div>
 
             <div class="standard boxSub col-md-4 mb-5">
@@ -288,14 +290,14 @@
             </div>
 
             <div class="business boxSub col-md-4 mb-5">
-                <h2 class="titleSub">Yearly</h2>
+                <h2 class="titleSub">3 Months</h2>
                 <div class="viewSub">
                     <div class="iconSub">
                         <img src="https://i.postimg.cc/wvFd6FRY/startup.png" alt="startup" />
                     </div>
                     <div class="costSub">
                         <p class="amountSub">${{ $years->pricing }}</p>
-                        <p class="detailSub">per year</p>
+                        <p class="detailSub">per 3 Months</p>
                     </div>
                 </div>
                 {{-- <div class="descriptionSub">
@@ -321,12 +323,12 @@
             <div class="basicSub boxSub col-md-4" style="height: 252px">
                 <div class="descriptionSub">
                     <ul class="ulClass">
-                        <li class="liClass liClassCheck">Lorem, ipsum dolor.</li>
-                        <li class="liClass liClassCheck">Harum, beatae laudantium.</li>
-                        <li class="liClass liClassCheck">Odit, fugit saepe.</li>
-                        <li class="liClass liClassCheck">Harum, veniam suscipit!</li>
-                        <li class="liClass liClassCheck">A, aut veritatis!</li>
-                        <li class="liClass liClassCheck">Aliquid, quasi repellat!</li>
+                        <li class="liClass liClassCheck">Unlimited chat with anyone.</li>
+                        <li class="liClass liClassCheck">Unlimited to call with anyone.</li>
+                        <li class="liClass liClassCheck">Unlimited access to all photos in any profile .</li>
+                        <li class="liClass liClassCheck">Ability to filter info.</li>
+                        <li class="liClass liClassCheck">Ability to filter info. only 5 for free</li>
+                        {{-- <li class="liClass liClassCheck">Aliquid, quasi repellat!</li> --}}
                     </ul>
                 </div>
             </div>
