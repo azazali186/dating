@@ -47,10 +47,6 @@ class AdminSellerController extends Controller
 
     public function pricingSubscription(Request $request)
     {
-        if (Session::get('adminsesion') == null) {
-            dd(Session::get('adminsesion'));
-        }
-
         $pricingTable = SubscriptionUpload::with(['user', 'pricingTable'])->get();
         // return $pricingTable;
         return view('admin.seller.pricingSubscription', compact('pricingTable'));
