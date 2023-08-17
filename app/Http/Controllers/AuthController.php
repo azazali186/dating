@@ -59,7 +59,7 @@ class AuthController extends Controller
             ]);
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
-            return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod');
+            return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();;
         }
     }
 
@@ -206,7 +206,7 @@ class AuthController extends Controller
 
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
-            return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod');
+            return redirect()->to('seller/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();;
         }
     }
 }

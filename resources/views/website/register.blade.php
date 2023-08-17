@@ -15,15 +15,15 @@
                                 <h4 class="content-title">Acount Details</h4>
                                 <div class="form-group">
                                     <label>Mobile*</label>
-                                    <input type="text" class="my-form-control"
-                                        name="mobile"placeholder="Enter Your Mobile Num">
+                                    <input type="number" class="my-form-control"
+                                        name="mobile"placeholder="Enter Your Mobile Num" value="{{ old('mobile') }}">
                                     @if ($errors->has('mobile'))
                                         <p class="text-danger">{{ $errors->first('mobile') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Password*</label>
-                                    <input type="text" class="my-form-control"name="password"
+                                    <input type="password" class="my-form-control"name="password"
                                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                         title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                         placeholder="Enter Your Password">
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Confirm Password*</label>
-                                    <input type="text" class="my-form-control"name="confirmpassword"
+                                    <input type="password" class="my-form-control"name="confirmpassword"
                                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                         title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                         placeholder="Enter Your Password">
@@ -45,14 +45,15 @@
                                 <div class="form-group">
                                     <label>Name*</label>
                                     <input type="text" class="my-form-control"name="name"
-                                        placeholder="Enter Your Full Name">
+                                        placeholder="Enter Your Full Name" value="{{ old('name') }}">
                                     @if ($errors->has('name'))
                                         <p class="text-danger">{{ $errors->first('name') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Birthday*</label>
-                                    <input type="date" name="birthday" class="my-form-control">
+                                    <input type="date" name="birthday" class="my-form-control"
+                                        value="{{ old('birthday') }}">
                                     @if ($errors->has('birthday'))
                                         <p class="text-danger">{{ $errors->first('birthday') }}</p>
                                     @endif
@@ -61,11 +62,13 @@
                                     <label>I am a*</label>
                                     <div class="banner__inputlist">
                                         <div class="s-input me-3">
-                                            <input type="radio" name="gender" value="men" id="males1">
+                                            <input type="radio" name="gender" value="men" id="males1"
+                                                {{ old('gender') == 'men' ? 'checked' : '' }}>
                                             <label for="males1">Man</label>
                                         </div>
                                         <div class="s-input">
-                                            <input type="radio" name="gender" value="women"id="females1">
+                                            <input type="radio" name="gender" value="women"id="females1"
+                                                {{ old('gender') == 'women' ? 'checked' : '' }}>
 
                                             <label for="females1">Woman</label>
                                         </div>
@@ -79,13 +82,15 @@
                                     <label>Looking for a*</label>
                                     <div class="banner__inputlist">
                                         <div class="s-input me-3">
-                                            <input type="radio" name="lookingfor" id="males" value="men">
+                                            <input type="radio" name="lookingfor" id="males" value="men"
+                                                {{ old('lookingfor') == 'men' ? 'checked' : '' }}>
 
                                             <label for="males">Man</label>
                                         </div>
                                         <div class="s-input">
-                                            <input type="radio" name="lookingfor" value="women" id="females"><label
-                                                for="females">Woman</label>
+                                            <input type="radio" name="lookingfor" value="women" id="females"
+                                                {{ old('lookingfor') == 'women' ? 'checked' : '' }}>
+                                            <label for="females">Woman</label>
 
                                         </div>
 
@@ -98,8 +103,8 @@
                                     <label>Marial status*</label>
                                     <div class="banner__inputlist">
                                         <select name="matrital_status">
-                                            <option value="Single" selected>Single</option>
-                                            <option value="Marid">Marid</option>
+                                            <option {{ old('matrital_status') == 'Single' ? 'selected' : '' }} value="Single" selected>Single</option>
+                                            <option {{ old('matrital_status') == 'Marid' ? 'selected' : '' }} value="Marid">Marid</option>
                                         </select>
 
                                     </div>
@@ -110,7 +115,7 @@
                                 @endif
                                 <div class="form-group">
                                     <label>City*</label>
-                                    <input type="text" name="city" class="my-form-control" id="location" />
+                                    <input type="text" name="city" class="my-form-control" id="location" value="{{ old('city') }}" />
                                     @if ($errors->has('city'))
                                         <p class="text-danger">{{ $errors->first('city') }}</p>
                                     @endif

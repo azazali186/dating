@@ -234,6 +234,7 @@ class HomeController extends Controller
         if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller') {
             Photo::where('seller_id', Session::get('sessdata')['id'])->where('id', $request->id)->delete();
         }
+
         return redirect()->back()->with('success', 'Deleted successfully!');
     }
 }

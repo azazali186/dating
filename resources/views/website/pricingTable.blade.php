@@ -252,11 +252,13 @@
                         <li class="liClass liClassUncheck">Aliquid, quasi repellat!</li>
                     </ul>
                 </div> --}}
-                @if (Session::has('sessdata'))
-                    <button id="myBtn2" class="buttonBT">CONTINUE</button>
-                @else
-                    <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
-                @endif
+                <div class="button">
+                    @if (Session::has('sessdata'))
+                        <button id="myBtn3" class="buttonBT">CONTINUE</button>
+                    @else
+                        <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
+                    @endif
+                </div>
             </div>
 
             <div class="standard boxSub col-md-4 mb-5">
@@ -266,7 +268,7 @@
                         <img src="https://i.postimg.cc/DzrTN72Z/airplane.png" alt="airplane" />
                     </div>
                     <div class="costSub">
-                        <p class="amountSub">${{ $months->pricing }}</p>
+                        <p class="amountSub">${{ $months?->pricing }}</p>
                         <p class="detailSub">per monthly</p>
                     </div>
                 </div>
@@ -296,7 +298,7 @@
                         <img src="https://i.postimg.cc/wvFd6FRY/startup.png" alt="startup" />
                     </div>
                     <div class="costSub">
-                        <p class="amountSub">${{ $years->pricing }}</p>
+                        <p class="amountSub">${{ $years?->pricing }}</p>
                         <p class="detailSub">per 3 Months</p>
                     </div>
                 </div>
@@ -338,11 +340,11 @@
                     <div class="col-md-4 m-auto">
                         <div class="modal-content">
                             <span class="close">&times;</span>
-                            <img src="{{ $months->qr_image }}" />
+                            <img src="{{ $months?->qr_image }}" />
                             <form action="{{ url('pricing-subscription-upload') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="pricing_table_id" value="{{ $months->id }}" />
+                                <input type="hidden" name="pricing_table_id" value="{{ $months?->id }}" />
                                 <div class="form-group">
                                     <label>Please Upload Your Receipt</label>
                                     <input required type="file" name="image" class="form-control" />
@@ -360,11 +362,11 @@
                     <div class="col-md-4 m-auto">
                         <div class="modal-content">
                             <span class="close">&times;</span>
-                            <img src="{{ $years->qr_image }}" />
+                            <img src="{{ $years?->qr_image }}" />
                             <form action="{{ url('pricing-subscription-upload') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="pricing_table_id" value="{{ $years->id }}" />
+                                <input type="hidden" name="pricing_table_id" value="{{ $years?->id }}" />
                                 <div class="form-group">
                                     <label>Please Upload Your Receipt</label>
                                     <input required type="file" name="image" class="form-control" />
