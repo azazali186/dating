@@ -59,7 +59,7 @@
         var emailData = $("#emailId").val();
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailData)) {
             $("#wrongEmail").text(" ");
-            sendOtp(emailData);
+            console.log(sendOtp(emailData));
             return (true)
         }
         $("#wrongEmail").text("You have entered an invalid email address!");
@@ -76,7 +76,8 @@
             },
             cache: false,
             success: function(html) {
-                alert(html);
+                alert(JSON.parse(html));
+                return JSON.parse(html);
                 // $("#results").append(html);
             }
         });

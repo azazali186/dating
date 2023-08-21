@@ -27,14 +27,14 @@ class MailController extends Controller
 
         if (!empty($user)) {
             if ($user->status != '1') {
-                return back()->with('error', 'Your Account has been blocked,Please Contact Administrator!');
+                return ['error', 'Your Account has been blocked,Please Contact Administrator!'];
             }
         } else if (!empty($seller)) {
             if ($seller->status != '1') {
-                return back()->with('error', 'Your Account has been blocked,Please Contact Administrator!');
+                return ['error', 'Your Account has been blocked,Please Contact Administrator!'];
             }
         } else {
-            return back()->with('warning', 'Your email is not reister with us!');
+            return ['warning', 'Your email is not reister with us!'];
         }
 
         $this->sendOtp($email, $header, $textMessage);
