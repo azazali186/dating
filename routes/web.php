@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\AdminUserController;
 use App\Http\Controllers\backend\AdminSellerController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Contracts\Session\Session;
 
@@ -20,6 +21,8 @@ use Illuminate\Contracts\Session\Session;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('send-mail', [MailController::class, 'index']);
 
 Route::get('/search', function () {
     return view('website.search');
