@@ -22,10 +22,16 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
+                                    <label>Email*</label>
+                                    <input type="text" class="my-form-control"
+                                        name="email"placeholder="Enter Your Email" value="{{ old('email') }}">
+                                    @if ($errors->has('email'))
+                                        <p class="text-danger">{{ $errors->first('email') }}</p>
+                                    @endif
+                                </div>
+                                <div class="form-group">
                                     <label>Password*</label>
                                     <input type="password" class="my-form-control"name="password"
-                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                         placeholder="Enter Your Password">
                                     @if ($errors->has('password'))
                                         <p class="text-danger">{{ $errors->first('password') }}</p>
@@ -34,9 +40,7 @@
                                 <div class="form-group">
                                     <label>Confirm Password*</label>
                                     <input type="password" class="my-form-control"name="confirmpassword"
-                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                        placeholder="Enter Your Password">
+                                        placeholder="Enter Your Confirm Password">
                                     @if ($errors->has('confirmpassword'))
                                         <p class="text-danger">{{ $errors->first('confirmpassword') }}</p>
                                     @endif
@@ -103,8 +107,10 @@
                                     <label>Marial status*</label>
                                     <div class="banner__inputlist">
                                         <select name="matrital_status">
-                                            <option {{ old('matrital_status') == 'Single' ? 'selected' : '' }} value="Single" selected>Single</option>
-                                            <option {{ old('matrital_status') == 'Marid' ? 'selected' : '' }} value="Marid">Marid</option>
+                                            <option {{ old('matrital_status') == 'Single' ? 'selected' : '' }}
+                                                value="Single" selected>Single</option>
+                                            <option {{ old('matrital_status') == 'Marid' ? 'selected' : '' }}
+                                                value="Marid">Marid</option>
                                         </select>
 
                                     </div>
@@ -115,7 +121,8 @@
                                 @endif
                                 <div class="form-group">
                                     <label>City*</label>
-                                    <input type="text" name="city" class="my-form-control" id="location" value="{{ old('city') }}" />
+                                    <input type="text" name="city" class="my-form-control" id="location"
+                                        value="{{ old('city') }}" />
                                     @if ($errors->has('city'))
                                         <p class="text-danger">{{ $errors->first('city') }}</p>
                                     @endif
@@ -127,7 +134,7 @@
                                 </div> --}}
 
                                 <button class="default-btn reverse" data-toggle="modal" type="submit"
-                                    data-target="#email-confirm"><span>Create Your Profile</span></button>
+                                    data-target="#email-confirm"><span>Submit</span></button>
                             </form>
                         </div>
                     </div>

@@ -228,11 +228,10 @@
                                                 <p>Age - {{ ageCalc($item->birthday) }} / Price -
                                                     {{ $item->price }}$</p>
                                             </div>
-                                            <div style="width: 20%; float: left;">
-                                                <a href="{{ url('login') }}">
-                                                    <img style=" width: 100%; margin-top: 20px;"
-                                                        src="{{ URL::to('public/website/assets/images/logo/callnow.png') }}"
-                                                        alt="call-now">
+                                            <div style="width: 20%; float: left; margin-top: 20px !important;">
+                                                <a href="{{ url('login') }}" class="badge badge-light"
+                                                    style=" background: #f24570; ">
+                                                    See her <br />Profile
                                                 </a>
                                             </div>
                                         @endif

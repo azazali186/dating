@@ -55,10 +55,16 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
+                                    <label>Email*</label>
+                                    <input type="text" class="my-form-control" name="email"
+                                        placeholder="Enter Your Email" value="{{ old('email') }}">
+                                    @if ($errors->has('email'))
+                                        <p class="text-danger">{{ $errors->first('email') }}</p>
+                                    @endif
+                                </div>
+                                <div class="form-group">
                                     <label>Password*</label>
                                     <input type="password" class="my-form-control"name="password"
-                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                         placeholder="Enter Your Password">
                                     @if ($errors->has('password'))
                                         <p class="text-danger">{{ $errors->first('password') }}</p>
@@ -67,9 +73,7 @@
                                 <div class="form-group">
                                     <label>Confirm Password*</label>
                                     <input type="password" class="my-form-control"name="confirmpassword"
-                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                        placeholder="Enter Your Password">
+                                        placeholder="Enter Your Confirm Password">
                                     @if ($errors->has('confirmpassword'))
                                         <p class="text-danger">{{ $errors->first('confirmpassword') }}</p>
                                     @endif
@@ -94,7 +98,7 @@
                                     <input type="file" name="image" class="my-form-control" placeholder="">
                                 </div>
                                 <button class="default-btn reverse" data-toggle="modal" type="submit"
-                                    data-target="#email-confirm"><span>Create Your Profile</span></button>
+                                    data-target="#email-confirm"><span>Submit</span></button>
                             </form>
                         </div>
                     </div>

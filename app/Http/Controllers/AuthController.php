@@ -24,13 +24,13 @@ class AuthController extends Controller
                     // 'digits_between:10,11',
                     'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
                 ],
-                // 'email' => 'required|string|email|unique:users',
+                'email' => 'required|string|email|unique:users',
 
                 'password' => [
                     'required_with:confirmpassword',
-                    'string',
-                    'min:8',
-                    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
+                    // 'string',
+                    'min:6',
+                    // 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
                 ],
                 'confirmpassword' => 'required',
                 'name' => 'required|regex:/^[\pL\s\-]+$/u|min:2|max:50',
@@ -45,9 +45,9 @@ class AuthController extends Controller
         );
 
         if ($request->password == $request->confirmpassword) {
-            User::create([
+            $user = User::create([
                 'mobile' => $request->mobile,
-                // 'email' => $request->email,
+                'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'name' => $request->name,
                 'birthday' => $request->birthday,
@@ -57,6 +57,20 @@ class AuthController extends Controller
                 'city' => $request->city,
                 // 'image' => $img_url,
             ]);
+            $sessdata = array(
+                'id' => $user->id,
+                'mobile' => $user->mobile,
+                'email' => $user->email,
+                'name' => $user->name,
+                'birthday' => $user->birthday,
+                'lookingfor' => $user->lookingfor,
+                'gender' => $user->gender,
+                'matrital_status' => $user->matrital_status,
+                'city' => $user->city,
+                'role' => $user->role,
+                'pricing_table' => $user->pricing_table,
+            );
+            $request->session()->put('sessdata', $sessdata);
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
             return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();;
@@ -162,12 +176,12 @@ class AuthController extends Controller
                     // 'digits_between:10,11',
                     // 'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
                 ],
-                // 'email' => 'required|string|email|unique:sellers',
+                'email' => 'required|string|email|unique:sellers',
                 'password' => [
                     'required_with:confirmpassword',
-                    'string',
-                    'min:8',
-                    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
+                    //'string',
+                    'min:6',
+                    //'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
                 ],
                 'confirmpassword' => 'required',
                 'name' => 'required|regex:/^[\pL\s\-]+$/u|min:2|max:50',
@@ -191,9 +205,9 @@ class AuthController extends Controller
                 $file->move(public_path('website/assets/profile_pic/'), $filename);
                 $img_url = URL::asset('public/website/assets/profile_pic') . '/' . $filename;
             }
-            Seller::create([
+            $seller = Seller::create([
                 'mobile' => $request->mobile,
-                // 'email' => $request->email,
+                'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'name' => $request->name,
                 'birthday' => $request->birthday,
@@ -203,7 +217,19 @@ class AuthController extends Controller
                 'city' => $request->address,
 
             ]);
-
+            $sessdata = array(
+                'id' => $seller->id,
+                'mobile' => $seller->mobile,
+                'email' => $seller->email,
+                'name' => $seller->name,
+                'birthday' => $seller->birthday,
+                'profile_photo' => $seller->profile_photo,
+                'gender' => $seller->gender,
+                'price' => $seller->price,
+                'city' => $seller->city,
+                'role' => $seller->role,
+            );
+            $request->session()->put('sessdata', $sessdata);
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
             return redirect()->to('seller/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();;
