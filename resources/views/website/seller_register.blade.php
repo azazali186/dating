@@ -13,6 +13,51 @@
                             @php
                                 $x = false;
                             @endphp
+                            <section class="contact-sec sec-pad">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="contact-detail">
+                                                {{-- <h1 class="section-title">Contact us</h1> --}}
+
+                                                <ul class="contact-ul">
+                                                    <li><i class="fa fa-location-dot"></i> 91, Ram Nagar, Ram Mandir, Delhi
+                                                    </li>
+
+                                                    <li>
+                                                        <i class="fa fa-phone"></i>
+                                                        <a href="tel:08510004495"><b>0255000XXXX</b></a>,
+                                                        <a href="tel:08510005495"><b>0251600XXXX</b></a>
+                                                    </li>
+
+                                                    <li>
+                                                        <i class="fa-solid fa-envelope"></i>
+                                                        <a href="mailto:pardeepkumar4bjp@gmail.com"><b>
+                                                                demounknown@gmail.com</b></a>
+                                                    </li>
+                                                </ul>
+
+                                                <span>
+                                                    <a href="#" class="fb"><i
+                                                            class="fa-brands fa-facebook"></i></a>
+                                                    <a href="#" class="insta"><i
+                                                            class="fa-brands fa-instagram"></i></a>
+                                                    <a href="#" class="twitter"><i
+                                                            class="fa-brands fa-twitter"></i></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5">
+                                        <div class="col-12">
+                                            <a href="" class="btn btn-primary m-auto"
+                                                style="background-color: #f24570">
+                                                Go To Telegram
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                             @if ($x)
                                 <form action="{{ route('save.seller_register') }}" method="POST"
                                     enctype="multipart/form-data">

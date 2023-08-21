@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\DemoMail;
+use App\Models\Seller;
+use App\Models\User;
 
 class MailController extends Controller
 {
@@ -13,16 +15,32 @@ class MailController extends Controller
      *
      * @return response()
      */
-    public function index()
+    public function index(Request $request)
     {
-        $email = 'sushil.as.cambodia@gmail.com';
-        $header = 'Sushil';
+        $email = $request->email;
+        $header = 'XmakeLove';
         $textMessage = '245368';
 
-        return $this->sendOtp($email, $header, $textMessage);
 
-        return view('emails.demoMail');
-        dd("Email is sent successfully.");
+        $user = User::where('email', $request->email)->first();
+        $seller = Seller::where('email', $request->email)->first();
+
+        if (!empty($user)) {
+            if ($user->status != '1') {
+                return back()->with('error', 'Your Account has been blocked,Please Contact Administrator!');
+            }
+        } else if (!empty($seller)) {
+            if ($seller->status != '1') {
+                return back()->with('error', 'Your Account has been blocked,Please Contact Administrator!');
+            }
+        } else {
+            return back()->with('warning', 'Your email is not reister with us!');
+        }
+
+        $this->sendOtp($email, $header, $textMessage);
+
+        // return view('emails.demoMail');
+        // dd("Email is sent successfully.");
     }
 
 
@@ -31,7 +49,7 @@ class MailController extends Controller
     {
         $mailData = [
             'title' => $header,
-            'body' => 'This is for testing Sushil email.',
+            'body' => 'This is for recovery password email.',
             'textMessage' => $textMessage,
         ];
 

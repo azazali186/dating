@@ -25,14 +25,13 @@
                             <div class="form-group">
                                 <label>Password*</label>
                                 <input type="text" class="my-form-control"name="password"
-                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                     placeholder="Enter Your Password">
                                 @if ($errors->has('password'))
                                     <p class="text-danger">{{ $errors->first('password') }}</p>
                                 @endif
                             </div>
-                            <p class="f-pass">Forgot your password? <a href="#">recover password</a></p>
+                            <p class="f-pass">Forgot your password? <a href="{{ url('recover-password') }}">recover
+                                    password</a></p>
                             <div class="text-center">
                                 <button type="submit" class="default-btn"><span>Sign IN</span></button>
                             </div>

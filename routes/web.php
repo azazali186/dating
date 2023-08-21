@@ -22,7 +22,7 @@ use Illuminate\Contracts\Session\Session;
 |
 */
 
-Route::get('send-mail', [MailController::class, 'index']);
+Route::post('send-mail', [MailController::class, 'index']);
 
 Route::get('/search', function () {
     return view('website.search');
@@ -33,6 +33,9 @@ Route::get('/register', function () {
 });
 Route::get('/login', function () {
     return view('website.login');
+});
+Route::get('/recover-password', function () {
+    return view('website.recover-password');
 });
 
 Route::get('/seller', function () {
