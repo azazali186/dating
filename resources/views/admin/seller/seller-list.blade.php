@@ -12,12 +12,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>DataTables</h1>
+                        <h1>Add Seller</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">DataTables</li>
+                            <li class="breadcrumb-item active">Add Seller</li>
                         </ol>
                     </div>
                 </div>
@@ -32,45 +32,28 @@
                         <!-- /.card -->
 
                         <div class="card">
-                            <div class="card-header">
+                            {{-- <div class="card-header">
                                 <h3 class="card-title">DataTable with default features</h3>
-                            </div>
+                            </div> --}}
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <a href="{{ url('admincon/userForm') }}"><button class="btn btn-primary float-right"> <i
-                                            class="fa fa-plus"></i> Add User</button></a>
+                                {{-- <a href="{{ url('admincon/userForm') }}"><button class="btn btn-primary float-right"> <i
+                                            class="fa fa-plus"></i> Add User</button></a> --}}
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Sr. No.</th>
                                             <th>Name</th>
                                             <th>Mobile</th>
-                                            <th>Email</th>
+                                            {{-- <th>Email</th> --}}
                                             <th>Address</th>
                                             <th>Gender</th>
-                                            {{-- <th>Looking For</th>
-                    <th>Status</th> --}}
                                             <th>Status</th>
                                             <th>Created At</th>
                                             <th>Action</th>
-
-
-
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!--  <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                          Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                        <td>X</td>
-                        <td>X</td>
-                        <td>X</td>
-
-                      </tr> -->
                                         <?php foreach ($users as $key => $user) { $key++; ?>
                                         <tr>
                                             <td>{{ $key }}</td>
@@ -82,13 +65,13 @@
                                                 @endif
                                             </td>
                                             <td>{{ $user['mobile'] }}</td>
-                                            <td>
+                                            {{-- <td>
                                                 @if ($user['email'] != '')
                                                     {{ $user['email'] }}
                                                 @else
                                                     --------------------------
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 @if ($user['city'] != '')
                                                     {{ $user['city'] }}
@@ -97,30 +80,8 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <!--  @if ($user['gender'] == 'men')
-    //{{ $user['city'] }}
-@else
-    Female
-    @endif -->
                                                 {{ $user['gender'] }}
-
-
                                             </td>
-                                            {{-- <td>
-                                                 @if ($user['lookingfor'] != '')
-                                                {{ $user['lookingfor'] }}
-                                                @else
-                                                --------------------------
-                                                @endif
-                                            </td> --}}
-                                            {{-- <td>
-                                                 @if ($user['matrital_status'] != '')
-                                                {{ $user['matrital_status'] }}
-                                                @else
-                                                --------------------------
-                                                @endif
-                                            </td> --}}
-
                                             <td>
                                                 @if ($user['status'] == 1)
                                                     <span class="label bg-green">Active</span>
@@ -130,14 +91,13 @@
                                             </td>
                                             <td>{{ $user['created_at'] }}</td>
                                             <td>
-                                                <a href="javascript:void(0);" onClick="edituser('<?php echo base64_encode($user['id']); ?>')"><i
-                                                        class="fa fa-edit" aria-hidden="true"></i></a>
-                                                <a href="javascript:void(0);" onClick="removeuser('<?php echo base64_encode($user['id']); ?>')"><i
+                                                {{-- <a href="javascript:void(0);" onClick="edituser('<?php echo base64_encode($user['id']); ?>')"><i
+                                                        class="fa fa-edit" aria-hidden="true"></i></a> --}}
+                                                <a href="javascript:void(0);" onClick="removeuser('{{ $user['id'] }}')"><i
                                                         class="fa fa-trash text-danger" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                         <?php } ?>
-
                                     </tbody>
                                     <tfoot>
                                     </tfoot>
@@ -178,7 +138,7 @@
         }
 
         function removeuser(id) {
-            var url = '<?php echo url('admincon/userDelete'); ?>' + '/' + id;
+            var url = '<?php echo url('admincon/sellerDelete'); ?>' + '/' + id;
             swal({
                     title: `Are you sure you want to delete this record?`,
                     text: "If you delete this, it will be gone forever.",

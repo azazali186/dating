@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Seller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use DB;
@@ -35,7 +36,7 @@ class AdminUserController extends Controller
             }
         }
         // echo "<pre>";  print_r($user);  die;
-        return view('admin.user.user-form', compact('user'));
+        return view('admin.user.user-form', compact('user','end'));
     }
 
     public function save(Request $request)
@@ -76,26 +77,17 @@ class AdminUserController extends Controller
 
     public function delete(Request $request)
     {
+        User::where('id', $request->id)->delete();
 
-        // echo "ghjkl";
-        // die('========');
-        // $user = User::select('*')->where('id', $request->id)->get()->first();
-
-        $params = $request->all();
-        unset($params['_token']);
-        $user = User::select('*')->where('id', $request->id)->get()->first();
-        $params['id'] = $request->id;
-        $id = $request->id;
-        // print_r($id);
-        //  die('ooooooo');
-        unset($params['id']);
-
-        User::where('id', $request->id)->delete($params);
-
-        //    print_r($d);
-        // die('========');
-        // DB::table('users')->whereIn('id', $request->id)->delete();
-        //DB::table('users')->where('id', $request->id)->delete($id);
         return back()->with('success', 'Successfully deleted.!!');
     }
+
+    public function deleteSeller(Request $request)
+    {
+        Seller::where('id', $request->id)->delete();
+
+        return back()->with('success', 'Successfully deleted.!!');
+    }
+
+
 }
