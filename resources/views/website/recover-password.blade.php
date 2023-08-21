@@ -14,23 +14,27 @@
                     <div class="main-content inloginp">
                         {{-- <form action="" method="POST">
                             @csrf --}}
-                        <div class="form-group">
-                            <label>Email*</label>
-                            <div class="row">
-                                <div class="col-10">
-                                    <input id="emailId" required type="email" class="my-form-control"
-                                        name="email"placeholder="Enter Your Email">
-                                    <p class="text-danger" id="wrongEmail"></p>
-                                    @if ($errors->has('email'))
-                                        <p class="text-danger">{{ $errors->first('email') }}</p>
-                                    @endif
-                                </div>
-                                <div class="col-2">
-                                    <button id="sendOtpIdForm" class="btn btn-success">
-                                        Send
-                                    </button>
+
+                        <div id="results">
+                            <div class="form-group">
+                                <label>Email*</label>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <input id="emailId" required type="email" class="my-form-control"
+                                            name="email"placeholder="Enter Your Email">
+                                        <p class="text-danger" id="wrongEmail"></p>
+                                        @if ($errors->has('email'))
+                                            <p class="text-danger">{{ $errors->first('email') }}</p>
+                                        @endif
+                                    </div>
+                                    <div class="col-2">
+                                        <button id="sendOtpIdForm" class="btn btn-success">
+                                            Send
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="f-pass">Go To Login page <a href="{{ url('login') }}">login</a></p>
                         </div>
                         {{-- <div class="form-group">
                                 <label>Password*</label>
@@ -40,10 +44,6 @@
                                     <p class="text-danger">{{ $errors->first('password') }}</p>
                                 @endif
                             </div> --}}
-                        <p class="f-pass">Go To Login page <a href="{{ url('login') }}">login</a></p>
-                        <div class="text-center">
-                            <button type="submit" class="default-btn"><span>Submit</span></button>
-                        </div>
                         {{-- </form> --}}
                     </div>
                 </div>
@@ -59,7 +59,7 @@
         var emailData = $("#emailId").val();
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailData)) {
             $("#wrongEmail").text(" ");
-            console.log(sendOtp(emailData));
+            sendOtp(emailData);
             return (true)
         }
         $("#wrongEmail").text("You have entered an invalid email address!");
@@ -76,9 +76,14 @@
             },
             cache: false,
             success: function(html) {
-                alert(JSON.parse(html));
-                return JSON.parse(html);
-                // $("#results").append(html);
+                if (html && html.warning) {
+                    $("#wrongEmail").text(html.warning);
+                    return false;
+                } else {
+                    $("#wrongEmail").text(" ");
+
+                }
+                $("#results").html(html);
             }
         });
     }

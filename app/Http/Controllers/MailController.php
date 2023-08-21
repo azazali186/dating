@@ -27,20 +27,42 @@ class MailController extends Controller
 
         if (!empty($user)) {
             if ($user->status != '1') {
-                return ['error', 'Your Account has been blocked,Please Contact Administrator!'];
+                return ['error' => 'Your Account has been blocked,Please Contact Administrator!'];
             }
         } else if (!empty($seller)) {
             if ($seller->status != '1') {
-                return ['error', 'Your Account has been blocked,Please Contact Administrator!'];
+                return ['error' => 'Your Account has been blocked,Please Contact Administrator!'];
             }
         } else {
-            return ['warning', 'Your email is not reister with us!'];
+            return ['warning' => 'Your email is not reister with us!'];
         }
 
-        $this->sendOtp($email, $header, $textMessage);
+        // $this->sendOtp($email, $header, $textMessage);
 
-        // return view('emails.demoMail');
-        // dd("Email is sent successfully.");
+        return '<form>
+                    <div class="form-group">
+                        <label>OTP*</label>
+                        <div class="row">
+                            <div class="col-8">
+                                <input id="otpValue" required type="text" class="my-form-control"
+                                    name="email"placeholder="Enter The OTP">
+                            </div>
+                            <div class="col-4">
+                                <button id="sendOtpIdForm" class="btn btn-warning">
+                                    Resend
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>OTP*</label>
+                        <input id="password" required type="password" class="my-form-control"
+                            name="password" placeholder="Enter New password">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="default-btn"><span>Submit</span></button>
+                    </div>
+                </form>';
     }
 
 
