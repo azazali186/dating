@@ -46,6 +46,10 @@ Route::get('/privacy-policy', function () {
     return view('website.policy');
 });
 
+Route::get('/contact', function () {
+    return view('website.contact');
+});
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/seller-profile', 'sellerProfile');

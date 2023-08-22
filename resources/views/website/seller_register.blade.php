@@ -10,54 +10,57 @@
                 <div class="col-lg-7">
                     <div class="log-reg-inner">
                         <div class="main-content">
-                            @php
-                                $x = false;
-                            @endphp
-                            <section class="contact-sec sec-pad">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="contact-detail">
-                                                {{-- <h1 class="section-title">Contact us</h1> --}}
-
-                                                <ul class="contact-ul">
-                                                    <li><i class="fa fa-location-dot"></i> 91, Ram Nagar, Ram Mandir, Delhi
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="fa fa-phone"></i>
-                                                        <a href="tel:08510004495"><b>0255000XXXX</b></a>,
-                                                        <a href="tel:08510005495"><b>0251600XXXX</b></a>
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="fa-solid fa-envelope"></i>
-                                                        <a href="mailto:pardeepkumar4bjp@gmail.com"><b>
-                                                                demounknown@gmail.com</b></a>
-                                                    </li>
-                                                </ul>
-
-                                                <span>
-                                                    <a href="#" class="fb"><i
-                                                            class="fa-brands fa-facebook"></i></a>
-                                                    <a href="#" class="insta"><i
-                                                            class="fa-brands fa-instagram"></i></a>
-                                                    <a href="#" class="twitter"><i
-                                                            class="fa-brands fa-twitter"></i></a>
-                                                </span>
+                            <div class="padding-bottom">
+                                <div class="section__header style-2 text-center">
+                                    <h2>Contact Info</h2>
+                                    <p>Want to get started as a member? Please click the below button and we will get in
+                                        touch.</p>
+                                    <small><b>Note : </b>The members is for Female only.</small>
+                                </div>
+                                <div class="section-wrapper">
+                                    <div class="row justify-content-center g-4">
+                                        <div class="col-lg-4 col-sm-6 col-12">
+                                            <div class="contact-item text-center">
+                                                <div class="contact-thumb mb-4">
+                                                    <img src="{{ URL::to('public/website/assets/images/contact/icon/01.png') }}"
+                                                        alt="contact-thumb">
+                                                </div>
+                                                <div class="contact-content">
+                                                    <h6 class="title">Office Address</h6>
+                                                    <p>1201 park street, Fifth Avenue</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-6 col-12">
+                                            <div class="contact-item text-center">
+                                                <div class="contact-thumb mb-4">
+                                                    <img src="{{ URL::to('public/website/assets/images/contact/icon/02.png') }}"
+                                                        alt="contact-thumb">
+                                                </div>
+                                                <div class="contact-content">
+                                                    <h6 class="title">Phone number</h6>
+                                                    <p>+855 97 708 6101</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-6 col-12">
+                                            <div class="contact-item text-center">
+                                                <div class="contact-thumb mb-4">
+                                                    <img src="{{ URL::to('public/website/assets/images/contact/icon/03.png') }}"
+                                                        alt="contact-thumb">
+                                                </div>
+                                                <div class="contact-content">
+                                                    <h6 class="title">Send Email</h6>
+                                                    <p>mornsova@gmail.com</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-5">
-                                        <div class="col-12">
-                                            <a href="" class="btn btn-primary m-auto"
-                                                style="background-color: #f24570">
-                                                Go To Telegram
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
-                            </section>
+                            </div>
+                            @php
+                                $x = false;
+                            @endphp
                             @if ($x)
                                 <form action="{{ route('save.seller_register') }}" method="POST"
                                     enctype="multipart/form-data">
