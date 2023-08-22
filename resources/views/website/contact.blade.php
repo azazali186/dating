@@ -31,7 +31,7 @@
                         </div>
                         <div class="contact-content">
                             <h6 class="title">Phone number</h6>
-                            <p>+22698 745 632,02 982 745</p>
+                            <p>+855 97 708 6101</p>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="contact-content">
                             <h6 class="title">Send Email</h6>
-                            <p>youremail@gmil.com</p>
+                            <p>mornsova@gmail.com</p>
                         </div>
                     </div>
                 </div>
