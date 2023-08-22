@@ -39,7 +39,7 @@
                             @else
                                 <li><a class="dropdown-item" href="{{ url('login') }}">Log In</a></li>
                                 <li><a class="dropdown-item" href="{{ url('register') }}">User Sign Up</a></li>
-                                <li><a class="dropdown-item" href="{{ url('seller') }}">Seller Sign Up</a></li>
+                                <li><a class="dropdown-item" href="{{ url('seller') }}">Female sign up</a></li>
                             @endif
                         </ul>
                     </div>
