@@ -6,15 +6,15 @@
     </div> --}}
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://ccasinize.co/assets/images/slider/khmer%20game%20culture%20(1).png" alt="Los Angeles"
+            <img src="{{ URL::to('public/website/assets/images/banner/photo_2023-08-22_10-44-22.jpg') }}" alt="Los Angeles"
                 class="d-block" style="width: 100%;" />
         </div>
         <div class="carousel-item ">
-            <img src="https://ccasinize.co/assets/images/slider/khmer%20game%20culture%20(1).png" alt="Los Angeles"
+            <img src="{{ URL::to('public/website/assets/images/banner/photo_2023-08-22_10-44-31.jpg') }}" alt="Los Angeles"
                 class="d-block" style="width: 100%;" />
         </div>
         <div class="carousel-item ">
-            <img src="https://ccasinize.co/assets/images/slider/khmer%20game%20culture%20(1).png" alt="Los Angeles"
+            <img src="{{ URL::to('public/website/assets/images/banner/photo_2023-08-22_10-44-35.jpg') }}" alt="Los Angeles"
                 class="d-block" style="width: 100%;" />
         </div>
     </div>

@@ -204,6 +204,13 @@
                                                         See her <br />Profile
                                                     </a>
                                                 </div>
+                                                {{-- <div style="width: 20%; float: left;">
+                                                    <a href="tel:{{ $item->mobile }}">
+                                                        <img style=" width: 100%; margin-top: 20px;"
+                                                            src="{{ URL::to('public/website/assets/images/logo/callnow.png') }}"
+                                                            alt="call-now">
+                                                    </a>
+                                                </div> --}}
                                             @else
                                                 <div style="width: 60%; float: left;">
                                                     <a href="{{ url('member-single') }}/{{ $item->id }}">
