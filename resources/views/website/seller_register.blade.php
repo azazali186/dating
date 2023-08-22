@@ -8,54 +8,16 @@
                 <div class="image">
                 </div>
                 <div class="col-lg-7">
-                    <div class="log-reg-inner">
-                        <div class="main-content">
+                    {{-- log-reg-inner --}}
+                    <div class="">
+                        <div class="main-content padding-top">
                             <div class="padding-bottom">
                                 <div class="section__header style-2 text-center">
-                                    <h2>Contact Info</h2>
-                                    <p>Want to get started as a female member? Please use the form below and we will get in touch.</p>
+                                    {{-- <h2>Contact Info</h2> --}}
+                                    <p>Want to get started as a female member? Please use the form below and we will get in
+                                        touch.</p>
                                     <small><b>Note : </b>The members is for Female only.</small>
                                 </div>
-                                {{-- <div class="section-wrapper">
-                                    <div class="row justify-content-center g-4">
-                                        <div class="col-lg-4 col-sm-6 col-12">
-                                            <div class="contact-item text-center">
-                                                <div class="contact-thumb mb-4">
-                                                    <img src="{{ URL::to('public/website/assets/images/contact/icon/01.png') }}"
-                                                        alt="contact-thumb">
-                                                </div>
-                                                <div class="contact-content">
-                                                    <h6 class="title">Office Address</h6>
-                                                    <p>1201 park street, Fifth Avenue</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6 col-12">
-                                            <div class="contact-item text-center">
-                                                <div class="contact-thumb mb-4">
-                                                    <img src="{{ URL::to('public/website/assets/images/contact/icon/02.png') }}"
-                                                        alt="contact-thumb">
-                                                </div>
-                                                <div class="contact-content">
-                                                    <h6 class="title">Phone number</h6>
-                                                    <p>+855 97 708 6101</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6 col-12">
-                                            <div class="contact-item text-center">
-                                                <div class="contact-thumb mb-4">
-                                                    <img src="{{ URL::to('public/website/assets/images/contact/icon/03.png') }}"
-                                                        alt="contact-thumb">
-                                                </div>
-                                                <div class="contact-content">
-                                                    <h6 class="title">Send Email</h6>
-                                                    <p>mornsova@gmail.com</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                             @php
                                 $x = true;
@@ -158,6 +120,55 @@
                                 </form>
                             @endif
                         </div>
+
+                        <div class="section-wrapper padding-top padding-bottom">
+                            <div class="row justify-content-center g-4">
+                                <div class="col-4">
+                                    <div class="contact-item text-center" style=" padding: 10px 10px !important; "
+                                    onclick="getText('Office Address', '1201 park street, Fifth Avenue');">
+                                        <div class="contact-thumb mb-4">
+                                            <img src="{{ URL::to('public/website/assets/images/contact/icon/01.png') }}"
+                                                alt="contact-thumb">
+                                        </div>
+                                        <div class="contact-content">
+                                            <h6 class="title" style="font-size: 12px;">Office Address</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="contact-item text-center" style=" padding: 10px 10px !important; "
+                                        onclick="getText('Phone number', '+855 97 708 6101');">
+                                        <div class="contact-thumb mb-4">
+                                            <img src="{{ URL::to('public/website/assets/images/contact/icon/02.png') }}"
+                                                alt="contact-thumb">
+                                        </div>
+                                        <div class="contact-content">
+                                            <h6 class="title" style="font-size: 12px;">Phone number</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="contact-item text-center" style=" padding: 10px 10px !important; "
+                                    onclick="getText('Send Email', 'mornsova@gmail.com');">
+                                        <div class="contact-thumb mb-4">
+                                            <img src="{{ URL::to('public/website/assets/images/contact/icon/03.png') }}"
+                                                alt="contact-thumb">
+                                        </div>
+                                        <div class="contact-content">
+                                            <h6 class="title" style="font-size: 12px;">Send Email</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="contact-item text-center" style=" padding: 10px 10px !important; ">
+                                        <div class="contact-content" id="appendText">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,4 +177,12 @@
 
 @endsection
 @section('script')
+    <script>
+        function getText(heading, text) {
+            document.getElementById("appendText").innerHTML = `
+                                            <h6 class="title">${heading}</h6>
+                                            <p>${text}</p>
+        `;
+        }
+    </script>
 @endsection
