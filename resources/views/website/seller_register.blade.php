@@ -13,8 +13,7 @@
                             <div class="padding-bottom">
                                 <div class="section__header style-2 text-center">
                                     <h2>Contact Info</h2>
-                                    <p>Want to get started as a member? Please click the below button and we will get in
-                                        touch.</p>
+                                    <p>Want to get started as a female member? Please use the form below and we will get in touch.</p>
                                     <small><b>Note : </b>The members is for Female only.</small>
                                 </div>
                                 {{-- <div class="section-wrapper">
