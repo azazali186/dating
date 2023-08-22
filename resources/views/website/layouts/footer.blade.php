@@ -31,6 +31,7 @@
         transition: 0.3s;
         position: relative;
         z-index: 2;
+        background-color: #fff;
     }
 
     .mobilebar-tab-overlay {
@@ -101,8 +102,9 @@
         box-shadow: 0 10px 6px 0 rgba(141, 134, 134, 0.175);
         border-radius: 6px;
         border: 10px solid #fff;
+        background-color: #fff;
         ">
-            <nav class="mobilebar-tab">
+            <nav class="mobilebar-tab" style="background-color: #fff;">
                 <div class="mobilebar-tab-item" style="{{ request()->is('/') ? 'background: black;' : '' }}">
                     <a href="{{ url('/') }}">
                         <span class="mobilebar-tab__icon">
