@@ -17,7 +17,7 @@
                                         touch.</p>
                                     <small><b>Note : </b>The members is for Female only.</small>
                                 </div>
-                                <div class="section-wrapper">
+                                {{-- <div class="section-wrapper">
                                     <div class="row justify-content-center g-4">
                                         <div class="col-lg-4 col-sm-6 col-12">
                                             <div class="contact-item text-center">
@@ -56,10 +56,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             @php
-                                $x = false;
+                                $x = true;
                             @endphp
                             @if ($x)
                                 <form action="{{ route('save.seller_register') }}" method="POST"
