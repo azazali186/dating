@@ -42,6 +42,10 @@ Route::get('/seller', function () {
     return view('website.seller_register');
 });
 
+Route::get('/privacy-policy', function () {
+    return view('website.policy');
+});
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/seller-profile', 'sellerProfile');

@@ -21,6 +21,9 @@
                                     <a href="{{ url('pricing-table') }}">Pricing</a>
                                 </li>
                             @endif
+                            <li class="{{ request()->is('privacy-policy') ? 'active' : '' }}">
+                                <a href="{{ url('privacy-policy') }}">Privacy Policy</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="header__more">
