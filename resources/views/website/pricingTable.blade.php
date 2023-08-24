@@ -230,19 +230,79 @@
 
 @section('content')
     <section class="padding-bottom">
-        <div class="contentSub row g-0 justify-content-center">
-            <div class="basicSub boxSub col-md-4 mb-5">
-                <h2 class="titleSub">Free</h2>
-                <div class="viewSub">
-                    <div class="iconSub">
-                        <img src="https://i.postimg.cc/2jcfMcf4/hot-air-balloon.png" alt="hot-air-balloon" />
+        <style>
+            pre {
+                background: #010608;
+                border-radius: 10px;
+                border: 7px solid #fff;
+                color: #65beff;
+                height: 338px;
+                overflow: hidden;
+                padding: 25px;
+                text-shadow: 0 0 1px #003a65;
+                transform: rotateY(20deg) rotateZ(-2deg);
+                white-space: pre;
+                width: 400px;
+            }
+
+            .cursor {
+                display: inline-block;
+                background: #fff;
+                height: 10px;
+                width: 8px;
+            }
+        </style>
+        <!-- partial:index.partial.html -->
+        <pre></pre>
+        <!-- partial -->
+        <script>
+            const view = document.getElementsByTagName("pre");
+
+            // ES6 arrow function expression and also making use of ES6 template strings
+            var log = (msg) => view[0].insertAdjacentHTML("beforeend", `${msg}`);
+
+            var letterCount = 0;
+            var sentenceCount = 0;
+
+            var type = function(message) {
+                sentenceCount++;
+                setTimeout(function() {
+                    message.forEach(function(character) {
+                        letterCount++;
+                        setTimeout(function() {
+                            log(character);
+                        }, 65 * letterCount);
+                    });
+                }, 1000 * sentenceCount);
+            };
+
+            type("Lunching offers\n\n".split(""));
+            type("Enjoy a 30-days free trial that\n\n".split(""));
+            type("includes a free Sign up account\n".split(""));
+            type("and get all access,\n\n".split(""));
+
+            type("Unlimited chat with anyone,\n".split(""));
+            type("Unlimited call with anyone!!\n\n".split(""));
+            type("Enjoy Your Day.. 😊.\n".split(""));
+            // type("HOW ABOUT A NICE GAME OF CHESS?".split(""));
+        </script>
+        @php
+            $x = false;
+        @endphp
+        @if ($x)
+            <div class="contentSub row g-0 justify-content-center">
+                <div class="basicSub boxSub col-md-4 mb-5">
+                    <h2 class="titleSub">Free</h2>
+                    <div class="viewSub">
+                        <div class="iconSub">
+                            <img src="https://i.postimg.cc/2jcfMcf4/hot-air-balloon.png" alt="hot-air-balloon" />
+                        </div>
+                        <div class="costSub">
+                            <p class="amountSub">$00</p>
+                            <p class="detailSub">7 Days</p>
+                        </div>
                     </div>
-                    <div class="costSub">
-                        <p class="amountSub">$00</p>
-                        <p class="detailSub">7 Days</p>
-                    </div>
-                </div>
-                {{-- <div class="descriptionSub">
+                    {{-- <div class="descriptionSub">
                     <ul class="ulClass">
                         <li class="liClass liClassUncheck">Lorem, ipsum dolor.</li>
                         <li class="liClass liClassUncheck">Harum, beatae laudantium.</li>
@@ -252,27 +312,27 @@
                         <li class="liClass liClassUncheck">Aliquid, quasi repellat!</li>
                     </ul>
                 </div> --}}
-                <div class="button">
-                    @if (Session::has('sessdata'))
-                        <button id="myBtn3" class="buttonBT">CONTINUE</button>
-                    @else
-                        <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
-                    @endif
+                    <div class="button">
+                        @if (Session::has('sessdata'))
+                            <button id="myBtn3" class="buttonBT">CONTINUE</button>
+                        @else
+                            <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
+                        @endif
+                    </div>
                 </div>
-            </div>
 
-            <div class="standard boxSub col-md-4 mb-5">
-                <h2 class="titleSub">Monthly</h2>
-                <div class="viewSub">
-                    <div class="iconSub">
-                        <img src="https://i.postimg.cc/DzrTN72Z/airplane.png" alt="airplane" />
+                <div class="standard boxSub col-md-4 mb-5">
+                    <h2 class="titleSub">Monthly</h2>
+                    <div class="viewSub">
+                        <div class="iconSub">
+                            <img src="https://i.postimg.cc/DzrTN72Z/airplane.png" alt="airplane" />
+                        </div>
+                        <div class="costSub">
+                            <p class="amountSub">${{ $months?->pricing }}</p>
+                            <p class="detailSub">per monthly</p>
+                        </div>
                     </div>
-                    <div class="costSub">
-                        <p class="amountSub">${{ $months?->pricing }}</p>
-                        <p class="detailSub">per monthly</p>
-                    </div>
-                </div>
-                {{-- <div class="descriptionSub">
+                    {{-- <div class="descriptionSub">
                     <ul class="ulClass">
                         <li class="liClass liClassCheck">Lorem, ipsum dolor.</li>
                         <li class="liClass liClassCheck">Harum, beatae laudantium.</li>
@@ -282,27 +342,27 @@
                         <li class="liClass liClassCheck">Aliquid, quasi repellat!</li>
                     </ul>
                 </div> --}}
-                <div class="button">
-                    @if (Session::has('sessdata'))
-                        <button id="myBtn1" class="buttonBT">CONTINUE</button>
-                    @else
-                        <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
-                    @endif
+                    <div class="button">
+                        @if (Session::has('sessdata'))
+                            <button id="myBtn1" class="buttonBT">CONTINUE</button>
+                        @else
+                            <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
+                        @endif
+                    </div>
                 </div>
-            </div>
 
-            <div class="business boxSub col-md-4 mb-5">
-                <h2 class="titleSub">3 Months</h2>
-                <div class="viewSub">
-                    <div class="iconSub">
-                        <img src="https://i.postimg.cc/wvFd6FRY/startup.png" alt="startup" />
+                <div class="business boxSub col-md-4 mb-5">
+                    <h2 class="titleSub">3 Months</h2>
+                    <div class="viewSub">
+                        <div class="iconSub">
+                            <img src="https://i.postimg.cc/wvFd6FRY/startup.png" alt="startup" />
+                        </div>
+                        <div class="costSub">
+                            <p class="amountSub">${{ $years?->pricing }}</p>
+                            <p class="detailSub">per 3 Months</p>
+                        </div>
                     </div>
-                    <div class="costSub">
-                        <p class="amountSub">${{ $years?->pricing }}</p>
-                        <p class="detailSub">per 3 Months</p>
-                    </div>
-                </div>
-                {{-- <div class="descriptionSub">
+                    {{-- <div class="descriptionSub">
                     <ul class="ulClass">
                         <li class="liClass liClassCheck">Lorem, ipsum dolor.</li>
                         <li class="liClass liClassCheck">Harum, beatae laudantium.</li>
@@ -312,74 +372,75 @@
                         <li class="liClass liClassCheck">Aliquid, quasi repellat!</li>
                     </ul>
                 </div> --}}
-                <div class="button">
-                    @if (Session::has('sessdata'))
-                        <button id="myBtn2" class="buttonBT">CONTINUE</button>
-                    @else
-                        <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
-                    @endif
+                    <div class="button">
+                        @if (Session::has('sessdata'))
+                            <button id="myBtn2" class="buttonBT">CONTINUE</button>
+                        @else
+                            <button onclick="window.location='{{ url('login') }}';" class="buttonBT">CONTINUE</button>
+                        @endif
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="basicSub boxSub col-md-4" style="height: 252px">
-                <div class="descriptionSub">
-                    <ul class="ulClass">
-                        <li class="liClass liClassCheck">Unlimited chat with anyone.</li>
-                        <li class="liClass liClassCheck">Unlimited to call with anyone.</li>
-                        <li class="liClass liClassCheck">Unlimited access to all photos in any profile .</li>
-                        <li class="liClass liClassCheck">Ability to filter info.</li>
-                        <li class="liClass liClassCheck">Ability to filter info. only 5 for free</li>
-                        {{-- <li class="liClass liClassCheck">Aliquid, quasi repellat!</li> --}}
-                    </ul>
+                <div class="basicSub boxSub col-md-4" style="height: 252px">
+                    <div class="descriptionSub">
+                        <ul class="ulClass">
+                            <li class="liClass liClassCheck">Unlimited chat with anyone.</li>
+                            <li class="liClass liClassCheck">Unlimited to call with anyone.</li>
+                            <li class="liClass liClassCheck">Unlimited access to all photos in any profile .</li>
+                            <li class="liClass liClassCheck">Ability to filter info.</li>
+                            <li class="liClass liClassCheck">Ability to filter info. only 5 for free</li>
+                            {{-- <li class="liClass liClassCheck">Aliquid, quasi repellat!</li> --}}
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div id="myModal1" class="modal">
-                <div class="row">
-                    <div class="col-md-4 m-auto">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <img src="{{ $months?->qr_image }}" />
-                            <form action="{{ url('pricing-subscription-upload') }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="pricing_table_id" value="{{ $months?->id }}" />
-                                <div class="form-group">
-                                    <label>Please Upload Your Receipt</label>
-                                    <input required type="file" name="image" class="form-control" />
-                                </div>
-                                <div class="form-group mt-3 text-center">
-                                    <button class="default-btn reverse" type="submit"><span>Submit</span></button>
-                                </div>
-                            </form>
+                <div id="myModal1" class="modal">
+                    <div class="row">
+                        <div class="col-md-4 m-auto">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <img src="{{ $months?->qr_image }}" />
+                                <form action="{{ url('pricing-subscription-upload') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="pricing_table_id" value="{{ $months?->id }}" />
+                                    <div class="form-group">
+                                        <label>Please Upload Your Receipt</label>
+                                        <input required type="file" name="image" class="form-control" />
+                                    </div>
+                                    <div class="form-group mt-3 text-center">
+                                        <button class="default-btn reverse" type="submit"><span>Submit</span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="myModal2" class="modal">
+                    <div class="row">
+                        <div class="col-md-4 m-auto">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <img src="{{ $years?->qr_image }}" />
+                                <form action="{{ url('pricing-subscription-upload') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="pricing_table_id" value="{{ $years?->id }}" />
+                                    <div class="form-group">
+                                        <label>Please Upload Your Receipt</label>
+                                        <input required type="file" name="image" class="form-control" />
+                                    </div>
+                                    <div class="form-group mt-3 text-center">
+                                        <button class="default-btn reverse" type="submit"><span>Submit</span></button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="myModal2" class="modal">
-                <div class="row">
-                    <div class="col-md-4 m-auto">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <img src="{{ $years?->qr_image }}" />
-                            <form action="{{ url('pricing-subscription-upload') }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="pricing_table_id" value="{{ $years?->id }}" />
-                                <div class="form-group">
-                                    <label>Please Upload Your Receipt</label>
-                                    <input required type="file" name="image" class="form-control" />
-                                </div>
-                                <div class="form-group mt-3 text-center">
-                                    <button class="default-btn reverse" type="submit"><span>Submit</span></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endif
     </section>
 @endsection
 

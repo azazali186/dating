@@ -102,7 +102,7 @@
 
 @include('website.components.slider')
 
-@if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
+{{-- @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
     <div class="banner banner--style3 padding-bottom"
         style="background-image: url({{ URL::to('public/website/assets/images/banner/bg-3.jpg') }});">
         <div class="container">
@@ -139,11 +139,11 @@
             </div>
         </div>
     </div>
-@endif
+@endif --}}
 
 <!-- ================> Banner section end here <================== -->
-
-@if (!Session::has('sessdata') || (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user'))
+{{-- && Session::get('sessdata')['role'] == 'user' --}}
+@if (!Session::has('sessdata') || (Session::has('sessdata')))
     <!-- ================> Member section start here <================== -->
     <div class="member member--style2 padding-bottom">
         <div class="container">

@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-7">
                     {{-- log-reg-inner --}}
-                    <div class="">
+                    <div class="log-reg-inner">
                         <div class="main-content padding-top">
                             <div class="padding-bottom">
                                 <div class="section__header style-2 text-center">
@@ -26,7 +26,7 @@
                                 <form action="{{ route('save.seller_register') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
-                                    <h3 class="content-title">Seller Acount Details</h3>
+                                    <h3 class="content-title">Member account details</h3>
                                     <div class="form-group">
                                         <label>Name*</label>
                                         <input type="text" class="my-form-control" name="name"
@@ -125,7 +125,7 @@
                             <div class="row justify-content-center g-4">
                                 <div class="col-4">
                                     <div class="contact-item text-center" style=" padding: 10px 10px !important; "
-                                    onclick="getText('Office Address', '1201 park street, Fifth Avenue');">
+                                        onclick="getText('Office Address', '1201 park street, Fifth Avenue');">
                                         <div class="contact-thumb mb-4">
                                             <img src="{{ URL::to('public/website/assets/images/contact/icon/01.png') }}"
                                                 alt="contact-thumb">
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="contact-item text-center" style=" padding: 10px 10px !important; "
-                                        onclick="getText('Phone number', '+855 97 708 6101');">
+                                        onclick="getText('Phone number', 'NUM');">
                                         <div class="contact-thumb mb-4">
                                             <img src="{{ URL::to('public/website/assets/images/contact/icon/02.png') }}"
                                                 alt="contact-thumb">
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="contact-item text-center" style=" padding: 10px 10px !important; "
-                                    onclick="getText('Send Email', 'mornsova@gmail.com');">
+                                        onclick="getText('Send Email', 'mornsova@gmail.com');">
                                         <div class="contact-thumb mb-4">
                                             <img src="{{ URL::to('public/website/assets/images/contact/icon/03.png') }}"
                                                 alt="contact-thumb">
@@ -179,10 +179,18 @@
 @section('script')
     <script>
         function getText(heading, text) {
-            document.getElementById("appendText").innerHTML = `
-                                            <h6 class="title">${heading}</h6>
-                                            <p>${text}</p>
-        `;
+            if (text == 'NUM') {
+                document.getElementById("appendText").innerHTML = `
+                                                <h6 class="title">${heading}</h6>
+                                                <p>+855 97 708 6101</p>
+                                                <a href="https://t.me/+855977086101"><button class="btn">Telegram!</button></a>
+                                            `;
+            } else {
+                document.getElementById("appendText").innerHTML = `
+                                                <h6 class="title">${heading}</h6>
+                                                <p>${text}</p>
+                                            `;
+            }
         }
     </script>
 @endsection
