@@ -59,6 +59,7 @@
                                         <label>Date of Birth*</label>
                                         <input type="date" name="birthday" class="my-form-control"
                                             value="{{ old('birthday') }}">
+                                            <p class="text-danger">The brirthday field must be a date before 2005-08-24</p>
                                         @if ($errors->has('birthday'))
                                             <p class="text-danger">{{ $errors->first('birthday') }}</p>
                                         @endif
