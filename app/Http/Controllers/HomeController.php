@@ -20,6 +20,7 @@ class HomeController extends Controller
 
     function index(Request $request)
     {
+        // dd(Session::get('sessdata'));
         $perPage = $request->rowsPerPage ?: 15;
         $page = $request->page ?: 1;
         $sortBy = $request->sortBy ?: 'created_at';

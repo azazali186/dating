@@ -10,15 +10,14 @@
                 <div class="col-lg-7">
                     {{-- log-reg-inner --}}
                     <div class="log-reg-inner">
-                        <div class="main-content padding-top">
-                            <div class="padding-bottom">
+                        <div class="main-content">
+                            {{-- <div class="padding-bottom">
                                 <div class="section__header style-2 text-center">
-                                    {{-- <h2>Contact Info</h2> --}}
                                     <p>Want to get started as a female member? Please use the form below and we will get in
                                         touch.</p>
                                     <small><b>Note : </b>The members is for Female only.</small>
                                 </div>
-                            </div>
+                            </div> --}}
                             @php
                                 $x = true;
                             @endphp
@@ -67,7 +66,7 @@
                                     <div class="form-group">
                                         <label>Mobile*</label>
                                         <input type="number" class="my-form-control" name="mobile"
-                                            placeholder="Enter Your Mobile Num" value="{{ old('mobile') }}">
+                                            placeholder="Enter Your Telegram Num" value="{{ old('mobile') }}">
                                         @if ($errors->has('mobile'))
                                             <p class="text-danger">{{ $errors->first('mobile') }}</p>
                                         @endif

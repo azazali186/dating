@@ -17,7 +17,7 @@
                             <div class="form-group">
                                 <label>Mobile*</label>
                                 <input type="text" class="my-form-control"
-                                    name="mobile"placeholder="Enter Your Mobile Number">
+                                    name="mobile"placeholder="Enter Your Telegram Number">
                                 @if ($errors->has('mobile'))
                                     <p class="text-danger">{{ $errors->first('mobile') }}</p>
                                 @endif

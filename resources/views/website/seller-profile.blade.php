@@ -308,7 +308,7 @@
                                                                     <label>Mobile*</label>
                                                                     <input readonly value="{{ $seller->mobile }}"
                                                                         type="text" class="my-form-control"
-                                                                        placeholder="Enter Your Mobile Num">
+                                                                        placeholder="Enter Your Telegram Num">
                                                                     @if ($errors->has('mobile'))
                                                                         <p class="text-danger">
                                                                             {{ $errors->first('mobile') }}

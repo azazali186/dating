@@ -16,7 +16,7 @@
                                 <div class="form-group">
                                     <label>Mobile*</label>
                                     <input type="number" class="my-form-control"
-                                        name="mobile"placeholder="Enter Your Mobile Num" value="{{ old('mobile') }}">
+                                        name="mobile"placeholder="Enter Your Telegram Num" value="{{ old('mobile') }}">
                                     @if ($errors->has('mobile'))
                                         <p class="text-danger">{{ $errors->first('mobile') }}</p>
                                     @endif

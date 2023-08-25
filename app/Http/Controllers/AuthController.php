@@ -19,30 +19,54 @@ class AuthController extends Controller
             $request->all(),
             [
                 'mobile' => [
-                    'required|unique:users',
+                    'required',
+                    'unique:users',
                     'numeric',
                     // 'digits_between:10,11',
-                    'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
+                    // 'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
                 ],
                 'email' => 'required|string|email|unique:users',
-
                 'password' => [
                     'required_with:confirmpassword',
-                    // 'string',
                     'min:6',
-                    // 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
                 ],
                 'confirmpassword' => 'required',
                 'name' => 'required|regex:/^[\pL\s\-]+$/u|min:2|max:50',
-
-                'birthday' => 'required|date_format:Y-m-d|before:' . \Carbon\Carbon::now()->subYears(18)->format('Y-m-d'),
-
                 'lookingfor' => 'required',
                 'gender' => 'required',
                 'matrital_status' => 'required',
                 'city' => 'required',
             ]
         );
+
+        if ($validateUser->fails()) {
+            return redirect()->back()->withErrors($validateUser)->withInput();
+        }
+        // $validateUser = Validator::make(
+        //     $request->all(),
+        //     [
+        //         'mobile' => [
+        //             'required|unique:users',
+        //             'numeric',
+        //             'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
+        //         ],
+        //         'email' => 'required|string|email|unique:users',
+        //         'password' => [
+        //             'required_with:confirmpassword',
+        //             'min:6',
+        //         ],
+        //         'confirmpassword' => 'required',
+        //         'name' => 'required|regex:/^[\pL\s\-]+$/u|min:2|max:50',
+        //         'lookingfor' => 'required',
+        //         'gender' => 'required',
+        //         'matrital_status' => 'required',
+        //         'city' => 'required',
+        //     ]
+        // );
+
+        // if ($validateUser->fails()) {
+        //     return redirect()->back()->withErrors($validateUser)->withInput();
+        // }
 
         if ($request->password == $request->confirmpassword) {
             $user = User::create([
@@ -67,13 +91,14 @@ class AuthController extends Controller
                 'gender' => $user->gender,
                 'matrital_status' => $user->matrital_status,
                 'city' => $user->city,
-                'role' => $user->role,
+                'role' => 'user',
                 'pricing_table' => $user->pricing_table,
             );
             $request->session()->put('sessdata', $sessdata);
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
-            return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();;
+            return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();
+            ;
         }
     }
 
@@ -82,19 +107,8 @@ class AuthController extends Controller
         $validateUser = Validator::make(
             $request->all(),
             [
-                'mobile' => [
-                    'required',
-                    'numeric',
-                    // 'digits_between:10,11',
-                    // 'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
-                ],
-
-                'password' => [
-                    'required_with:confirmpassword',
-                    'string',
-                    // 'min:8',
-                    // 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
-                ],
+                'mobile' => ['required', 'numeric'],
+                'password' => ['required_with:confirmpassword', 'string'],
             ]
         );
 
@@ -122,7 +136,7 @@ class AuthController extends Controller
                     'pricing_table' => $user->pricing_table,
                 );
                 $request->session()->put('sessdata', $sessdata);
-                return redirect('/')->withsuccess('Login Successfully!');
+                return redirect('user-profile')->withsuccess('Login Successfully!');
             } else {
                 return back()->with('warning', 'Invalid Mobile or Password!');
             }
@@ -148,7 +162,7 @@ class AuthController extends Controller
                     );
                     $request->session()->put('sessdata', $sessdata);
 
-                    return redirect('/')->withsuccess('Login Successfully!');
+                    return redirect('/seller-profile')->withsuccess('Login Successfully!');
                 } else {
                     return back()->with('warning', 'Invalid Mobile or Password!');
                 }
@@ -185,10 +199,9 @@ class AuthController extends Controller
                 ],
                 'confirmpassword' => 'required',
                 'name' => 'required|regex:/^[\pL\s\-]+$/u|min:2|max:50',
-                'birthday' => 'required|date_format:Y-m-d|before:' . \Carbon\Carbon::now()->subYears(18)->format('Y-m-d'),
+                // 'birthday' => 'required|date_format:Y-m-d|before:' . \Carbon\Carbon::now()->subYears(18)->format('Y-m-d'),
                 'price' => 'required',
                 'gender' => 'required',
-                'price' => 'required',
                 'address' => 'required',
             ]
         );
@@ -227,12 +240,13 @@ class AuthController extends Controller
                 'gender' => $seller->gender,
                 'price' => $seller->price,
                 'city' => $seller->city,
-                'role' => $seller->role,
+                'role' => 'seller',
             );
             $request->session()->put('sessdata', $sessdata);
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
-            return redirect()->to('seller/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();;
+            return redirect()->to('seller/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();
+            ;
         }
     }
 }
