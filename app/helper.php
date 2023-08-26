@@ -5,7 +5,8 @@ use App\Models\User;
 
 function getSubscription()
 {
-    return User::where('id', Session::get('sessdata')['id'])->first()->pricing_table;
+    // return User::where('id', Session::get('sessdata')['id'])->first()->pricing_table;
+    return true;
 }
 
 function ageCalc($from)

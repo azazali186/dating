@@ -29,7 +29,7 @@ class MessageController extends Controller
     {
         $data = $request->all();
         if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user') {
-            if (getSubscription() == 'Free') {
+            if (getSubscription() == false) {
                 return Redirect::to('pricing-table');
             }
             $data['user_id'] = Session::get('sessdata')['id'];

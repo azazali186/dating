@@ -125,7 +125,7 @@
                             </li>
 
                             @if (!Session::has('sessdata') || Session::get('sessdata')['role'] == 'user')
-                                {{--    @if (getSubscription() != 'Free') --}}
+                                {{--    @if (getSubscription() != true) --}}
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="gt3-tab" data-bs-toggle="tab" data-bs-target="#gt3"
                                         type="button" role="tab" aria-controls="gt3" aria-selected="false"><i
@@ -172,7 +172,7 @@
                                                         <span><b>Number:&nbsp;&nbsp;&nbsp;</b></span>
                                                         <span>
                                                             @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-                                                                @if (getSubscription() != 'Free')
+                                                                @if (getSubscription() == true)
                                                                     {{ $seller->mobile }}
                                                                 @else
                                                                     @php
@@ -247,7 +247,7 @@
                                     </div>
                                 </div>
                                 {{-- @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-                                    @if (getSubscription() != 'Free') --}}
+                                    @if (getSubscription() != true) --}}
                                 <div class="tab-pane fade" id="gt3" role="tabpanel" aria-labelledby="gt3-tab">
                                     <div class="">
                                         <div class="group__bottom--allmedia">
@@ -280,7 +280,7 @@
                                                                                     placeholder="Send me message" required> --}}
                                                                     <div class="lab-thumb">
                                                                         @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-                                                                            @if (getSubscription() != 'Free')
+                                                                            @if (getSubscription() == true)
                                                                                 <a target="_blank"
                                                                                     href="https://t.me/+855{{ $seller->mobile }}"
                                                                                     class="btn default-btn"

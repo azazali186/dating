@@ -189,7 +189,7 @@
                                                 style="width: 100%; height: 100%; border-radius: 100%; background-size: cover; background-repeat: no-repeat; background-position: center;">
                                         </div>
                                         @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
-                                            @if (getSubscription() != 'Free')
+                                            @if (getSubscription() == true)
                                                 <div style="width: 60%; float: left;">
                                                     <a href="{{ url('member-single') }}/{{ $item->id }}">
                                                         <h5>{{ $item->name }}</h5>
