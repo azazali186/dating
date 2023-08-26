@@ -124,7 +124,7 @@
                                 </button>
                             </li>
 
-                            @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'user')
+                            @if (!Session::has('sessdata') || Session::get('sessdata')['role'] == 'user')
                                 {{--    @if (getSubscription() != 'Free') --}}
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="gt3-tab" data-bs-toggle="tab" data-bs-target="#gt3"
@@ -160,10 +160,10 @@
                                             </div>
                                             <div class="info-card-content">
                                                 <ul class="info-list">
-                                                    <li>
+                                                    {{-- <li>
                                                         <span><b>Views:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
                                                         <span>{{ $seller->view_counts ?? 0 }}</span>
-                                                    </li>
+                                                    </li> --}}
                                                     <li>
                                                         <span><b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
                                                         <span>{{ $seller->name }}</span>

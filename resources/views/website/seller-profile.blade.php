@@ -203,6 +203,10 @@
                                                     <div class="info-card-content">
                                                         <ul class="info-list">
                                                             <li>
+                                                                <span><b>Views:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
+                                                                <span>{{ $seller->view_counts ?? 0 }}</span>
+                                                            </li>
+                                                            <li>
                                                                 <span><b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
                                                                 <span>{{ $seller->name }}</span>
                                                             </li>
