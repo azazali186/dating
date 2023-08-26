@@ -26,7 +26,7 @@ class HomeController extends Controller
         $sortBy = $request->sortBy ?: 'created_at';
         $sortOrder = $request->descending == 'true' ? 'desc' : 'asc';
 
-        $query = Seller::orderBy($sortBy, $sortOrder)->where('status', 1);
+        $query = Seller::where('status', 1);
 
         $query->when($request->price_start && $request->price_end, function ($query) use ($request) {
             $query->whereBetween('price', [$request->price_start, $request->price_end,]);
@@ -42,9 +42,9 @@ class HomeController extends Controller
             if ($request->type == 'newest') {
                 $query->orderBy('created_at', 'desc');
             }
-            // if($request->type == 'popular'){
-            //     $query->where('gender', $request->gender);
-            // }
+            if($request->type == 'popular'){
+                $query->orderBy('view_counts', 'desc');
+            }
         });
 
         $query->when($request->age_start && $request->age_end, function ($query) use ($request) {
@@ -60,6 +60,7 @@ class HomeController extends Controller
         $sellerId = $request->id;
         $seller = Seller::where('id', $sellerId)->where('status', 1)->first();
         $sellerPhotos = Photo::where('seller_id', $sellerId)->get();
+        $seller->update(['view_counts' => $seller->view_counts + 1]);
 
         return view('website.member-single', compact('seller', 'sellerId', 'sellerPhotos'));
     }

@@ -232,17 +232,19 @@
     <section class="padding-bottom">
         <style>
             pre {
-                background: #010608;
+                background: #f96972;
                 border-radius: 10px;
                 border: 7px solid #fff;
-                color: #65beff;
+                color: #fff;
                 height: 338px;
                 overflow: hidden;
                 padding: 25px;
-                text-shadow: 0 0 1px #003a65;
+                /* text-shadow: 0 0 1px #003a65; */
                 transform: rotateY(20deg) rotateZ(-2deg);
                 white-space: pre;
                 width: 400px;
+                font-size: 17px;
+                font-weight: 500;
             }
 
             .cursor {
@@ -276,8 +278,9 @@
                 }, 1000 * sentenceCount);
             };
 
-            type("Lunching offers\n\n".split(""));
-            type("Enjoy a 30-days free trial that\n\n".split(""));
+            type("\n".split(""));
+            type("Lunching offers....\n\n".split(""));
+            type("Enjoy a 30-days free trial that\n".split(""));
             type("includes a free Sign up account\n".split(""));
             type("and get all access,\n\n".split(""));
 

@@ -48,14 +48,14 @@ class MailController extends Controller
                                     name="email"placeholder="Enter The OTP">
                             </div>
                             <div class="col-4">
-                                <button id="sendOtpIdForm" class="btn btn-warning">
+                                <a typr="button" id="sendOtpIdForm" class="btn btn-warning">
                                     Resend
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>OTP*</label>
+                        <label>New Password*</label>
                         <input id="password" required type="password" class="my-form-control"
                             name="password" placeholder="Enter New password">
                     </div>
