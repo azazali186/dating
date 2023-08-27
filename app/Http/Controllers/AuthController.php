@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 use URL;
 use Illuminate\Support\Facades\Hash;
@@ -42,31 +43,6 @@ class AuthController extends Controller
         if ($validateUser->fails()) {
             return redirect()->back()->withErrors($validateUser)->withInput();
         }
-        // $validateUser = Validator::make(
-        //     $request->all(),
-        //     [
-        //         'mobile' => [
-        //             'required|unique:users',
-        //             'numeric',
-        //             'regex:/^(0[1-9]\d{9}|[1-9]\d{9,10})$/',
-        //         ],
-        //         'email' => 'required|string|email|unique:users',
-        //         'password' => [
-        //             'required_with:confirmpassword',
-        //             'min:6',
-        //         ],
-        //         'confirmpassword' => 'required',
-        //         'name' => 'required|regex:/^[\pL\s\-]+$/u|min:2|max:50',
-        //         'lookingfor' => 'required',
-        //         'gender' => 'required',
-        //         'matrital_status' => 'required',
-        //         'city' => 'required',
-        //     ]
-        // );
-
-        // if ($validateUser->fails()) {
-        //     return redirect()->back()->withErrors($validateUser)->withInput();
-        // }
 
         if ($request->password == $request->confirmpassword) {
             $user = User::create([
@@ -248,5 +224,33 @@ class AuthController extends Controller
             return redirect()->to('seller/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();
             ;
         }
+    }
+
+
+    function bannerList(Request $request)
+    {
+        $banners = Banner::get();
+
+        return view('admin.banner', compact('banners'));
+    }
+
+    function editBanner(Banner $banner)
+    {
+        // dd($banner);
+        return view('admin.editBanner', compact('banner'));
+    }
+
+    function bannerUpdate(Banner $banner, Request $request)
+    {
+        if ($request->file('photos')) {
+            $file = $request->file('photos');
+            $filename = 'profile_' . date('Ymd') . $file->getClientOriginalName();
+            $file->move(public_path('website/assets/images/banner/'), $filename);
+            $data['photos'] = URL::asset('public/website/assets/images/banner') . '/' . $filename;
+
+            $banner->update($data);
+        }
+
+        return redirect('admincon/banner-list')->with('success', 'Updated successfully!');
     }
 }

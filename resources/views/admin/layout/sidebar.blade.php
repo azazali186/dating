@@ -66,6 +66,14 @@
                                      <p>Subscription Request</p>
                                  </a>
                              </li>
+
+                             <li class="nav-item">
+                                <a href="{{ url('admincon/banner-list') }}"
+                                    class="nav-link {{ $pagename == 'banner-list' ? 'active' : '' }}">
+                                    <i class="fas fa-shopping-basket"></i> &nbsp;
+                                    <p>Banners</p>
+                                </a>
+                            </li>
                          </ul>
                      </nav>
                  </div>

@@ -13,3 +13,11 @@ function ageCalc($from)
 {
     return date_diff(date_create($from), date_create('today'))->y;
 }
+
+function dashboardData()
+{
+    $data['allUser'] = 5;
+    $data['allSeller'] = 15;
+    $data['allEarning'] = 15;
+    return $data;
+}

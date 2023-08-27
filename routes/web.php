@@ -102,6 +102,12 @@ Route::group(['middleware' => ['adminsession']], function () {
         Route::post('admincon/price-update/{slug}', 'priceUpdate');
     });
 
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('admincon/banner-list', 'bannerList');
+        Route::get('admincon/edit-banner/{banner}', 'editBanner');
+        Route::post('admincon/edit-banner/{banner}', 'bannerUpdate');
+    });
+
     Route::get('/admincon/allusers', [AdminUserController::class, 'list']);
     Route::post('/admincon/userSave', [AdminUserController::class, 'save'])->name('save.user');
     Route::get('/admincon/userDelete/{id?}', [AdminUserController::class, 'delete'])->name('delete.user');
