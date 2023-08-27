@@ -5,18 +5,19 @@
         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
     </div> --}}
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{{ URL::to('public/website/assets/images/banner/photo_2023-08-22_10-44-22.jpg') }}" alt="Los Angeles"
-                class="d-block" style="width: 100%;" />
-        </div>
-        <div class="carousel-item ">
+        @foreach ($banners as $key => $banner)
+            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                <img src="{{ $banner->photos }}" alt="Los Angeles" class="d-block" style="width: 100%;" />
+            </div>
+        @endforeach
+        {{-- <div class="carousel-item ">
             <img src="{{ URL::to('public/website/assets/images/banner/photo_2023-08-22_10-44-31.jpg') }}" alt="Los Angeles"
                 class="d-block" style="width: 100%;" />
         </div>
         <div class="carousel-item ">
             <img src="{{ URL::to('public/website/assets/images/banner/photo_2023-08-22_10-44-35.jpg') }}" alt="Los Angeles"
                 class="d-block" style="width: 100%;" />
-        </div>
+        </div> --}}
     </div>
 
     <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">

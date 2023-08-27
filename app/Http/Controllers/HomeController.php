@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\Photo;
 use App\Models\PricingTable;
 use App\Models\Seller;
@@ -53,7 +54,9 @@ class HomeController extends Controller
 
         $seller = $query->paginate($perPage, ['*'], 'page', $page)->withQueryString();
         // return $seller;
-        return view('website.index', compact('seller'));
+        $banners = Banner::get();
+
+        return view('website.index', compact('seller','banners'));
     }
     function singleMember(Request $request)
     {
