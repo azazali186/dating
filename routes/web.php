@@ -113,5 +113,8 @@ Route::group(['middleware' => ['adminsession']], function () {
     Route::get('/admincon/userDelete/{id?}', [AdminUserController::class, 'delete'])->name('delete.user');
     Route::get('/admincon/userForm/{end?}', [AdminUserController::class, 'new'])->name('form.user');
 
+
+    Route::get('/admincon/userChangeStatus/{user}', [AdminUserController::class, 'userChangeStatus']);
+
     Route::get('/admincon/sellerDelete/{id?}', [AdminUserController::class, 'deleteSeller']);
 });

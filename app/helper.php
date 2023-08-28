@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Seller;
 use App\Models\User;
 
 
@@ -16,8 +17,9 @@ function ageCalc($from)
 
 function dashboardData()
 {
-    $data['allUser'] = 5;
-    $data['allSeller'] = 15;
-    $data['allEarning'] = 15;
+    $data['allUser'] = User::count();
+    $data['allSeller'] = Seller::count();
+    $data['allEarning'] = '0.00';
+
     return $data;
 }

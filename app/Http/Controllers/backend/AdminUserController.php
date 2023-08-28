@@ -89,5 +89,15 @@ class AdminUserController extends Controller
         return back()->with('success', 'Successfully deleted.!!');
     }
 
+    public function userChangeStatus(User $user, Request $request)
+    {
+        $status = 0;
+        if($request->status == 1){
+            $status = 1;
+        }
+        // dd($user, $request->all());
+        $user->update(['status' => $status]);
 
+        return back()->with('success', 'Successfully Changed.!!');
+    }
 }

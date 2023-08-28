@@ -66,7 +66,7 @@ Company
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{ dashboardData()['allEarning'] }}</h3>
+                <h3>{{ dashboardData()['allEarning'] }} $</h3>
 
                 <p>All Earning</p>
               </div>

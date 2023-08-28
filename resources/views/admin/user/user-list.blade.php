@@ -49,7 +49,7 @@
                                             <th>Address</th>
                                             <th>Gender</th>
                                             <th>Looking For</th>
-                                            <th>Status</th>
+                                            <th>Married status</th>
                                             <th>Status</th>
                                             <th>Created At</th>
                                             <th>Action</th>
@@ -101,9 +101,11 @@
 
                                             <td>
                                                 @if ($user['status'] == 1)
-                                                    <span class="label bg-green">Active</span>
+                                                    <span onClick="changeStatus({{ $user['id'] }}, 0)"
+                                                        class="btn btn-success">Active</span>
                                                 @else
-                                                    <span class="label bg-red">Inactive</span>
+                                                    <span onClick="changeStatus({{ $user['id'] }}, 1)"
+                                                        class="btn btn-danger">Inactive</span>
                                                 @endif
                                             </td>
                                             <td>{{ $user['created_at'] }}</td>
@@ -139,6 +141,21 @@
         $('#addRow').click(function() {
             location.replace(url);
         });
+
+        function changeStatus(id, val) {
+            var url = '<?php echo url('admincon/userChangeStatus'); ?>' + '/' + id + '?status=' + val;
+            swal({
+                    title: `Are you sure you want to change the status of this record?`,
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        location.replace(url);
+                    }
+                });
+        }
 
         function edituser(id) {
             var url = '<?php echo url('admincon/userForm'); ?>' + '/' + id;
