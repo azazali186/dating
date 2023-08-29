@@ -383,9 +383,46 @@
                                                                 @endif
                                                                 <div class="form-group">
                                                                     <label>City*</label>
-                                                                    <input required value="{{ $user->city }}"
+                                                                    {{-- <input required value="{{ $user->city }}"
                                                                         type="text" name="city"
-                                                                        class="my-form-control" id="location" />
+                                                                        class="my-form-control" id="location" /> --}}
+
+                                                                        <select class="my-form-control" name="city">
+                                                                            <option {{ $user->city == 'Battambang' ? 'selected' : '' }}>Battambang</option>
+                                                                            <option {{ $user->city == 'Banteay Meanchey' ? 'selected' : '' }}>Banteay Meanchey</option>
+                                                                            <option {{ $user->city == 'Bavet' ? 'selected' : '' }}>Bavet</option>
+                                                                            <option {{ $user->city == 'Banlung' ? 'selected' : '' }}>Banlung</option>
+                                                                            <option {{ $user->city == 'Chbar Mon' ? 'selected' : '' }}>Chbar Mon</option>
+                                                                            <option {{ $user->city == 'Doun Kaev' ? 'selected' : '' }}>Doun Kaev</option>
+                                                                            <option {{ $user->city == 'Kandal' ? 'selected' : '' }}>Kandal</option>
+                                                                            <option {{ $user->city == 'Kampong Thom' ? 'selected' : '' }}>Kampong Thom</option>
+                                                                            <option {{ $user->city == 'Kampong Speu' ? 'selected' : '' }}>Kampong Speu</option>
+                                                                            <option {{ $user->city == 'Kampong Chhnang' ? 'selected' : '' }}>Kampong Chhnang</option>
+                                                                            <option {{ $user->city == 'Kampong Cham' ? 'selected' : '' }}>Kampong Cham</option>
+                                                                            <option {{ $user->city == 'Kampot' ? 'selected' : '' }}>Kampot</option>
+                                                                            <option {{ $user->city == 'Koh Kong' ? 'selected' : '' }}>Koh Kong</option>
+                                                                            <option {{ $user->city == 'Kratié' ? 'selected' : '' }}>Kratié</option>
+                                                                            <option {{ $user->city == 'Kep' ? 'selected' : '' }}>Kep</option>
+                                                                            <option {{ $user->city == 'Koh Rong' ? 'selected' : '' }}>Koh Rong</option>
+                                                                            <option {{ $user->city == 'Oddar Meanchey' ? 'selected' : '' }}>Oddar Meanchey</option>
+                                                                            <option {{ $user->city == 'Phnom Penh' ? 'selected' : '' }}>Phnom Penh</option>
+                                                                            <option {{ $user->city == 'Poipet' ? 'selected' : '' }}>Poipet</option>
+                                                                            <option {{ $user->city == 'Pursat' ? 'selected' : '' }}>Pursat</option>
+                                                                            <option {{ $user->city == 'Pailin' ? 'selected' : '' }}>Pailin</option>
+                                                                            <option {{ $user->city == 'Prey Veng' ? 'selected' : '' }}>Prey Veng</option>
+                                                                            <option {{ $user->city == 'Preah Vihear' ? 'selected' : '' }}>Preah Vihear</option>
+                                                                            <option {{ $user->city == 'Ratanakiri' ? 'selected' : '' }}>Ratanakiri</option>
+                                                                            <option {{ $user->city == 'Siem Reap' ? 'selected' : '' }}>Siem Reap</option>
+                                                                            <option {{ $user->city == 'Serei Saophoan' ? 'selected' : '' }}>Serei Saophoan</option>
+                                                                            <option {{ $user->city == 'Sihanoukville' ? 'selected' : '' }}>Sihanoukville</option>
+                                                                            <option {{ $user->city == 'Samraong' ? 'selected' : '' }}>Samraong</option>
+                                                                            <option {{ $user->city == 'Stueng Saen' ? 'selected' : '' }}>Stueng Saen</option>
+                                                                            <option {{ $user->city == 'Svay Rieng' ? 'selected' : '' }}>Svay Rieng</option>
+                                                                            <option {{ $user->city == 'Suong' ? 'selected' : '' }}>Suong</option>
+                                                                            <option {{ $user->city == 'Ta Khmau' ? 'selected' : '' }}>Ta Khmau</option>
+                                                                            <option {{ $user->city == 'Takéo' ? 'selected' : '' }}>Takéo</option>
+                                                                            <option {{ $user->city == 'Tboung Khmum' ? 'selected' : '' }}>Tboung Khmum</option>
+                                                                        </select>
                                                                     @if ($errors->has('city'))
                                                                         <p class="text-danger">
                                                                             {{ $errors->first('city') }}</p>

@@ -358,40 +358,40 @@
                                                                 <div class="form-group">
                                                                     <label>Enter Your Address*</label>
                                                                     <select class="my-form-control" name="address">
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Battambang</option>
-                                                                        <option {{ old('address') == 'Banteay Meanchey' ? 'selected' : '' }}>Banteay Meanchey</option>
-                                                                        <option {{ old('address') == 'Bavet' ? 'selected' : '' }}>Bavet</option>
-                                                                        <option {{ old('address') == 'Banlung' ? 'selected' : '' }}>Banlung</option>
-                                                                        <option {{ old('address') == 'Chbar Mon' ? 'selected' : '' }}>Chbar Mon</option>
-                                                                        <option {{ old('address') == 'Doun Kaev' ? 'selected' : '' }}>Doun Kaev</option>
-                                                                        <option {{ old('address') == 'Kandal' ? 'selected' : '' }}>Kandal</option>
-                                                                        <option {{ old('address') == 'Kampong Thom' ? 'selected' : '' }}>Kampong Thom</option>
-                                                                        <option {{ old('address') == 'Kampong Speu' ? 'selected' : '' }}>Kampong Speu</option>
-                                                                        <option {{ old('address') == 'Kampong Chhnang' ? 'selected' : '' }}>Kampong Chhnang</option>
-                                                                        <option {{ old('address') == 'Kampong Cham' ? 'selected' : '' }}>Kampong Cham</option>
-                                                                        <option {{ old('address') == 'Kampot' ? 'selected' : '' }}>Kampot</option>
-                                                                        <option {{ old('address') == 'Koh Kong' ? 'selected' : '' }}>Koh Kong</option>
-                                                                        <option {{ old('address') == 'Kratié' ? 'selected' : '' }}>Kratié</option>
-                                                                        <option {{ old('address') == 'Kep' ? 'selected' : '' }}>Kep</option>
-                                                                        <option {{ old('address') == 'Koh Rong' ? 'selected' : '' }}>Koh Rong</option>
-                                                                        <option {{ old('address') == 'Oddar Meanchey' ? 'selected' : '' }}>Oddar Meanchey</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Phnom Penh</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Poipet</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Pursat</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Pailin</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Prey Veng</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Preah Vihear</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Ratanakiri</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Siem Reap</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Serei Saophoan</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Sihanoukville</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Samraong</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Stueng Saen</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Svay Rieng</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Suong</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Ta Khmau</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Takéo</option>
-                                                                        <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Tboung Khmum</option>
+                                                                        <option {{ $seller->address == 'Battambang' ? 'selected' : '' }}>Battambang</option>
+                                                                        <option {{ $seller->address == 'Banteay Meanchey' ? 'selected' : '' }}>Banteay Meanchey</option>
+                                                                        <option {{ $seller->address == 'Bavet' ? 'selected' : '' }}>Bavet</option>
+                                                                        <option {{ $seller->address == 'Banlung' ? 'selected' : '' }}>Banlung</option>
+                                                                        <option {{ $seller->address == 'Chbar Mon' ? 'selected' : '' }}>Chbar Mon</option>
+                                                                        <option {{ $seller->address == 'Doun Kaev' ? 'selected' : '' }}>Doun Kaev</option>
+                                                                        <option {{ $seller->address == 'Kandal' ? 'selected' : '' }}>Kandal</option>
+                                                                        <option {{ $seller->address == 'Kampong Thom' ? 'selected' : '' }}>Kampong Thom</option>
+                                                                        <option {{ $seller->address == 'Kampong Speu' ? 'selected' : '' }}>Kampong Speu</option>
+                                                                        <option {{ $seller->address == 'Kampong Chhnang' ? 'selected' : '' }}>Kampong Chhnang</option>
+                                                                        <option {{ $seller->address == 'Kampong Cham' ? 'selected' : '' }}>Kampong Cham</option>
+                                                                        <option {{ $seller->address == 'Kampot' ? 'selected' : '' }}>Kampot</option>
+                                                                        <option {{ $seller->address == 'Koh Kong' ? 'selected' : '' }}>Koh Kong</option>
+                                                                        <option {{ $seller->address == 'Kratié' ? 'selected' : '' }}>Kratié</option>
+                                                                        <option {{ $seller->address == 'Kep' ? 'selected' : '' }}>Kep</option>
+                                                                        <option {{ $seller->address == 'Koh Rong' ? 'selected' : '' }}>Koh Rong</option>
+                                                                        <option {{ $seller->address == 'Oddar Meanchey' ? 'selected' : '' }}>Oddar Meanchey</option>
+                                                                        <option {{ $seller->address == 'Phnom Penh' ? 'selected' : '' }}>Phnom Penh</option>
+                                                                        <option {{ $seller->address == 'Poipet' ? 'selected' : '' }}>Poipet</option>
+                                                                        <option {{ $seller->address == 'Pursat' ? 'selected' : '' }}>Pursat</option>
+                                                                        <option {{ $seller->address == 'Pailin' ? 'selected' : '' }}>Pailin</option>
+                                                                        <option {{ $seller->address == 'Prey Veng' ? 'selected' : '' }}>Prey Veng</option>
+                                                                        <option {{ $seller->address == 'Preah Vihear' ? 'selected' : '' }}>Preah Vihear</option>
+                                                                        <option {{ $seller->address == 'Ratanakiri' ? 'selected' : '' }}>Ratanakiri</option>
+                                                                        <option {{ $seller->address == 'Siem Reap' ? 'selected' : '' }}>Siem Reap</option>
+                                                                        <option {{ $seller->address == 'Serei Saophoan' ? 'selected' : '' }}>Serei Saophoan</option>
+                                                                        <option {{ $seller->address == 'Sihanoukville' ? 'selected' : '' }}>Sihanoukville</option>
+                                                                        <option {{ $seller->address == 'Samraong' ? 'selected' : '' }}>Samraong</option>
+                                                                        <option {{ $seller->address == 'Stueng Saen' ? 'selected' : '' }}>Stueng Saen</option>
+                                                                        <option {{ $seller->address == 'Svay Rieng' ? 'selected' : '' }}>Svay Rieng</option>
+                                                                        <option {{ $seller->address == 'Suong' ? 'selected' : '' }}>Suong</option>
+                                                                        <option {{ $seller->address == 'Ta Khmau' ? 'selected' : '' }}>Ta Khmau</option>
+                                                                        <option {{ $seller->address == 'Takéo' ? 'selected' : '' }}>Takéo</option>
+                                                                        <option {{ $seller->address == 'Tboung Khmum' ? 'selected' : '' }}>Tboung Khmum</option>
                                                                     </select>
                                                                     {{-- <input required value="{{ $seller->city }}"
                                                                         type="text" name="address"
