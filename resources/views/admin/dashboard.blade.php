@@ -40,7 +40,7 @@ Company
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{ url('admincon/allusers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ url('admincon/allusers') }}?dates[]={{date('Y-m-d', time())}}&dates[]={{date('Y-m-d', time())}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -56,7 +56,7 @@ Company
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{ url('admincon/allseller') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ url('admincon/allseller') }}?dates[]={{date('Y-m-d', time())}}&dates[]={{date('Y-m-d', time())}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

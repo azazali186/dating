@@ -16,10 +16,22 @@ use Session;
 
 class AdminSellerController extends Controller
 {
-    public function listseller()
+    public function listseller(Request $request)
     {
-        $users = Seller::select('*')->orderBy('id', 'DESC')->get()->toArray();
+        $query = Seller::select('*')->orderBy('id', 'DESC');
 
+        $query->when($request->dates, function ($query) use ($request) {
+            if ($request->dates[0] == $request->dates[1]) {
+                $query->whereDate('created_at', Carbon::parse($request->dates[0])->format('Y-m-d'));
+            } else {
+                $query->whereBetween('created_at', [
+                    Carbon::parse($request->dates[0])->startOfDay(),
+                    Carbon::parse($request->dates[1])->endOfDay(),
+                ]);
+            }
+        });
+
+        $users = $query->get()->toArray();
         return view('admin.seller.seller-list')->with(array('users' => $users));
     }
 
@@ -60,18 +72,18 @@ class AdminSellerController extends Controller
         $data['status'] =  '1';
         $data['join_date'] =  Carbon::now();
 
-        // if ($pricingTable->pricingTable->pricing_type == 'Year') {
-        //     $data['expiry_date'] = Carbon::now()->addMonth(3);
-        // } elseif ($pricingTable->pricingTable->pricing_type == 'Month') {
-        //     $data['expiry_date'] = Carbon::now()->addMonth();
-        // } else {
-        //     $data['expiry_date'] = Carbon::now()->addDay(7);
-        // }
+        if ($pricingTable->pricingTable->pricing_type == '3month') {
+            $data['expiry_date'] = Carbon::now()->addMonth(3);
+        } elseif ($pricingTable->pricingTable->pricing_type == '1month') {
+            $data['expiry_date'] = Carbon::now()->addMonth();
+        } else {
+            $data['expiry_date'] = Carbon::now()->addDay(7);
+        }
 
-        $data['expiry_date_7days'] = Carbon::now()->addDay(7);
-        $data['expiry_date_1month'] = Carbon::now()->addMonth();
-        $data['expiry_date_3month'] = Carbon::now()->addMonth(3);
-        dd($data);
+        // $data['expiry_date_7days'] = Carbon::now()->addDay(7);
+        // $data['expiry_date_1month'] = Carbon::now()->addMonth();
+        // $data['expiry_date_3month'] = Carbon::now()->addMonth(3);
+        // dd($data);
         $pricingTable->update($data);
 
         return back()->with('success', 'Approved successfully!');

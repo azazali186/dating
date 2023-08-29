@@ -174,7 +174,7 @@ class AuthController extends Controller
                     //'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
                 ],
                 'confirmpassword' => 'required',
-                'name' => 'required|regex:/^[\pL\s\-]+$/u|min:2|max:50',
+                'name' => 'required',
                 // 'birthday' => 'required|date_format:Y-m-d|before:' . \Carbon\Carbon::now()->subYears(18)->format('Y-m-d'),
                 'price' => 'required',
                 'gender' => 'required',

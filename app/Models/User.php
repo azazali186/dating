@@ -26,6 +26,7 @@ class User extends Authenticatable
         'lookingfor',
         'gender',
         'matrital_status',
+        'status',
         'city',
     ];
 

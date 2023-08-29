@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Seller;
+use App\Models\SubscriptionUpload;
 use App\Models\User;
 
 
@@ -19,7 +20,7 @@ function dashboardData()
 {
     $data['allUser'] = User::count();
     $data['allSeller'] = Seller::count();
-    $data['allEarning'] = '0.00';
+    $data['allEarning'] = SubscriptionUpload::with(['pricingTable'])->where('status', '1')->get()->sum('pricingTable.pricing');
 
     return $data;
 }

@@ -105,8 +105,44 @@
                                     </div>
                                     <div class="form-group">
                                         <label>City*</label>
-                                        <input type="text" name="address" class="my-form-control" id="location"
-                                            value="{{ old('address') }}" />
+                                        <select class="my-form-control" name="address">
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Battambang</option>
+                                            <option {{ old('address') == 'Banteay Meanchey' ? 'selected' : '' }}>Banteay Meanchey</option>
+                                            <option {{ old('address') == 'Bavet' ? 'selected' : '' }}>Bavet</option>
+                                            <option {{ old('address') == 'Banlung' ? 'selected' : '' }}>Banlung</option>
+                                            <option {{ old('address') == 'Chbar Mon' ? 'selected' : '' }}>Chbar Mon</option>
+                                            <option {{ old('address') == 'Doun Kaev' ? 'selected' : '' }}>Doun Kaev</option>
+                                            <option {{ old('address') == 'Kandal' ? 'selected' : '' }}>Kandal</option>
+                                            <option {{ old('address') == 'Kampong Thom' ? 'selected' : '' }}>Kampong Thom</option>
+                                            <option {{ old('address') == 'Kampong Speu' ? 'selected' : '' }}>Kampong Speu</option>
+                                            <option {{ old('address') == 'Kampong Chhnang' ? 'selected' : '' }}>Kampong Chhnang</option>
+                                            <option {{ old('address') == 'Kampong Cham' ? 'selected' : '' }}>Kampong Cham</option>
+                                            <option {{ old('address') == 'Kampot' ? 'selected' : '' }}>Kampot</option>
+                                            <option {{ old('address') == 'Koh Kong' ? 'selected' : '' }}>Koh Kong</option>
+                                            <option {{ old('address') == 'Kratié' ? 'selected' : '' }}>Kratié</option>
+                                            <option {{ old('address') == 'Kep' ? 'selected' : '' }}>Kep</option>
+                                            <option {{ old('address') == 'Koh Rong' ? 'selected' : '' }}>Koh Rong</option>
+                                            <option {{ old('address') == 'Oddar Meanchey' ? 'selected' : '' }}>Oddar Meanchey</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Phnom Penh</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Poipet</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Pursat</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Pailin</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Prey Veng</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Preah Vihear</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Ratanakiri</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Siem Reap</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Serei Saophoan</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Sihanoukville</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Samraong</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Stueng Saen</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Svay Rieng</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Suong</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Ta Khmau</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Takéo</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Tboung Khmum</option>
+                                        </select>
+                                        {{-- <input type="text" name="address" class="my-form-control" id="location"
+                                            value="{{ old('address') }}" /> --}}
                                         @if ($errors->has('address'))
                                             <p class="text-danger">{{ $errors->first('address') }}</p>
                                         @endif

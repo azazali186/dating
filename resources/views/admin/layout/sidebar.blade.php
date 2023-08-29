@@ -39,14 +39,14 @@
                                  </a>
                              </li>
                              <li class="nav-item">
-                                 <a href="{{ url('admincon/allusers') }}"
+                                 <a href="{{ url('admincon/allusers') }}?dates[]={{date('Y-m-d', time())}}&dates[]={{date('Y-m-d', time())}}"
                                      class="nav-link {{ $pagename == 'all-user-list' ? 'active' : '' }}">
                                      <i class="fas fa-users"></i>&nbsp;&nbsp;
                                      <p>All users</p>
                                  </a>
                              </li>
                              <li class="nav-item">
-                                 <a href="{{ url('admincon/allseller') }}"
+                                 <a href="{{ url('admincon/allseller') }}?dates[]={{date('Y-m-d', time())}}&dates[]={{date('Y-m-d', time())}}"
                                      class="nav-link {{ $pagename == 'all-seller-list' ? 'active' : '' }}">
                                      <i class="fas fa-users"></i> &nbsp;
                                      <p>All Seller</p>

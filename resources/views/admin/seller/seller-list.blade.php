@@ -32,6 +32,27 @@
                         <!-- /.card -->
 
                         <div class="card">
+                            <div class="card-body">
+                                <form class="row">
+                                    <div class="col-md-4 from-group">
+                                        <label>Start Date</label>
+                                        <input type="date" class="form-control" name="dates[0]"
+                                            value="{{ $_GET['dates'][0] ?? '' }}" />
+                                    </div>
+                                    <div class="col-md-4 from-group">
+                                        <label>Start Date</label>
+                                        <input type="date" class="form-control" name="dates[1]"
+                                            value="{{ $_GET['dates'][1] ?? '' }}" />
+                                    </div>
+                                    <div class="col-md-4 from-group">
+                                        <label></label>
+                                        <input type="submit" class="btn btn-primary mt-4" value="Search"
+                                            style=" margin-top: 32px !important; " />
+                                        <a href="{{ url('admincon/allseller') }}" class="btn btn-warning mt-4"
+                                            style=" margin-top: 32px !important; ">Reset</a>
+                                    </div>
+                                </form>
+                            </div>
                             {{-- <div class="card-header">
                                 <h3 class="card-title">DataTable with default features</h3>
                             </div> --}}
@@ -84,16 +105,19 @@
                                             </td>
                                             <td>
                                                 @if ($user['status'] == 1)
-                                                    <span class="label bg-green">Active</span>
+                                                    <span onClick="changeStatus({{ $user['id'] }}, 0)"
+                                                        class="btn btn-success">Active</span>
                                                 @else
-                                                    <span class="label bg-red">Inactive</span>
+                                                    <span onClick="changeStatus({{ $user['id'] }}, 1)"
+                                                        class="btn btn-danger">Inactive</span>
                                                 @endif
                                             </td>
                                             <td>{{ $user['created_at'] }}</td>
                                             <td>
                                                 {{-- <a href="javascript:void(0);" onClick="edituser('<?php echo base64_encode($user['id']); ?>')"><i
                                                         class="fa fa-edit" aria-hidden="true"></i></a> --}}
-                                                <a href="javascript:void(0);" onClick="removeuser('{{ $user['id'] }}')"><i
+                                                <a href="javascript:void(0);"
+                                                    onClick="removeuser('{{ $user['id'] }}')"><i
                                                         class="fa fa-trash text-danger" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
@@ -117,6 +141,20 @@
     </div>
 
     <script type="text/javascript">
+        function changeStatus(id, val) {
+            var url = '<?php echo url('admincon/sellerChangeStatus'); ?>' + '/' + id + '?status=' + val;
+            swal({
+                    title: `Are you sure you want to change the status of this record?`,
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        location.replace(url);
+                    }
+                });
+        }
         var url = {!! json_encode(url('admincon/userForm')) !!}
         $('#addRow').click(function() {
             location.replace(url);

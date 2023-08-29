@@ -8,17 +8,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use DB;
 use App\Models\User;
+use Carbon\Carbon;
 use Validator;
 
 class AdminUserController extends Controller
 {
     //
-    public function list()
+    public function list(Request $request)
     {
-        $users = User::select('*')->orderBy('id', 'DESC')->get()->toArray();
-        // echo "<pre>";
-        // print_r($users);
-        // die;
+        // dd($request->all());
+        $query = User::select('*')->orderBy('id', 'DESC');
+        $query->when($request->dates, function ($query) use ($request) {
+            if ($request->dates[0] == $request->dates[1]) {
+                $query->whereDate('created_at', Carbon::parse($request->dates[0])->format('Y-m-d'));
+            } else {
+                $query->whereBetween('created_at', [
+                    Carbon::parse($request->dates[0])->startOfDay(),
+                    Carbon::parse($request->dates[1])->endOfDay(),
+                ]);
+            }
+        });
+        $users = $query->get()->toArray();
+
         return view('admin.user.user-list')->with(array('users' => $users));
     }
 
@@ -91,13 +102,13 @@ class AdminUserController extends Controller
 
     public function userChangeStatus(User $user, Request $request)
     {
-        $status = 0;
-        if($request->status == 1){
-            $status = 1;
-        }
-        // dd($user, $request->all());
-        $user->update(['status' => $status]);
+        $user->update($request->all());
+        return back()->with('success', 'Successfully Changed.!!');
+    }
 
+    public function sellerChangeStatus(Seller $seller, Request $request)
+    {
+        $seller->update($request->all());
         return back()->with('success', 'Successfully Changed.!!');
     }
 }

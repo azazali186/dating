@@ -32,6 +32,28 @@
                         <!-- /.card -->
 
                         <div class="card">
+
+                            <div class="card-body">
+                                <form class="row">
+                                    <div class="col-md-4 from-group">
+                                        <label>Start Date</label>
+                                        <input type="date" class="form-control" name="dates[]"
+                                            value="{{ $_GET['dates'][0] ?? '' }}" />
+                                    </div>
+                                    <div class="col-md-4 from-group">
+                                        <label>Start Date</label>
+                                        <input type="date" class="form-control" name="dates[]"
+                                            value="{{ $_GET['dates'][1] ?? '' }}" />
+                                    </div>
+                                    <div class="col-md-4 from-group">
+                                        <label></label>
+                                        <input type="submit" class="btn btn-primary mt-4" value="Search"
+                                            style=" margin-top: 32px !important; " />
+                                        <a href="{{ url('admincon/allusers') }}" class="btn btn-warning mt-4"
+                                            style=" margin-top: 32px !important; ">Reset</a>
+                                    </div>
+                                </form>
+                            </div>
                             {{-- <div class="card-header">
                                 <h3 class="card-title">DataTable with default features</h3>
                             </div> --}}
