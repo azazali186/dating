@@ -104,7 +104,43 @@
                 <div class="col-12">
                     <label>City</label>
                     <div class="banner__inputlist">
-                        <input type="text" id="location" name="city" />
+                        {{-- <input type="text" id="location" name="city" /> --}}
+                        <select name="city">
+                            <option>Battambang</option>
+                            <option>Banteay Meanchey</option>
+                            <option>Bavet</option>
+                            <option>Banlung</option>
+                            <option>Chbar Mon</option>
+                            <option>Doun Kaev</option>
+                            <option>Kandal</option>
+                            <option>Kampong Thom</option>
+                            <option>Kampong Speu</option>
+                            <option>Kampong Chhnang</option>
+                            <option>Kampong Cham</option>
+                            <option>Kampot</option>
+                            <option>Koh Kong</option>
+                            <option>Kratié</option>
+                            <option>Kep</option>
+                            <option>Koh Rong</option>
+                            <option>Oddar Meanchey</option>
+                            <option>Phnom Penh</option>
+                            <option>Poipet</option>
+                            <option>Pursat</option>
+                            <option>Pailin</option>
+                            <option>Prey Veng</option>
+                            <option>Preah Vihear</option>
+                            <option>Ratanakiri</option>
+                            <option>Siem Reap</option>
+                            <option>Serei Saophoan</option>
+                            <option>Sihanoukville</option>
+                            <option>Samraong</option>
+                            <option>Stueng Saen</option>
+                            <option>Svay Rieng</option>
+                            <option>Suong</option>
+                            <option>Ta Khmau</option>
+                            <option>Takéo</option>
+                            <option>Tboung Khmum</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col m-auto">
