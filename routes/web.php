@@ -22,6 +22,36 @@ use Illuminate\Contracts\Session\Session;
 |
 */
 
+Route::get('/chart', function () {
+    $data = [
+        [
+            1630330200000,
+            153.12
+        ],
+        [
+            1630416600000,
+            151.83
+        ],
+        [
+            1630503000000,
+            152.51
+        ],
+        [
+            1630589400000,
+            153.65
+        ],
+        [
+            1630675800000,
+            154.3
+        ],
+        [
+            1631021400000,
+            156.69
+        ]
+    ];
+    return $data;
+});
+
 Route::post('send-mail', [MailController::class, 'index']);
 
 Route::get('/search', function () {
