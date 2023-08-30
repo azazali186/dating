@@ -123,7 +123,7 @@
                                             <option {{ old('address') == 'Kep' ? 'selected' : '' }}>Kep</option>
                                             <option {{ old('address') == 'Koh Rong' ? 'selected' : '' }}>Koh Rong</option>
                                             <option {{ old('address') == 'Oddar Meanchey' ? 'selected' : '' }}>Oddar Meanchey</option>
-                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Phnom Penh</option>
+                                            <option {{ old('address') == 'Battambang' ? 'selected' : '' }} @if (!old('address')) selected @endif>Phnom Penh</option>
                                             <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Poipet</option>
                                             <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Pursat</option>
                                             <option {{ old('address') == 'Battambang' ? 'selected' : '' }}>Pailin</option>

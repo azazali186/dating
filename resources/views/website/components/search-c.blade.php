@@ -123,7 +123,7 @@
                             <option>Kep</option>
                             <option>Koh Rong</option>
                             <option>Oddar Meanchey</option>
-                            <option>Phnom Penh</option>
+                            <option selected>Phnom Penh</option>
                             <option>Poipet</option>
                             <option>Pursat</option>
                             <option>Pailin</option>
