@@ -32,6 +32,9 @@ class AdminSellerController extends Controller
         });
 
         $users = $query->get()->toArray();
+
+        Seller::query()->update(['show' => 1]);
+
         return view('admin.seller.seller-list')->with(array('users' => $users));
     }
 
@@ -61,6 +64,9 @@ class AdminSellerController extends Controller
     {
         $pricingTable = SubscriptionUpload::with(['user', 'pricingTable'])->get();
         // return $pricingTable;
+
+        SubscriptionUpload::query()->update(['show' => 1]);
+
         return view('admin.seller.pricingSubscription', compact('pricingTable'));
     }
 

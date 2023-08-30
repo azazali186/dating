@@ -30,6 +30,8 @@ class AdminUserController extends Controller
         });
         $users = $query->get()->toArray();
 
+        User::query()->update(['show' => 1]);
+
         return view('admin.user.user-list')->with(array('users' => $users));
     }
 

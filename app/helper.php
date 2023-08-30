@@ -56,8 +56,17 @@ if (!function_exists('getChartData')) {
         $data = [];
         foreach ($counterVisit as $item) {
             $newData = $item->created_at->getTimestampMs();
-            array_push($data, [ $newData, $item->count]);
+            array_push($data, [$newData, $item->count]);
         }
         return $data;
     }
+}
+
+function dashboardCount()
+{
+    $data['allUser'] = User::where('show', 0)->count();
+    $data['allSeller'] = Seller::where('show', 0)->count();
+    $data['allEarning'] = SubscriptionUpload::where('show', 0)->count();
+
+    return $data;
 }

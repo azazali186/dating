@@ -42,14 +42,18 @@
                                  <a href="{{ url('admincon/allusers') }}?dates[]={{date('Y-m-d', time())}}&dates[]={{date('Y-m-d', time())}}"
                                      class="nav-link {{ $pagename == 'all-user-list' ? 'active' : '' }}">
                                      <i class="fas fa-users"></i>&nbsp;&nbsp;
-                                     <p>All users</p>
+                                     <p>All users
+                                        <span class="badge badge-info right">{{ dashboardCount()['allUser'] }}</span>
+                                     </p>
                                  </a>
                              </li>
                              <li class="nav-item">
                                  <a href="{{ url('admincon/allseller') }}?dates[]={{date('Y-m-d', time())}}&dates[]={{date('Y-m-d', time())}}"
                                      class="nav-link {{ $pagename == 'all-seller-list' ? 'active' : '' }}">
                                      <i class="fas fa-users"></i> &nbsp;
-                                     <p>All Seller</p>
+                                     <p>All Seller
+                                        <span class="badge badge-info right">{{ dashboardCount()['allSeller'] }}</span>
+                                     </p>
                                  </a>
                              </li>
                              <li class="nav-item">
@@ -63,7 +67,9 @@
                                  <a href="{{ url('admincon/pricing-subscription') }}"
                                      class="nav-link {{ $pagename == 'all-pricing-subscription-list' ? 'active' : '' }}">
                                      <i class="fas fa-shopping-basket"></i> &nbsp;
-                                     <p>Subscription Request</p>
+                                     <p>Subscription Request
+                                        <span class="badge badge-info right">{{ dashboardCount()['allEarning'] }}</span>
+                                     </p>
                                  </a>
                              </li>
 

@@ -1,7 +1,6 @@
 @extends('website.layouts.app')
 @section('content')
     <!-- ================> Group section end here <================== -->
-
     <style>
         #chartData {
             height: 550px;
