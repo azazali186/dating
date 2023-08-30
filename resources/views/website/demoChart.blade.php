@@ -4,7 +4,7 @@
 
     <style>
         #chartData {
-            height: 650px;
+            height: 550px;
             /* min-width: 310px; */
         }
     </style>
