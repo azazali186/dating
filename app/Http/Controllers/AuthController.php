@@ -9,6 +9,7 @@ use URL;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Seller;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Session;
 
@@ -74,7 +75,6 @@ class AuthController extends Controller
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
             return redirect()->to('register/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();
-            ;
         }
     }
 
@@ -222,7 +222,6 @@ class AuthController extends Controller
             return redirect()->to('login/')->with('success', 'Registration successfully!');
         } else {
             return redirect()->to('seller/')->with('error', 'Your Password is not match with Confirmpasswod')->withInput();
-            ;
         }
     }
 
@@ -252,5 +251,15 @@ class AuthController extends Controller
         }
 
         return redirect('admincon/banner-list')->with('success', 'Updated successfully!');
+    }
+    function demoChart()
+    {
+        if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller') {
+            $sellerId = Session::get('sessdata')['id'];
+
+            return view('website.demoChart', compact('sellerId'));
+        } else {
+            return Redirect::to('login');
+        }
     }
 }

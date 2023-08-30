@@ -75,7 +75,7 @@
 @if (Session::has('sessdata') && Session::get('sessdata')['role'] == 'seller')
     <style>
         .mobilebar-tab-item {
-            width: calc(100% / 2);
+            width: calc(100% / 3);
         }
     </style>
 @endif
@@ -141,6 +141,15 @@
                         <a href="{{ url('pricing-table') }}">
                             <span class="mobilebar-tab__icon">
                                 <i class="fab fa-themeco"></i>
+                            </span>
+                        </a>
+                    </div>
+                @else
+                    <div class="mobilebar-tab-item"
+                        style="{{ request()->is('analytics') ? 'background: black;' : '' }}">
+                        <a href="{{ url('analytics') }}">
+                            <span class="mobilebar-tab__icon">
+                                <i class="fa fa-line-chart"></i>
                             </span>
                         </a>
                     </div>

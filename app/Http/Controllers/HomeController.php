@@ -63,8 +63,8 @@ class HomeController extends Controller
         $sellerId = $request->id;
         $seller = Seller::where('id', $sellerId)->where('status', 1)->first();
         $sellerPhotos = Photo::where('seller_id', $sellerId)->get();
-        $seller->update(['view_counts' => $seller->view_counts + 1]);
-
+        // $seller->update(['view_counts' => $seller->view_counts + 1]);
+        getCountVisit($sellerId);
         return view('website.member-single', compact('seller', 'sellerId', 'sellerPhotos'));
     }
     function sellerProfile(Request $request)
