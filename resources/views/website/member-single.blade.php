@@ -129,7 +129,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="gt3-tab" data-bs-toggle="tab" data-bs-target="#gt3"
                                         type="button" role="tab" aria-controls="gt3" aria-selected="false"><i
-                                            class="fa-solid fas fa-bell"></i> Messages</button>
+                                            class="far fa-comments"></i> Messages</button>
                                 </li>
                             @endif
                             {{-- @endif --}}
