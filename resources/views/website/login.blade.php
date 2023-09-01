@@ -9,7 +9,7 @@
             <div class="col-lg-7">
                 <div class="log-reg-inner">
                     <div class="">
-                        <h3 class="title">Welcome to xmakelove</h3>
+                        <h3 class="title text-center">Welcome to xmakelove</h3>
                         <h6 class="text-center m-4">You need to Sign in or Sign up To call her</h6>
                     </div>
                     <div class="main-content inloginp">
