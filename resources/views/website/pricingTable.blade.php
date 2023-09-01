@@ -230,6 +230,10 @@
 
 @section('content')
     <section class="padding-bottom">
+        @php
+            $x = true;
+        @endphp
+        @if (!$x)
         <style>
             pre {
                 background: #f96972;
@@ -289,9 +293,7 @@
             type("Enjoy Your Day.. 😊.\n".split(""));
             // type("HOW ABOUT A NICE GAME OF CHESS?".split(""));
         </script>
-        @php
-            $x = false;
-        @endphp
+        @endif
         @if ($x)
             <div class="contentSub row g-0 justify-content-center">
                 <div class="basicSub boxSub col-md-4 mb-5">
@@ -306,15 +308,15 @@
                         </div>
                     </div>
                     {{-- <div class="descriptionSub">
-                    <ul class="ulClass">
-                        <li class="liClass liClassUncheck">Lorem, ipsum dolor.</li>
-                        <li class="liClass liClassUncheck">Harum, beatae laudantium.</li>
-                        <li class="liClass liClassUncheck">Odit, fugit saepe.</li>
-                        <li class="liClass liClassUncheck">Harum, veniam suscipit!</li>
-                        <li class="liClass liClassUncheck">A, aut veritatis!</li>
-                        <li class="liClass liClassUncheck">Aliquid, quasi repellat!</li>
-                    </ul>
-                </div> --}}
+                        <ul class="ulClass">
+                            <li class="liClass liClassUncheck">Lorem, ipsum dolor.</li>
+                            <li class="liClass liClassUncheck">Harum, beatae laudantium.</li>
+                            <li class="liClass liClassUncheck">Odit, fugit saepe.</li>
+                            <li class="liClass liClassUncheck">Harum, veniam suscipit!</li>
+                            <li class="liClass liClassUncheck">A, aut veritatis!</li>
+                            <li class="liClass liClassUncheck">Aliquid, quasi repellat!</li>
+                        </ul>
+                    </div> --}}
                     <div class="button">
                         @if (Session::has('sessdata'))
                             <button id="myBtn3" class="buttonBT">CONTINUE</button>

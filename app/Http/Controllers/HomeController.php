@@ -184,6 +184,7 @@ class HomeController extends Controller
     }
     public function pricingTable()
     {
+        $free = PricingTable::where('pricing_type', 'Month')->first();
         $months = PricingTable::where('pricing_type', 'Month')->first();
         $years = PricingTable::where('pricing_type', 'Year')->first();
 

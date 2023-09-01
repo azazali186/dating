@@ -10,6 +10,7 @@
                 <div class="log-reg-inner">
                     <div class="">
                         <h3 class="title">Welcome to xmakelove</h3>
+                        <h6 class="text-center m-4">You need to Sign in or Sign up To call her</h6>
                     </div>
                     <div class="main-content inloginp">
                         <form action="{{ route('check.login') }}" method="POST">
@@ -34,6 +35,10 @@
                                     password</a></p>
                             <div class="text-center">
                                 <button type="submit" class="default-btn"><span>Sign IN</span></button>
+                            </div>
+                            <h5 class="text-center">Or</h5>
+                            <div class="text-center">
+                                <a href="{{ url('register') }}" class="default-btn text-light" style="background-color:darkgoldenrod; margin: 0px !important;"><span>Sign UP</span></a>
                             </div>
                         </form>
                     </div>
