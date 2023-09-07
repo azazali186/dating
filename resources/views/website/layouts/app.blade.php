@@ -9,17 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="x5kxHRMHozlrugcxyCpAOiavoBs6s39CRapyatenQS4" />
     <!-- site favicon -->
-    {{-- <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/favicon.png') }}"> --}}
-    <link rel="icon" type="image/png" href="{{ URL::to('public/website/assets/images/logo/Icon.png') }}">
+    {{-- <link rel="icon" type="image/png" href="{{ URL::to('website/assets/images/favicon.png') }}"> --}}
+    <link rel="icon" type="image/png" href="{{ URL::to('website/assets/images/logo/Icon.png') }}">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- All stylesheet and icons css  -->
-    <link rel="stylesheet" href="{{ URL::to('public/website/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::to('public/website/assets/css/animate.css') }}">
-    <link rel="stylesheet" href="{{ URL::to('public/website/assets/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::to('public/website/assets/css/swiper.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::to('public/website/assets/css/lightcase.css') }}">
-    <link rel="stylesheet" href="{{ URL::to('public/website/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('website/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('website/assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('website/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('website/assets/css/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('website/assets/css/lightcase.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('website/assets/css/style.css') }}">
     {{-- toastr --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
